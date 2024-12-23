@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-UEM_Automation_Suite" class="navigator-link">
+              <span class="suite-name border-failed">UEM Automation Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-UEM_Automation_Suite" class="navigator-link ">
+                    <span>C:\Users\Prajwal\OneDrive - CYBERCORP LIMITED\Projects\eclicpse-workspace\UEM_AUTOAMATION_V2\src\test\resources\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-UEM_Automation_Suite" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-UEM_Automation_Suite" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-UEM_Automation_Suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-UEM_Automation_Suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-UEM_Automation_Suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-UEM_Automation_Suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">13 methods, 1 failed,   12 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-UEM_Automation_Suite" class="hide-methods failed suite-UEM_Automation_Suite"> (hide)</a> <!-- hide-methods failed suite-UEM_Automation_Suite -->
+                      <a href="#" panel-name="suite-UEM_Automation_Suite" class="show-methods failed suite-UEM_Automation_Suite"> (show)</a> <!-- show-methods failed suite-UEM_Automation_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-UEM_Automation_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="TC_LP_006_Validate_forgot_password_link_functionality">TC_LP_006_Validate_forgot_password_link_functionality</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-UEM_Automation_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-UEM_Automation_Suite" class="hide-methods passed suite-UEM_Automation_Suite"> (hide)</a> <!-- hide-methods passed suite-UEM_Automation_Suite -->
+                      <a href="#" panel-name="suite-UEM_Automation_Suite" class="show-methods passed suite-UEM_Automation_Suite"> (show)</a> <!-- show-methods passed suite-UEM_Automation_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-UEM_Automation_Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.DeviceManagerWindowsTest" class="method navigator-link" hash-for-method="TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group">TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.DeviceManagerWindowsTest" class="method navigator-link" hash-for-method="TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group">TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.DeviceManagerWindowsTest" class="method navigator-link" hash-for-method="TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group">TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.DeviceManagerWindowsTest" class="method navigator-link" hash-for-method="TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group">TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.DeviceManagerWindowsTest" class="method navigator-link" hash-for-method="TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered">TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="TC_LP_001_Validate_login_with_valid_credentials(prajwal, pass_123)">TC_LP_001_Validate_login_with_valid_credentials(prajwal, pass_123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="TC_LP_002_Validate_login_with_invalid_credentials">TC_LP_002_Validate_login_with_invalid_credentials</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="TC_LP_003_Validate_login_with_invalid_email_and_valid_password">TC_LP_003_Validate_login_with_invalid_email_and_valid_password</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="TC_LP_004_Validate_login_with_valid_email_and_invalid_password">TC_LP_004_Validate_login_with_valid_email_and_invalid_password</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="TC_LP_005_Validate_login_without_providing_any_credentials">TC_LP_005_Validate_login_without_providing_any_credentials</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys">TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-UEM_Automation_Suite" title="com.uem_automation.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text">TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-UEM_Automation_Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-UEM_Automation_Suite" class="panel UEM_Automation_Suite">
+          <div class="suite-UEM_Automation_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.uem_automation.qa.testcases.LoginTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_LP_006_Validate_forgot_password_link_functionality">
+                  </a> <!-- TC_LP_006_Validate_forgot_password_link_functionality -->
+                  <span class="method-name">TC_LP_006_Validate_forgot_password_link_functionality</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.getClass()&quot; because &quot;exceptionDriver&quot; is null
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:85)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.uem_automation.qa.pages.LoginPage.retrieveLabelText(LoginPage.java:82)
+	at com.uem_automation.qa.testcases.LoginTest.TC_LP_006_Validate_forgot_password_link_functionality(LoginTest.java:122)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UEM_Automation_Suite-class-failed -->
+          <div class="suite-UEM_Automation_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.uem_automation.qa.testcases.DeviceManagerWindowsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group">
+                  </a> <!-- TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group -->
+                  <span class="method-name">TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group">
+                  </a> <!-- TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group -->
+                  <span class="method-name">TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group">
+                  </a> <!-- TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group -->
+                  <span class="method-name">TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group">
+                  </a> <!-- TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group -->
+                  <span class="method-name">TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered">
+                  </a> <!-- TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered -->
+                  <span class="method-name">TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UEM_Automation_Suite-class-passed -->
+          <div class="suite-UEM_Automation_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.uem_automation.qa.testcases.LoginTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_LP_001_Validate_login_with_valid_credentials(prajwal, pass_123)">
+                  </a> <!-- TC_LP_001_Validate_login_with_valid_credentials(prajwal, pass_123) -->
+                  <span class="method-name">TC_LP_001_Validate_login_with_valid_credentials</span>
+                  <span class="parameters">(prajwal,pass_123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_LP_002_Validate_login_with_invalid_credentials">
+                  </a> <!-- TC_LP_002_Validate_login_with_invalid_credentials -->
+                  <span class="method-name">TC_LP_002_Validate_login_with_invalid_credentials</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_LP_003_Validate_login_with_invalid_email_and_valid_password">
+                  </a> <!-- TC_LP_003_Validate_login_with_invalid_email_and_valid_password -->
+                  <span class="method-name">TC_LP_003_Validate_login_with_invalid_email_and_valid_password</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_LP_004_Validate_login_with_valid_email_and_invalid_password">
+                  </a> <!-- TC_LP_004_Validate_login_with_valid_email_and_invalid_password -->
+                  <span class="method-name">TC_LP_004_Validate_login_with_valid_email_and_invalid_password</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_LP_005_Validate_login_without_providing_any_credentials">
+                  </a> <!-- TC_LP_005_Validate_login_without_providing_any_credentials -->
+                  <span class="method-name">TC_LP_005_Validate_login_without_providing_any_credentials</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys">
+                  </a> <!-- TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys -->
+                  <span class="method-name">TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text">
+                  </a> <!-- TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text -->
+                  <span class="method-name">TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-UEM_Automation_Suite-class-passed -->
+        </div> <!-- panel UEM_Automation_Suite -->
+        <div panel-name="test-xml-UEM_Automation_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\Prajwal\OneDrive - CYBERCORP LIMITED\Projects\eclicpse-workspace\UEM_AUTOAMATION_V2\src\test\resources\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;UEM Automation Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.uem_automation.qa.listeners.MyListeners&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;UEM Automation Tests&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.uem_automation.qa.testcases.LoginTest&quot;/&gt;
+      &lt;class name=&quot;com.uem_automation.qa.testcases.DeviceManagerWindowsTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- UEM Automation Tests --&gt;
+&lt;/suite&gt; &lt;!-- UEM Automation Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-UEM_Automation_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for UEM Automation Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">UEM Automation Tests (2 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-UEM_Automation_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for UEM Automation Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-UEM_Automation_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for UEM Automation Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_UEM_Automation_Suite');
+function tableData_UEM_Automation_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(13);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'TC_LP_006_Validate_forgot_password_link_functionality')
+data.setCell(0, 2, 'com.uem_automation.qa.testcases.LoginTest')
+data.setCell(0, 3, 10508);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group')
+data.setCell(1, 2, 'com.uem_automation.qa.testcases.DeviceManagerWindowsTest')
+data.setCell(1, 3, 10494);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'TC_LP_001_Validate_login_with_valid_credentials')
+data.setCell(2, 2, 'com.uem_automation.qa.testcases.LoginTest')
+data.setCell(2, 3, 8477);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys')
+data.setCell(3, 2, 'com.uem_automation.qa.testcases.LoginTest')
+data.setCell(3, 3, 8221);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered')
+data.setCell(4, 2, 'com.uem_automation.qa.testcases.DeviceManagerWindowsTest')
+data.setCell(4, 3, 4787);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group')
+data.setCell(5, 2, 'com.uem_automation.qa.testcases.DeviceManagerWindowsTest')
+data.setCell(5, 3, 4512);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group')
+data.setCell(6, 2, 'com.uem_automation.qa.testcases.DeviceManagerWindowsTest')
+data.setCell(6, 3, 3566);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group')
+data.setCell(7, 2, 'com.uem_automation.qa.testcases.DeviceManagerWindowsTest')
+data.setCell(7, 3, 2745);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'TC_LP_002_Validate_login_with_invalid_credentials')
+data.setCell(8, 2, 'com.uem_automation.qa.testcases.LoginTest')
+data.setCell(8, 3, 598);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'TC_LP_003_Validate_login_with_invalid_email_and_valid_password')
+data.setCell(9, 2, 'com.uem_automation.qa.testcases.LoginTest')
+data.setCell(9, 3, 586);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'TC_LP_004_Validate_login_with_valid_email_and_invalid_password')
+data.setCell(10, 2, 'com.uem_automation.qa.testcases.LoginTest')
+data.setCell(10, 3, 539);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'TC_LP_005_Validate_login_without_providing_any_credentials')
+data.setCell(11, 2, 'com.uem_automation.qa.testcases.LoginTest')
+data.setCell(11, 3, 357);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text')
+data.setCell(12, 2, 'com.uem_automation.qa.testcases.LoginTest')
+data.setCell(12, 3, 109);
+window.suiteTableData['UEM_Automation_Suite']= { tableData: data, tableDiv: 'times-div-UEM_Automation_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 55 seconds</span>
+              <div id="times-div-UEM_Automation_Suite">
+              </div> <!-- times-div-UEM_Automation_Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-UEM_Automation_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for UEM Automation Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-UEM_Automation_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-UEM_Automation_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.uem_automation.qa.testcases.LoginTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_LP_001_Validate_login_with_valid_credentials(prajwal, pass_123)</span>
+                <span class="method-start">2198 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">10675 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">10827 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_LP_002_Validate_login_with_invalid_credentials</span>
+                <span class="method-start">12301 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">12899 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">13021 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_LP_003_Validate_login_with_invalid_email_and_valid_password</span>
+                <span class="method-start">14557 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">15144 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">15259 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_LP_004_Validate_login_with_valid_email_and_invalid_password</span>
+                <span class="method-start">16773 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">17313 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">17453 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_LP_005_Validate_login_without_providing_any_credentials</span>
+                <span class="method-start">19030 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">19387 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">19504 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC_LP_006_Validate_forgot_password_link_functionality</span>
+                <span class="method-start">21045 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">31949 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">33640 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys</span>
+                <span class="method-start">35142 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">43363 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">43495 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text</span>
+                <span class="method-start">44984 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">45094 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.uem_automation.qa.testcases.DeviceManagerWindowsTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">45230 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group</span>
+                <span class="method-start">55025 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">57773 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">57923 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group</span>
+                <span class="method-start">67421 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">77916 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">78055 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group</span>
+                <span class="method-start">87875 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">91442 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">91586 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group</span>
+                <span class="method-start">101302 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">105814 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">105965 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered</span>
+                <span class="method-start">115534 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">120322 ms</span>
+              </div> <!-- configuration-method after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

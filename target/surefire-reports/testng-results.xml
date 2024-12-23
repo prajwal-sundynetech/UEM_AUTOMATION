@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="13" passed="12" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-11-27T18:25:51 IST" name="UEM Automation Suite" finished-at="2024-11-27T18:27:52 IST" duration-ms="120722">
+    <groups>
+    </groups>
+    <test started-at="2024-11-27T18:25:51 IST" name="UEM Automation Tests" finished-at="2024-11-27T18:27:52 IST" duration-ms="120722">
+      <class name="com.uem_automation.qa.testcases.DeviceManagerWindowsTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:26:37 IST" name="setUp" finished-at="2024-11-27T18:26:47 IST" duration-ms="9795" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group()[pri:1, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:26:47 IST" name="TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group" finished-at="2024-11-27T18:26:49 IST" duration-ms="2745" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:26:49 IST" name="tearDown" finished-at="2024-11-27T18:26:50 IST" duration-ms="149" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:26:50 IST" name="setUp" finished-at="2024-11-27T18:26:59 IST" duration-ms="9498" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group()[pri:2, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:26:59 IST" name="TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group" finished-at="2024-11-27T18:27:10 IST" duration-ms="10494" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:10 IST" name="tearDown" finished-at="2024-11-27T18:27:10 IST" duration-ms="139" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:10 IST" name="setUp" finished-at="2024-11-27T18:27:19 IST" duration-ms="9820" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group()[pri:3, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:19 IST" name="TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group" finished-at="2024-11-27T18:27:23 IST" duration-ms="3566" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_DMW_003_Validate_users_are_able_to_view_the_information_on_the_windows_os_profile_settings_defined_on_the_group -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:23 IST" name="tearDown" finished-at="2024-11-27T18:27:23 IST" duration-ms="143" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:23 IST" name="setUp" finished-at="2024-11-27T18:27:33 IST" duration-ms="9716" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group()[pri:4, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:33 IST" name="TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group" finished-at="2024-11-27T18:27:37 IST" duration-ms="4512" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_DMW_004_Validate_users_are_able_to_view_the_information_on_the_linux_os_profile_settings_defined_on_the_group -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:37 IST" name="tearDown" finished-at="2024-11-27T18:27:38 IST" duration-ms="151" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:38 IST" name="setUp" finished-at="2024-11-27T18:27:47 IST" duration-ms="9569" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered()[pri:5, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:47 IST" name="TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered" finished-at="2024-11-27T18:27:52 IST" duration-ms="4787" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_DMW_005_Validate_users_are_able_to_view_System_information_about_device_registered -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.DeviceManagerWindowsTest@4b6e2263]" started-at="2024-11-27T18:27:52 IST" name="tearDown" finished-at="2024-11-27T18:27:52 IST" duration-ms="150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.uem_automation.qa.testcases.DeviceManagerWindowsTest -->
+      <class name="com.uem_automation.qa.testcases.LoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:25:52 IST" name="setUp" finished-at="2024-11-27T18:25:54 IST" duration-ms="2197" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_LP_001_Validate_login_with_valid_credentials(java.lang.String,java.lang.String)[pri:1, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:25:54 IST" name="TC_LP_001_Validate_login_with_valid_credentials" data-provider="supplyTestData" finished-at="2024-11-27T18:26:02 IST" duration-ms="8477" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[prajwal]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pass_123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_LP_001_Validate_login_with_valid_credentials -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:02 IST" name="tearDown" finished-at="2024-11-27T18:26:02 IST" duration-ms="152" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:02 IST" name="setUp" finished-at="2024-11-27T18:26:04 IST" duration-ms="1474" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_LP_002_Validate_login_with_invalid_credentials()[pri:2, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:04 IST" name="TC_LP_002_Validate_login_with_invalid_credentials" finished-at="2024-11-27T18:26:04 IST" duration-ms="598" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_LP_002_Validate_login_with_invalid_credentials -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:04 IST" name="tearDown" finished-at="2024-11-27T18:26:05 IST" duration-ms="120" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:05 IST" name="setUp" finished-at="2024-11-27T18:26:06 IST" duration-ms="1536" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_LP_003_Validate_login_with_invalid_email_and_valid_password()[pri:3, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:06 IST" name="TC_LP_003_Validate_login_with_invalid_email_and_valid_password" finished-at="2024-11-27T18:26:07 IST" duration-ms="586" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_LP_003_Validate_login_with_invalid_email_and_valid_password -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:07 IST" name="tearDown" finished-at="2024-11-27T18:26:07 IST" duration-ms="114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:07 IST" name="setUp" finished-at="2024-11-27T18:26:08 IST" duration-ms="1514" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_LP_004_Validate_login_with_valid_email_and_invalid_password()[pri:4, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:08 IST" name="TC_LP_004_Validate_login_with_valid_email_and_invalid_password" finished-at="2024-11-27T18:26:09 IST" duration-ms="539" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_LP_004_Validate_login_with_valid_email_and_invalid_password -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:09 IST" name="tearDown" finished-at="2024-11-27T18:26:09 IST" duration-ms="138" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:09 IST" name="setUp" finished-at="2024-11-27T18:26:11 IST" duration-ms="1577" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_LP_005_Validate_login_without_providing_any_credentials()[pri:5, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:11 IST" name="TC_LP_005_Validate_login_without_providing_any_credentials" finished-at="2024-11-27T18:26:11 IST" duration-ms="357" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_LP_005_Validate_login_without_providing_any_credentials -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:11 IST" name="tearDown" finished-at="2024-11-27T18:26:11 IST" duration-ms="116" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:11 IST" name="setUp" finished-at="2024-11-27T18:26:13 IST" duration-ms="1540" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_LP_006_Validate_forgot_password_link_functionality()[pri:6, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:13 IST" name="TC_LP_006_Validate_forgot_password_link_functionality" finished-at="2024-11-27T18:26:23 IST" duration-ms="10508" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.getClass()" because "exceptionDriver" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.getClass()" because "exceptionDriver" is null
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:85)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.uem_automation.qa.pages.LoginPage.retrieveLabelText(LoginPage.java:82)
+at com.uem_automation.qa.testcases.LoginTest.TC_LP_006_Validate_forgot_password_link_functionality(LoginTest.java:122)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_LP_006_Validate_forgot_password_link_functionality -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:24 IST" name="tearDown" finished-at="2024-11-27T18:26:25 IST" duration-ms="1685" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:25 IST" name="setUp" finished-at="2024-11-27T18:26:27 IST" duration-ms="1502" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys()[pri:7, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:27 IST" name="TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys" finished-at="2024-11-27T18:26:35 IST" depends-on-methods="com.uem_automation.qa.testcases.LoginTest.TC_LP_001_Validate_login_with_valid_credentials" duration-ms="8221" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:35 IST" name="tearDown" finished-at="2024-11-27T18:26:35 IST" duration-ms="131" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:35 IST" name="setUp" finished-at="2024-11-27T18:26:37 IST" duration-ms="1489" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text()[pri:8, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:37 IST" name="TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text" finished-at="2024-11-27T18:26:37 IST" duration-ms="109" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_LP_008_Validate_email_and_pass_text_fields_in_login_page_have_placeholder_text -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.uem_automation.qa.testcases.LoginTest@2f16c6b3]" started-at="2024-11-27T18:26:37 IST" name="tearDown" finished-at="2024-11-27T18:26:37 IST" duration-ms="135" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.uem_automation.qa.testcases.LoginTest -->
+    </test> <!-- UEM Automation Tests -->
+  </suite> <!-- UEM Automation Suite -->
+</testng-results>

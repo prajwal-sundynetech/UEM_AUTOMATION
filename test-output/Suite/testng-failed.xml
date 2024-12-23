@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.uem_automation.qa.testcases.DeviceManagerWindows">
+        <methods>
+          <include name="setUp"/>
+          <include name="TC_DMW_002_Validate_users_able_to_apply_execute_later_or_saved_task_on_the_group"/>
+          <include name="TC_DMW_001_Validate_users_able_to_view_the_settings_applied_on_the_group"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.uem_automation.qa.testcases.DeviceManagerWindows -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
