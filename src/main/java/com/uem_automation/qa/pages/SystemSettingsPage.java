@@ -635,11 +635,12 @@ public class SystemSettingsPage {
 
         // Save the 802.x security settings
         security802xButtonSave.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         // Verify if the settings were saved successfully
-        String successMessage = windows802taskUpdateStatusMessage.getText();
-        if (!successMessage.equals("Windows 802.1x Security Settings Saved Successfully")) {
-            Assert.fail(successMessage);
+        String statusMessage = windows802taskUpdateStatusMessage.getText();
+        if (!statusMessage.equals("Windows 802.1x Security Settings Saved Successfully")) {
+            Assert.fail(statusMessage);
         }
     }
 
@@ -740,6 +741,7 @@ public class SystemSettingsPage {
         }
 
         computerNameButtonSave.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((computerNameTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(computerNameTaskUpdateStatusMessage.getText());
@@ -825,6 +827,7 @@ public class SystemSettingsPage {
         }
 
         ethernetSetupButtonSave.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((ethernetSetupTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(ethernetSetupTaskUpdateStatusMessage.getText());
@@ -909,6 +912,7 @@ public class SystemSettingsPage {
         }
 
         wirelessPropertiesSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((wirelessPropertiesTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(wirelessPropertiesTaskUpdateStatusMessage.getText());
@@ -986,6 +990,7 @@ public class SystemSettingsPage {
         }
 
         wirelessSetupSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((wirelessSetupTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(wirelessSetupTaskUpdateStatusMessage.getText());
@@ -1044,6 +1049,7 @@ public class SystemSettingsPage {
         }
 
         displaySettingsSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((displaySettingsTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(displaySettingsTaskUpdateStatusMessage.getText());
@@ -1085,9 +1091,10 @@ public class SystemSettingsPage {
 
         repeatDelayShortSlider.click();
         repeatDelayShortSlider.sendKeys(Keys.ARROW_LEFT); // slider
+        repeatDelayShortSlider.sendKeys(Keys.ARROW_RIGHT); // slider
 
         repeatRateSlowSlider.click();
-        repeatRateSlowSlider.sendKeys(Keys.ARROW_RIGHT); // slider
+        repeatRateSlowSlider.sendKeys(Keys.ARROW_LEFT); // slider
         repeatRateSlowSlider.sendKeys(Keys.ARROW_RIGHT);
 
         Select select = new Select(keyboardLocalesDropdown);
@@ -1099,6 +1106,7 @@ public class SystemSettingsPage {
         }
 
         keyboardSettingsSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((keyboardSettingsTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(keyboardSettingsTaskUpdateStatusMessage.getText());
@@ -1137,10 +1145,11 @@ public class SystemSettingsPage {
 
         doubleClickSpeedSlowSlider.click();
         doubleClickSpeedSlowSlider.sendKeys(Keys.ARROW_LEFT);
+        doubleClickSpeedSlowSlider.sendKeys(Keys.ARROW_RIGHT);
 
         pointerSpeedSlowSlider.click();
         pointerSpeedSlowSlider.sendKeys(Keys.ARROW_LEFT);
-        pointerSpeedSlowSlider.sendKeys(Keys.ARROW_LEFT);
+        pointerSpeedSlowSlider.sendKeys(Keys.ARROW_RIGHT);
 
 //        String leftHandConfiguration = "Y"; // Y // N
         if (leftHandConfiguration.equalsIgnoreCase("Y")) {
@@ -1148,6 +1157,7 @@ public class SystemSettingsPage {
         }
 
         mouseSettingsSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((mouseSettingsTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(mouseSettingsTaskUpdateStatusMessage.getText());
@@ -1217,6 +1227,7 @@ public class SystemSettingsPage {
         // Advanced settings script is pending
 
         powerOptionSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((powerOptionTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(powerOptionTaskUpdateStatusMessage.getText());
@@ -1326,6 +1337,7 @@ public class SystemSettingsPage {
         }
 
         addPrinterSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((addPrinterTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(addPrinterTaskUpdateStatusMessage.getText());
@@ -1417,6 +1429,7 @@ public class SystemSettingsPage {
         }
 
         dateAndTimeSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((dateAndTimeTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(dateAndTimeTaskUpdateStatusMessage.getText());
@@ -1454,6 +1467,7 @@ public class SystemSettingsPage {
 //        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 //
 //        windowsSystemSettingsTimeAndLanguageDropdown.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
         windowsSystemSettingsTimeAndLanguage_regionAndLocation_Menu.click();
 
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
@@ -1494,6 +1508,7 @@ public class SystemSettingsPage {
         }
 
         regionAndLocationSaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (!((regionAndLocationTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(regionAndLocationTaskUpdateStatusMessage.getText());

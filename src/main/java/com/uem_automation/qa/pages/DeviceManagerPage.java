@@ -68,7 +68,10 @@ public class DeviceManagerPage {
 	@FindBy(xpath = "(//label[@title='Date & Time'][normalize-space()='Date & Time'])[3]")
 	private WebElement windowsSystemSettingsTimeAndLanguageDateAndTimeDropdown;
 
-	@FindBy(xpath = "//div[@id='divWindowsDateTimeSettings']//label[2]//span[1]")
+	@FindBy(xpath = "//input[@id='XPDatetimeSett_rbtnDateInstant']/following-sibling::span") //
+	private WebElement executeNowRadioButton;
+
+	@FindBy(xpath = "//input[@id='XPDatetimeSett_rbtnDateSchedule']/following-sibling::span")
 	private WebElement executeLaterRadioButton;
 
 	@FindBy(xpath = "//input[@id='XPDatetimeSett_btnApplyDateTimeSetup' and @value='Save']")
@@ -104,8 +107,11 @@ public class DeviceManagerPage {
 	@FindBy(xpath = "//label[@id='ContentPlaceHolder1_lblSystemSettWinNode']")
 	private WebElement systemSettingsWindowsNodeElement;
 
-	@FindBy(xpath = "//span[@id='spUserName']")
-	private WebElement userNameElement;
+	@FindBy(xpath = "//span[@id='spUserInitials']")
+	private WebElement userNameElementTop;
+
+	@FindBy(xpath = "//span[@id='spUserInitials2']")
+	private WebElement userNameElementLeft;
 
 	@FindBy(xpath = "//a[@id='HeadLoginStatus']")
 	private WebElement logoutButtonElement;
@@ -115,6 +121,9 @@ public class DeviceManagerPage {
 
 	@FindBy(xpath = "//div[@class='dropdown viewDataMenu viewDataMenuTop']//div[@id='divTask']")
 	private WebElement taskManagementTopMenuElement;
+
+	@FindBy(xpath = "//span[@data-original-title='Top Direction']")
+	private WebElement leftMenuPositionToTopDirection;
 
 	// constructor
 	public DeviceManagerPage(WebDriver driver) {
@@ -182,6 +191,10 @@ public class DeviceManagerPage {
 
 	public String retrieveGroupInformation() {
 		return groupInformationElement.getText();
+	}
+
+	public void clickOnExecuteNowRadioButton() {
+		executeNowRadioButton.click();
 	}
 
 	public void selectExecuteLaterRadioButton() {
@@ -266,7 +279,12 @@ public class DeviceManagerPage {
 	}
 
 	public void logOutFromApplication() {
-		userNameElement.click();
+//		if(userNameElementLeft.isDisplayed()) {
+//			userNameElementLeft.click();
+//		} else if(userNameElementTop.isDisplayed()) {
+//			userNameElementLeft.click();
+//		}
+		userNameElementTop.click();
 		logoutButtonElement.click();
 		buttonAlertLogoOutElement.click();
 	}
@@ -285,4 +303,10 @@ public class DeviceManagerPage {
 		taskManagementTopMenuElement.click();
 	}
 
+	public void changeTheLeftMenuPositionToTopDirection() {
+		if(userNameElementLeft.isDisplayed()) {
+			userNameElementLeft.click();
+			leftMenuPositionToTopDirection.click(); //span[@data-original-title='Top Direction']
+		}
+	}
 }

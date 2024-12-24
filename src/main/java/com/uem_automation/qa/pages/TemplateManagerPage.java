@@ -29,6 +29,9 @@ public class TemplateManagerPage {
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Template Manager'][normalize-space()='Template Manager']")
     private WebElement templateManagerRhsMenuElement;
 
+    @FindBy(xpath = "//input[@id='ContentPlaceHolder1_btnNewTemplateAddOk']")
+    private WebElement addNewTemplateOkButton;
+
     @FindBy(xpath = "//a[@id='templatedivopen']")
     private WebElement allTemplatesDropdownElement;
 
@@ -101,6 +104,11 @@ public class TemplateManagerPage {
 //        rhsMenuToogleElement.click();
 //
 //        templateManagerRhsMenuElement.click();
+
+        // if create at least one template popup displayed
+        if(addNewTemplateOkButton.isDisplayed()) {
+            addNewTemplateOkButton.click();
+        }
 
 
         // Create template

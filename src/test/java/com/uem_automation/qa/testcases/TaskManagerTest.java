@@ -40,7 +40,7 @@ public class TaskManagerTest extends Base {
         loginPage.enterPassword(configProp.getProperty("validPass"));
 //        loginPage.selectView("Task Manager"); //select the direct view //Default View - Device Manager //Task Manager
         loginPage.clickOnLoginButton();
-
+        deviceManagerPage.changeTheLeftMenuPositionToTopDirection();
         deviceManagerPage.clickOnTaskManagementTopMenu();
 //        deviceManagerPage.waitTillFooterCompanyWebsiteURLIsDisplayed(testdataProp.getProperty("companyWebsiteUrl"));
 
@@ -164,7 +164,7 @@ public class TaskManagerTest extends Base {
 
     // System Settings
 
-    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity")
+    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_002_apply_system_settings_networkSettings_802xSecurity(
 
             // searchAndViewTheTemplate
@@ -188,7 +188,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 3, dataProvider = "supplyTestData_computerName")
+    @Test(priority = 3, dataProvider = "supplyTestData_computerName", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_003_apply_system_settings_networkSettings_computer_name(
 
             // searchAndViewTheTemplate
@@ -202,8 +202,8 @@ public class TaskManagerTest extends Base {
             String testworkgroupname, String testworkgroupusername,
             String testworkgrouppassword) {
 
-        taskManagerPage.navigateToTemplateMangerRhsMenu();
-        templateManagerPage.searchAndViewTheTemplate(templateName);
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // System Settings
         // Network Settings
@@ -214,7 +214,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 4, dataProvider = "supplyTestData_ethernetSetup")
+    @Test(priority = 4, dataProvider = "supplyTestData_ethernetSetup", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_004_apply_system_settings_networkSettings_ethernet_setup(
 
             // searchAndViewTheTemplate
@@ -234,7 +234,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 5, dataProvider = "supplyTestData_wirelessProperties")
+    @Test(priority = 5, dataProvider = "supplyTestData_wirelessProperties", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_005_apply_system_settings_networkSettings_wireless_properties(
 
             // searchAndViewTheTemplate
@@ -255,7 +255,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 6, dataProvider = "supplyTestData_wirelessSetup")
+    @Test(priority = 6, dataProvider = "supplyTestData_wirelessSetup", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_006_apply_system_settings_networkSettings_wireless_setup(
 
             // searchAndViewTheTemplate
@@ -274,7 +274,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 7, dataProvider = "supplyTestData_displaySettings")
+    @Test(priority = 7, dataProvider = "supplyTestData_displaySettings", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_007_apply_system_settings_peripheralSettings_display_settings(
 
             // searchAndViewTheTemplate
@@ -293,7 +293,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 8, dataProvider = "supplyTestData_keyboardSettings")
+    @Test(priority = 8, dataProvider = "supplyTestData_keyboardSettings", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_008_apply_system_settings_peripheralSettings_keyboard_settings(
 
             // searchAndViewTheTemplate
@@ -312,7 +312,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 9, dataProvider = "supplyTestData_mouseSettings")
+    @Test(priority = 9, dataProvider = "supplyTestData_mouseSettings", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_009_apply_system_settings_peripheralSettings_mouse_settings(
 
             // searchAndViewTheTemplate
@@ -331,7 +331,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 10, dataProvider = "supplyTestData_powerOption")
+    @Test(priority = 10, dataProvider = "supplyTestData_powerOption", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_010_apply_system_settings_powerManagement_power_option(
 
             // searchAndViewTheTemplate
@@ -350,7 +350,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter")
+    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_011_apply_system_settings_printerSettings_add_printer(
 
             // searchAndViewTheTemplate
@@ -373,7 +373,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 12, dataProvider = "supplyTestData_dateAndTime")
+    @Test(priority = 12, dataProvider = "supplyTestData_dateAndTime", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_012_apply_system_settings_timeAndLanguage_dateAndTime(
 
             // searchAndViewTheTemplate
@@ -394,7 +394,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 13, dataProvider = "supplyTestData_regionAndLocation")
+    @Test(priority = 13, dataProvider = "supplyTestData_regionAndLocation", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_013_apply_system_settings_timeAndLanguage_region_and_location(
 
             // searchAndViewTheTemplate
@@ -417,7 +417,7 @@ public class TaskManagerTest extends Base {
 
 //     User Settings
 
-    @Test(priority = 14, dataProvider = "supplyTestData_template")
+    @Test(priority = 14, dataProvider = "supplyTestData_template", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_014_Create_template_and_apply_user_settings(String templateName, String osType, String skipWriteFilter,
                                                                   String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
 
@@ -425,10 +425,8 @@ public class TaskManagerTest extends Base {
 
         taskManagerPage.navigateToTemplateMangerRhsMenu();
 
-//        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage,
-//                displayTime);
-
-        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
+//        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage, displayTime);
+//        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
 
         // User Settings
         // User Interface Settings
@@ -441,7 +439,7 @@ public class TaskManagerTest extends Base {
 
     // Administration Settings
 
-    @Test(priority = 15, dataProvider = "supplyTestData_applicationCommand")
+    @Test(priority = 15, dataProvider = "supplyTestData_applicationCommand", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_015_apply_administration_settings_application_command(
 
             // searchAndViewTheTemplate
@@ -463,7 +461,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 16, dataProvider = "supplyTestData_environmentVariable")
+    @Test(priority = 16, dataProvider = "supplyTestData_environmentVariable", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_016_apply_administration_settings_environment_variable(
 
             // searchAndViewTheTemplate
@@ -481,7 +479,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 17, dataProvider = "supplyTestData_historyCleaner")
+    @Test(priority = 17, dataProvider = "supplyTestData_historyCleaner", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_017_apply_administration_settings_performance_management_history_cleaner(
 
             // searchAndViewTheTemplate

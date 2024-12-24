@@ -295,10 +295,10 @@ public class UserSettingsPage {
         }
 
         screenSaverSettingsSaveButton.click();
-        try{
-            Assert.assertEquals(taskUpdateStatusGreenMessage.getText(), "Request for settings update has been processed");
-        } catch(NoSuchElementException e) {
-            Assert.fail("No such element [Error: Request for setting update not processed");
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        if (!((taskUpdateStatusGreenMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(taskUpdateStatusGreenMessage.getText());
         }
 
     }
@@ -348,10 +348,10 @@ public class UserSettingsPage {
         }
 
         taskbarPropertiesSaveButton.click();
-        try{
-            Assert.assertEquals(taskUpdateStatusGreenMessage.getText(), "Request for settings update has been processed");
-        } catch(NoSuchElementException e) {
-            Assert.fail("No such element [Error: Request for setting update not processed");
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        if (!((taskUpdateStatusGreenMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(taskUpdateStatusGreenMessage.getText());
         }
     }
 
@@ -430,10 +430,9 @@ public class UserSettingsPage {
         }
 
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
-        try{
-            Assert.assertEquals(userInterfaceTaskUpdateStatusGreenMessage.getText(), "Request for settings update has been processed");
-        } catch(NoSuchElementException e) {
-            Assert.fail("No such element [Error: Request for setting update not processed");
+
+        if (!((userInterfaceTaskUpdateStatusGreenMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(userInterfaceTaskUpdateStatusGreenMessage.getText());
         }
     }
 
@@ -507,10 +506,11 @@ public class UserSettingsPage {
         }
 
         wallpaperSettingsSaveButton.click();
-        try{
-            Assert.assertEquals(wallpaperSetteingTaskUpdateStatusGreenMessage.getText(), "Request for settings update has been processed");
-        } catch(NoSuchElementException e) {
-            Assert.fail("No such element [Error: Request for setting update not processed");
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        if (!((wallpaperSetteingTaskUpdateStatusGreenMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(wallpaperSetteingTaskUpdateStatusGreenMessage.getText());
         }
+
     }
 }

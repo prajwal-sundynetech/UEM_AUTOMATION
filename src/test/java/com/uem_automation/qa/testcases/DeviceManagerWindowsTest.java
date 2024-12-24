@@ -59,6 +59,7 @@ public class DeviceManagerWindowsTest extends Base {
 		deviceManagerPage.clickOnWindowsSystemSettingRHS();
 		deviceManagerPage.clickOnWindowsSystemSettingTimeAndLanguageRHS();
 		deviceManagerPage.clickOnWindowsSystemSettingTimeAndLanguageDateAndTimeRHS();
+//		deviceManagerPage.clickOnExecuteNowRadioButton();
 		deviceManagerPage.selectExecuteLaterRadioButton();
 
 		deviceManagerPage.clickOnSave();
