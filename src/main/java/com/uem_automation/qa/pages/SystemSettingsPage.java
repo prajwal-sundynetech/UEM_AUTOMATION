@@ -138,7 +138,7 @@ public class SystemSettingsPage {
     @FindBy(xpath = "//input[@id='winAuthentication_btnApply']")
     private WebElement security802xButtonSave;
 
-    @FindBy(xpath = "//label[@id='winAuthentication_lblMessage']")
+    @FindBy(xpath = "(//label[@id='winAuthentication_lblMessage'])[1]")
     private WebElement windows802taskUpdateStatusMessage;
 
     // Computer Name
@@ -266,7 +266,7 @@ public class SystemSettingsPage {
     @FindBy(xpath = "//input[@id='XPWirelessProp_btnSaveWifi_XP']")
     private WebElement wirelessPropertiesSaveButton;
 
-    @FindBy(xpath = "//label[@id='XPWirelessProp_lblMsg']")
+    @FindBy(xpath = "(//label[@id='XPWirelessProp_lblMsg'])[1]")
     private WebElement wirelessPropertiesTaskUpdateStatusMessage;
 
     // Wireless Setup
@@ -585,7 +585,7 @@ public class SystemSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         // Select the network type (Wireless/Ethernet)
-        select = new Select(networkType);
+        Select select = new Select(networkType);
         select.selectByVisibleText(networkTypeString);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -742,7 +742,7 @@ public class SystemSettingsPage {
 
         computerNameButtonSave.click();
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
-
+        wait.until(ExpectedConditions.visibilityOf(computerNameTaskUpdateStatusMessage));
         if (!((computerNameTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(computerNameTaskUpdateStatusMessage.getText());
         }
@@ -913,7 +913,8 @@ public class SystemSettingsPage {
 
         wirelessPropertiesSaveButton.click();
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
-
+        wait.until(ExpectedConditions.visibilityOf(wirelessPropertiesTaskUpdateStatusMessage));
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
         if (!((wirelessPropertiesTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(wirelessPropertiesTaskUpdateStatusMessage.getText());
         }

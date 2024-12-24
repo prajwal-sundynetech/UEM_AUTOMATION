@@ -23,8 +23,17 @@ public class UserSettingsPage {
     @FindBy(xpath = "//div[@class='AjaxLoaderOuter loaderDivInitial']//button[@type='button'][normalize-space()='Please wait...']")
     private WebElement ajaxLoaderOuter;
 
-    @FindBy(xpath = "//label[text()='Request for settings update has been processed']")
+    @FindBy(xpath = "//a[@id='kt_aside_toggle']")
+    private WebElement rhsMenuToogleElement;
+
+    @FindBy(xpath = "(//label[text()='Request for settings update has been processed'])[1]")
     private WebElement taskUpdateStatusGreenMessage;
+
+    @FindBy(xpath = "//label[@id='XPTaskbarlblTaskbarMsg']")
+    private WebElement taskbarPropertiesStatusMessage;
+
+    @FindBy(xpath = "//label[@id='WinScreenSaverlblSSStatusMsg']")
+    private WebElement screenSaverSettingsStatusMessage;
 
     @FindBy(xpath = "//label[@id='XPWallpaperlblErrMsg']")
     private WebElement wallpaperSetteingTaskUpdateStatusGreenMessage;
@@ -32,7 +41,7 @@ public class UserSettingsPage {
     @FindBy(xpath = "//label[@id='lblUserInterfaceShowResults']")
     private WebElement userInterfaceTaskUpdateStatusGreenMessage;
 
-    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']//label[@title='User Settings'][normalize-space()='User Settings']")
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']")
     private WebElement windowsUserSettingsRhsMenu ;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']//label[@title='User Interface'][normalize-space()='User Interface']")
@@ -175,8 +184,27 @@ public class UserSettingsPage {
     public void applyUserInterface_ScreenSaverSettings() {
 
         // Navigate to windows user settings - user interface - screen saver settings rhs menu
-        windowsUserSettingsRhsMenu.click();
-        windowsUserSettingsUserInterfaceRhsMenu.click();
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsUserSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsUserSettingsRhsMenu));
+            windowsUserSettingsRhsMenu.click();
+        }
+
+        if (!(windowsUserSettingsUserInterfaceRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsUserSettingsUserInterfaceRhsMenu));
+            windowsUserSettingsUserInterfaceRhsMenu.click();
+        }
+
+        // Navigate to windows user settings - user interface - screen saver settings rhs menu
+//        windowsUserSettingsRhsMenu.click();
+//        windowsUserSettingsUserInterfaceRhsMenu.click();
         windowsUserSettingsUserInterfaceScreenSaverSettingsRhsMenu.click();
 
         // source
@@ -297,8 +325,8 @@ public class UserSettingsPage {
         screenSaverSettingsSaveButton.click();
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
-        if (!((taskUpdateStatusGreenMessage.getText()).equals("Request for settings update has been processed"))) {
-            Assert.fail(taskUpdateStatusGreenMessage.getText());
+        if (!((screenSaverSettingsStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(screenSaverSettingsStatusMessage.getText());
         }
 
     }
@@ -349,8 +377,8 @@ public class UserSettingsPage {
 
         taskbarPropertiesSaveButton.click();
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
-
-        if (!((taskUpdateStatusGreenMessage.getText()).equals("Request for settings update has been processed"))) {
+        wait.until(ExpectedConditions.visibilityOf(taskbarPropertiesStatusMessage));
+        if (!((taskbarPropertiesStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(taskUpdateStatusGreenMessage.getText());
         }
     }

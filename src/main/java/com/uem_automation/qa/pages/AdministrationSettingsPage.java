@@ -107,6 +107,9 @@ public class AdministrationSettingsPage {
     @FindBy(xpath = "//select[@id='XPWebBrowser_ddlBrowserInstalled']")
     private WebElement browserInstalledDropdown ;
 
+    @FindBy(xpath = "//input[@id='XPWebBrowser_cbxCloseBrowser']")
+    private WebElement forcefullyCloseBrowserInstanceCheckbox ;
+
     @FindBy(xpath = "//input[@id='XPWebBrowser_cbxCookies']")
     private WebElement internetBrowserCookiesCheckbox ;
 
@@ -294,7 +297,7 @@ public class AdministrationSettingsPage {
         }
     }
 
-    public void applyAdministrationSettings_PerformanceManagement_HistoryCleaner(String selectTab, String browserInstalled, String internetBrowserCookies, String history, String temporaryInternetFiles,
+    public void applyAdministrationSettings_PerformanceManagement_HistoryCleaner(String selectTab, String browserInstalled, String internetBrowserCookies, String forcefullyCloseBrowserInstance, String history, String temporaryInternetFiles,
                                                                                  String clearTheRecentDocumentHistory, String clearTheStartMenuRunHistory, String clearTheFindFilesHistory, String clearTheMsPainRecentFileHistory, String clearTheMsWordpadRecentFileHistory,
                                                                                  String clearTheCommonDialogueOpenSaveHistory, String clearTheCommonDialogueLastVisitedFolderHistory,
                                                                                  String pleaseEmptyTheClipboard, String pleaseEmptyTheRecycleBin, String deleteWindowsTemporaryFiles) {
@@ -332,9 +335,16 @@ public class AdministrationSettingsPage {
             select = new Select(browserInstalledDropdown);
             select.selectByVisibleText(browserInstalled);
 
+//            String forcefullyCloseBrowserInstance = "Y"; //Y //N //testdata
 //            String internetBrowserCookies = "Y"; //Y //N //testdata
 //            String history = "Y"; //Y //N //testdata
 //            String temporaryInternetFiles = "Y"; //Y //N //testdata
+
+            // only applicable for google chrome - forcefullyCloseBrowserInstance
+            if(forcefullyCloseBrowserInstance.equalsIgnoreCase("Y")) {
+//                internetBrowserCookiesCheckbox.click();
+                js.executeScript("arguments[0].click();",forcefullyCloseBrowserInstanceCheckbox);
+            }
 
             if(internetBrowserCookies.equalsIgnoreCase("Y")) {
 //                internetBrowserCookiesCheckbox.click();

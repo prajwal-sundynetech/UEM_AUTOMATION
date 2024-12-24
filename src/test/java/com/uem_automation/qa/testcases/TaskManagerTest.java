@@ -418,15 +418,15 @@ public class TaskManagerTest extends Base {
 //     User Settings
 
     @Test(priority = 14, dataProvider = "supplyTestData_template", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_014_Create_template_and_apply_user_settings(String templateName, String osType, String skipWriteFilter,
-                                                                  String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
+    public void TC_TM_014_apply_user_settings(String templateName, String osType, String skipWriteFilter,
+                                              String taskScheduleType, String allowTaskPostponement, String postponementMessage,
+                                              String postponementDisplayTime, String templateStartMessage, String displayTime) {
 
-        deviceManagerPage.clickOnTaskManagementTopMenu();
-
-        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        deviceManagerPage.clickOnTaskManagementTopMenu();
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
 
 //        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage, displayTime);
-//        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
+//        templateManagerPage.searchAndViewTheTemplate(templateName); //testdataProp.getProperty("templateName"));
 
         // User Settings
         // User Interface Settings
@@ -486,7 +486,7 @@ public class TaskManagerTest extends Base {
             String templateName,
 
             // History Cleaner
-            String selectTab, String browserInstalled, String internetBrowserCookies, String history, String temporaryInternetFiles,
+            String selectTab, String browserInstalled, String forcefullyCloseBrowserInstance, String internetBrowserCookies, String history, String temporaryInternetFiles,
             String clearTheRecentDocumentHistory, String clearTheStartMenuRunHistory, String clearTheFindFilesHistory, String clearTheMsPainRecentFileHistory, String clearTheMsWordpadRecentFileHistory,
             String clearTheCommonDialogueOpenSaveHistory, String clearTheCommonDialogueLastVisitedFolderHistory,
             String pleaseEmptyTheClipboard, String pleaseEmptyTheRecycleBin, String deleteWindowsTemporaryFiles) {
@@ -497,7 +497,7 @@ public class TaskManagerTest extends Base {
         // Administration
         // Performance Management
         // History Cleaner
-        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_HistoryCleaner( selectTab,  browserInstalled,  internetBrowserCookies,  history,  temporaryInternetFiles,
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_HistoryCleaner( selectTab,  browserInstalled,  forcefullyCloseBrowserInstance, internetBrowserCookies,  history,  temporaryInternetFiles,
                  clearTheRecentDocumentHistory,  clearTheStartMenuRunHistory,  clearTheFindFilesHistory,  clearTheMsPainRecentFileHistory,  clearTheMsWordpadRecentFileHistory,
                  clearTheCommonDialogueOpenSaveHistory,  clearTheCommonDialogueLastVisitedFolderHistory,
                  pleaseEmptyTheClipboard,  pleaseEmptyTheRecycleBin,  deleteWindowsTemporaryFiles);
