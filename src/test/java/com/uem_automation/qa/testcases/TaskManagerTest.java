@@ -475,7 +475,7 @@ public class TaskManagerTest extends Base {
 
         // Administration
         // Environment Variable
-        administrationSettingsPage.applyAdministrationSettings_EnvironementVariable( variableName,  value);
+        administrationSettingsPage.applyAdministrationSettings_EnvironementVariable(variableName, value);
 
     }
 
@@ -497,10 +497,10 @@ public class TaskManagerTest extends Base {
         // Administration
         // Performance Management
         // History Cleaner
-        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_HistoryCleaner( selectTab,  browserInstalled,  forcefullyCloseBrowserInstance, internetBrowserCookies,  history,  temporaryInternetFiles,
-                 clearTheRecentDocumentHistory,  clearTheStartMenuRunHistory,  clearTheFindFilesHistory,  clearTheMsPainRecentFileHistory,  clearTheMsWordpadRecentFileHistory,
-                 clearTheCommonDialogueOpenSaveHistory,  clearTheCommonDialogueLastVisitedFolderHistory,
-                 pleaseEmptyTheClipboard,  pleaseEmptyTheRecycleBin,  deleteWindowsTemporaryFiles);
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_HistoryCleaner(selectTab, browserInstalled, forcefullyCloseBrowserInstance, internetBrowserCookies, history, temporaryInternetFiles,
+                clearTheRecentDocumentHistory, clearTheStartMenuRunHistory, clearTheFindFilesHistory, clearTheMsPainRecentFileHistory, clearTheMsWordpadRecentFileHistory,
+                clearTheCommonDialogueOpenSaveHistory, clearTheCommonDialogueLastVisitedFolderHistory,
+                pleaseEmptyTheClipboard, pleaseEmptyTheRecycleBin, deleteWindowsTemporaryFiles);
 
     }
 

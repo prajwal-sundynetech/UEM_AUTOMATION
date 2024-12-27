@@ -63,7 +63,7 @@ public class DeviceManagerWindowsTest extends Base {
 		deviceManagerPage.selectExecuteLaterRadioButton();
 
 		deviceManagerPage.clickOnSave();
-		deviceManagerPage.checkIagreeCheckboxAndClickOnOkButton();
+//		deviceManagerPage.checkIagreeCheckboxAndClickOnOkButton(); // it's off on the application configuration settings
 		String expectedResponse = testdataProp.getProperty("expectedResponse");
 		String actualResponse = deviceManagerPage.retrieveTheResponceMessageLabel();
 		Assert.assertEquals(expectedResponse, actualResponse,

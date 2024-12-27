@@ -133,7 +133,7 @@ public class LoginTest extends Base {
 				"[Error: actualLabelText does not match with expectedLabelText]");
 	}
 
-	@Test(priority = 7, dependsOnMethods = { "TC_LP_001_Validate_login_with_valid_credentials" }) // Validate logging into the Application using Keyboard keys (Tab and Enter)
+	@Test(priority = 7) //, dependsOnMethods = { "TC_LP_001_Validate_login_with_valid_credentials" }) // Validate logging into the Application using Keyboard keys (Tab and Enter)
 	public void TC_LP_007_Validate_logging_into_the_application_using_keyboard_keys() {
 		Actions action = new Actions(driver);
 		action.sendKeys(configProp.getProperty("validEmail")).perform();

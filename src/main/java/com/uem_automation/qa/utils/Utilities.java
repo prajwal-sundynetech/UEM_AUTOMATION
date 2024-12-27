@@ -22,6 +22,7 @@ public class Utilities {
 	public static final int IMPLICIT_WAIT_TIME = 10;
 	public static final int PAGE_WAIT_TIME = 10;
 	public static final int EXPLICIT_WAIT_TIME = 10;
+	public static final int FLUENT_WAIT_TIME = 10;
 
 	// class for creating random email with timestamp
 	public static String generateEmailWithTimeStamp() {
