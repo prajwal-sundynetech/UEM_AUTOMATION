@@ -585,8 +585,8 @@ public class SystemSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         // Select the network type (Wireless/Ethernet)
-        Select select = new Select(networkType);
-        select.selectByVisibleText(networkTypeString);
+        Select select1 = new Select(networkType);
+        select1.selectByVisibleText(networkTypeString);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
 

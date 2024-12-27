@@ -150,6 +150,18 @@ public class TaskManagerTest extends Base {
         return data;
     }
 
+    @DataProvider
+    public Object[][] supplyTestData_registryBackupRestore() {
+        Object[][] data = Utilities.getTestDataFromExcel("Registry Backup Restore");
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] supplyTestData_startupApplicationList() {
+        Object[][] data = Utilities.getTestDataFromExcel("Startup Application List");
+        return data;
+    }
+
     // Test Cases
 
     @Test(priority = 1, dataProvider = "supplyTestData_template") //supplyTestData_template")
@@ -491,8 +503,9 @@ public class TaskManagerTest extends Base {
             String clearTheCommonDialogueOpenSaveHistory, String clearTheCommonDialogueLastVisitedFolderHistory,
             String pleaseEmptyTheClipboard, String pleaseEmptyTheRecycleBin, String deleteWindowsTemporaryFiles) {
 
-//        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+    //        taskManagerPage.navigateToTemplateMangerRhsMenu();
+    //        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // Administration
         // Performance Management
@@ -503,6 +516,48 @@ public class TaskManagerTest extends Base {
                 pleaseEmptyTheClipboard, pleaseEmptyTheRecycleBin, deleteWindowsTemporaryFiles);
 
     }
+
+    @Test(priority = 18, dataProvider = "supplyTestData_registryBackupRestore", dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_018_apply_administration_settings_performance_management_registry_backup_restore(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Registry Backup Restore
+            String selectTab, String registryKeyUser, String key,
+            String backupPath, String backupName) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Performance Management
+        // Registry Backup Restore
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore( selectTab,  registryKeyUser,  key, backupPath,  backupName);
+
+    }
+
+    @Test(priority = 19, dataProvider = "supplyTestData_startupApplicationList", dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_019_apply_administration_settings_performance_management_start_application_list(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Start Application List
+            String applicationPath, String applicationName, String enabled) {
+
+
+    //        taskManagerPage.navigateToTemplateMangerRhsMenu();
+    //        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Performance Management
+        // Start Application List
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_StartApplicationList( applicationPath,  applicationName,  enabled);
+
+    }
+
+
 
 
     // Administration Settings

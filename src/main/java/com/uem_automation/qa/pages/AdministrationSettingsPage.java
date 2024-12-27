@@ -27,145 +27,204 @@ public class AdministrationSettingsPage {
     private WebElement rhsMenuToogleElement;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']")
-    private WebElement windowsAdministrationSettingsRhsMenu ;
+    private WebElement windowsAdministrationSettingsRhsMenu;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Application Command'][normalize-space()='Application Command']")
-    private WebElement windowsAdministrationSettingsApplicationCommandRhsMenu ;
+    private WebElement windowsAdministrationSettingsApplicationCommandRhsMenu;
 
     @FindBy(xpath = "//label[@id='WinAPPCMDlblapplication']")
-    private WebElement applicationTab ;
+    private WebElement applicationTab;
 
     @FindBy(xpath = "//input[@id='WinAPPCMDtxtAppsPath']")
-    private WebElement applicationPathTextbox ;
+    private WebElement applicationPathTextbox;
 
     @FindBy(xpath = "//input[@id='WinAPPCMDtxtParameters']")
-    private WebElement parametersTextbox ;
+    private WebElement parametersTextbox;
 
     @FindBy(xpath = "//input[@id='WinAPPCMDchbxWarnUser']")
-    private WebElement alertUserCheckbox ;
+    private WebElement alertUserCheckbox;
 
     @FindBy(xpath = "//select[@id='WinAPPCMDddlMsgType']")
-    private WebElement messageTypeDropdown ;
+    private WebElement messageTypeDropdown;
 
     @FindBy(xpath = "//input[@id='WinAPPCMDtxtTitle']")
-    private WebElement titleTextbox ;
+    private WebElement titleTextbox;
 
     @FindBy(xpath = "//textarea[@id='WinAPPCMDtxtMsg']")
-    private WebElement messageTextbox ;
+    private WebElement messageTextbox;
 
     @FindBy(xpath = "//select[@id='WinAPPCMDddlDisplayTime']")
-    private WebElement displayTimeDropdown ;
+    private WebElement displayTimeDropdown;
 
     @FindBy(xpath = "//label[@id='WinAPPCMDlblcommand']")
-    private WebElement commandTab ;
+    private WebElement commandTab;
 
     @FindBy(xpath = "//input[@id='WinAPPCMDtxtCommand']")
-    private WebElement commandTextbox ;
+    private WebElement commandTextbox;
 
     @FindBy(xpath = "//select[@id='WinAPPCMDddlTimeOut']")
-    private WebElement timeoutDropdown ;
+    private WebElement timeoutDropdown;
 
     @FindBy(xpath = "//input[@id='ChkRequiredCommandOutput']")
-    private WebElement requiredCommandOutputCheckbox ;
+    private WebElement requiredCommandOutputCheckbox;
 
     @FindBy(xpath = "//input[@id='WinAPPCMDidRebootRequired']")
-    private WebElement skipWriteFilterCheckbox ;
+    private WebElement skipWriteFilterCheckbox;
 
     @FindBy(xpath = "//input[@id='WinAPPCMDbtnApplyRDP']")
-    private WebElement applicationCommandButtonSave ;
+    private WebElement applicationCommandButtonSave;
 
     @FindBy(xpath = "//label[@id='WinAPPCMDlblMsg']")
-    private WebElement applicationCommandTaskUpdateStatusMessage ;
+    private WebElement applicationCommandTaskUpdateStatusMessage;
 
     // Environment variable
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Environment Variable'][normalize-space()='Environment Variable']")
-    private WebElement windowsAdministrationSettingsEnvironmentVariableRhsMenu ;
+    private WebElement windowsAdministrationSettingsEnvironmentVariableRhsMenu;
 
     @FindBy(xpath = "//input[@id='XPEnvironmentVari_TxtVariableName']")
-    private WebElement variableNameTextbox ;
+    private WebElement variableNameTextbox;
 
     @FindBy(xpath = "//input[@id='XPEnvironmentVari_txtValue']")
-    private WebElement valueTextbox ;
+    private WebElement valueTextbox;
 
     @FindBy(xpath = "//input[@id='XPEnvironmentVari_btnEnvVarApplye']")
-    private WebElement environmentVariableButtonSave ;
+    private WebElement environmentVariableButtonSave;
 
     @FindBy(xpath = "//label[@id='XPEnvironmentVari_lblMsg']")
-    private WebElement environmentVariableTaskUpdateStatusMessage ;
+    private WebElement environmentVariableTaskUpdateStatusMessage;
 
     // Performance Management
     // History cleaner
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_performancemanagement_Window']")
-    private WebElement windowsAdministrationSettingsPerformanceManagementRhsMenu ;
+    private WebElement windowsAdministrationSettingsPerformanceManagementRhsMenu;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='History Cleaner'][normalize-space()='History Cleaner']")
-    private WebElement windowsAdministrationSettingsPerformanceManagementHistoryCleanerRhsMenu ;
+    private WebElement windowsAdministrationSettingsPerformanceManagementHistoryCleanerRhsMenu;
 
     @FindBy(xpath = "//label[@id='XPWebBrowser_lblMenuWbBrwsr']")
-    private WebElement webBrowserTab ;
+    private WebElement webBrowserTab;
 
     @FindBy(xpath = "//select[@id='XPWebBrowser_ddlBrowserInstalled']")
-    private WebElement browserInstalledDropdown ;
+    private WebElement browserInstalledDropdown;
 
     @FindBy(xpath = "//input[@id='XPWebBrowser_cbxCloseBrowser']")
-    private WebElement forcefullyCloseBrowserInstanceCheckbox ;
+    private WebElement forcefullyCloseBrowserInstanceCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWebBrowser_cbxCookies']")
-    private WebElement internetBrowserCookiesCheckbox ;
+    private WebElement internetBrowserCookiesCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWebBrowser_cbxWebBrowserHistory']")
-    private WebElement historyCheckbox ;
+    private WebElement historyCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWebBrowser_cbxWebBrowserTemp']")
-    private WebElement temporaryInternetFilesCheckbox ;
+    private WebElement temporaryInternetFilesCheckbox;
 
     @FindBy(xpath = "//label[@id='XPWebBrowser_lblMenuWndwsClnr']")
-    private WebElement windowsCleaner ;
+    private WebElement windowsCleaner;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxClearDocument']")
-    private WebElement clearTheRecentDocumentHistoryCheckbox ;
+    private WebElement clearTheRecentDocumentHistoryCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxStartMenu']")
-    private WebElement clearTheStartMenuRunHistoryCheckbox ;
+    private WebElement clearTheStartMenuRunHistoryCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxClearFindfiles']")
-    private WebElement clearTheFindFilesHistoryCheckbox ;
+    private WebElement clearTheFindFilesHistoryCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxClearRecentFile']")
-    private WebElement clearTheMsPainRecentFileHistoryCheckbox ;
+    private WebElement clearTheMsPainRecentFileHistoryCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxClearRecentMSWordpad']")
-    private WebElement clearTheMsWordpadRecentFileHistoryCheckbox ;
+    private WebElement clearTheMsWordpadRecentFileHistoryCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxCommonDialogOpenSave']")
-    private WebElement clearTheCommonDialogueOpenSaveHistoryCheckbox ;
+    private WebElement clearTheCommonDialogueOpenSaveHistoryCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxCommonDialogLastVisited']")
-    private WebElement clearTheCommonDialogueLastVisitedFolderHistoryCheckbox ;
+    private WebElement clearTheCommonDialogueLastVisitedFolderHistoryCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxEmptyClipboard']")
-    private WebElement pleaseEmptyTheClipboardCheckbox ;
+    private WebElement pleaseEmptyTheClipboardCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxEmptyRecycleBin']")
-    private WebElement pleaseEmptyTheRecycleBinCheckbox ;
+    private WebElement pleaseEmptyTheRecycleBinCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_cbxDeleteWindowsTempFiles']")
-    private WebElement deleteWindowsTemporaryFilesCheckbox ;
+    private WebElement deleteWindowsTemporaryFilesCheckbox;
 
     @FindBy(xpath = "//input[@id='XPWebBrowser_btnSavebrowser']")
-    private WebElement historyCleanerWebBrowserButtonSave ;
+    private WebElement historyCleanerWebBrowserButtonSave;
 
     @FindBy(xpath = "//input[@id='XPWindowsCleaner_btnApplyCleaner1']")
-    private WebElement historyCleanerWindowsCleanerButtonSave ;
+    private WebElement historyCleanerWindowsCleanerButtonSave;
 
     @FindBy(xpath = "//label[@id='XPWebBrowser_lblMSg_Success']")
-    private WebElement webBroserhHistoryCleanerTaskUpdateStatusMessage ;
+    private WebElement webBroserhHistoryCleanerTaskUpdateStatusMessage;
+
+    @FindBy(xpath = "//div[@id='XPRegistoryBackUpObt_dvShowResultsplaylog']")
+    private WebElement obtainRegistryTaskUpdateStatusMessage;
+
+    @FindBy(xpath = "//div[@id='XPRegistrybackup_dvShowResultBackup']")
+    private WebElement registryBackupTaskUpdateStatusMessage;
 
     @FindBy(xpath = "//label[@id='XPWindowsCleaner_lblMsg_winCle']")
-    private WebElement windowsCleanerHistoryCleanerTaskUpdateStatusMessage ;
+    private WebElement windowsCleanerHistoryCleanerTaskUpdateStatusMessage;
+
+    // Registry and Restore
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Registry Backup Restore'][normalize-space()='Registry Backup Restore']")
+    private WebElement windowsAdministrationSettingsPerformanceManagementRegistryBackupRestoreRhsMenu;
+
+    @FindBy(xpath = "//label[@id='XPRegistrybackup_lblviewregistrybackup']")
+    private WebElement obtainRegistryLabel;
+
+    @FindBy(xpath = "//select[@id='XPRegistoryBackUpObt_ddlreg_1']")
+    private WebElement registryKeyUserDropdown;
+
+    @FindBy(xpath = "//input[@id='XPRegistoryBackUpObt_regtxt_1']")
+    private WebElement keyTextbox;
+
+    @FindBy(xpath = "//label[@id='XPRegistrybackup_lbladdregistrybackup']")
+    private WebElement registryBackupLabel;
+
+    @FindBy(xpath = "//input[@id='XPRegistrybackup_txtBackupPath']")
+    private WebElement backupPathTextbox;
+
+    @FindBy(xpath = "//input[@id='XPRegistrybackup_txtBackupname']")
+    private WebElement backupNameTextbox;
+
+    @FindBy(xpath = "//input[@id='XPRegistoryBackUpObt_Btnapplobtainreg']")
+    private WebElement obtainRegistryButtonSave;
+
+    @FindBy(xpath = "//input[@id='XPRegistrybackup_btnRegBackup_Windows']")
+    private WebElement registryBackupButtonSave;
+
+    // startup application
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Startup Application List'][normalize-space()='Startup Application List']")
+    private WebElement windowsAdministrationSettingsPerformanceManagementStartApplicationListRhsMenu;
+
+    @FindBy(xpath = "//input[@id='XPStartUpApp_txtApplicationPath']")
+    private WebElement startApplicationPathTextbox;
+
+    @FindBy(xpath = "//input[@id='XPStartUpApp_txtApplicationName']")
+    private WebElement applicationNameTextbox;
+
+    @FindBy(xpath = "//input[@id='XPStartUpApp_cbxEnabled']/following-sibling::span")
+    private WebElement enabledCheckbox;
+
+    @FindBy(xpath = "//input[@id='XPStartUpApp_btnAddAppSave']")
+    private WebElement startupApplicationButtonSave;
+
+    @FindBy(xpath = "//input[@id='XPStartUpApp_btnClear']")
+    private WebElement startupApplicationButtonClear;
+
+    @FindBy(xpath = "//label[@id='XPStartUpApp_lblMsg']")
+    private WebElement startupApplicationTaskUpdateStatusMessage;
+
 
 //    @FindBy(xpath = "xxxxxx")
-//    private WebElement xxxxx ;
+//    private WebElement xxxxxx ;
 
 
     // Constructor
@@ -181,8 +240,7 @@ public class AdministrationSettingsPage {
     public void applyAdministrationSettings_ApplicationCommand(String selectTab, String applicationPath, String prameters,
                                                                String alertUser, String messageType, String title,
                                                                String message, String displayTime, String command,
-                                                               String requiredCommandOutput, String timeout, String skipWriteFilter)
-    {
+                                                               String requiredCommandOutput, String timeout, String skipWriteFilter) {
 
         if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
             wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
@@ -205,7 +263,7 @@ public class AdministrationSettingsPage {
 
 //        String selectTab = "Command"; //Application //Command
 
-        if(selectTab.equalsIgnoreCase("Application")) {
+        if (selectTab.equalsIgnoreCase("Application")) {
 
             applicationTab.click();
 
@@ -213,9 +271,9 @@ public class AdministrationSettingsPage {
             parametersTextbox.sendKeys(prameters); //"testdata parameters"); // test data
 
 //            String alertUser = "Y"; //Y //N // test data
-            if(alertUser.equalsIgnoreCase("Y")) {
+            if (alertUser.equalsIgnoreCase("Y")) {
 //                alertUserCheckbox.click();
-                 js.executeScript("arguments[0].click();",alertUserCheckbox);
+                js.executeScript("arguments[0].click();", alertUserCheckbox);
 
 //                String messageType = "Message box"; //Message box //Information message box
                 select = new Select(messageTypeDropdown);
@@ -232,19 +290,17 @@ public class AdministrationSettingsPage {
 
             }
 
-        }
-        else if(selectTab.equalsIgnoreCase("Command")) {
+        } else if (selectTab.equalsIgnoreCase("Command")) {
 
             commandTab.click();
 
             commandTextbox.sendKeys(command); //"www.test.com"); //www.test.com //C:\System32\drivers\etc\hosts //This command allows you to execute any command available into the remote system.
 
 //            String requiredCommandOutput = "N"; //Y //N // test data
-            if(requiredCommandOutput.equalsIgnoreCase("Y")) {
+            if (requiredCommandOutput.equalsIgnoreCase("Y")) {
 //                requiredCommandOutputCheckbox.click();
-                js.executeScript("arguments[0].click();",requiredCommandOutputCheckbox);
-            }
-            else {
+                js.executeScript("arguments[0].click();", requiredCommandOutputCheckbox);
+            } else {
 
 //                String timeout = "5 Minutes"; //Never //5 Seconds //30 Seconds //1 Minute to //5 Minutes
                 select = new Select(timeoutDropdown);
@@ -255,7 +311,7 @@ public class AdministrationSettingsPage {
         }
 
 //        String skipWriteFilter = "Y"; //Y //N //test data
-        if(skipWriteFilter.equalsIgnoreCase("Y")) {
+        if (skipWriteFilter.equalsIgnoreCase("Y")) {
 //          skipWriteFilterCheckbox.click();
             js.executeScript("arguments[0].click();", skipWriteFilterCheckbox);
         }
@@ -327,7 +383,7 @@ public class AdministrationSettingsPage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
 //        String selectTab = "Web Browser"; //Web Browser //Windows Cleaner
-        if(selectTab.equalsIgnoreCase("Web Browser")) {
+        if (selectTab.equalsIgnoreCase("Web Browser")) {
 
             webBrowserTab.click();
 
@@ -341,24 +397,24 @@ public class AdministrationSettingsPage {
 //            String temporaryInternetFiles = "Y"; //Y //N //testdata
 
             // only applicable for google chrome - forcefullyCloseBrowserInstance
-            if(forcefullyCloseBrowserInstance.equalsIgnoreCase("Y")) {
+            if (forcefullyCloseBrowserInstance.equalsIgnoreCase("Y")) {
 //                internetBrowserCookiesCheckbox.click();
-                js.executeScript("arguments[0].click();",forcefullyCloseBrowserInstanceCheckbox);
+                js.executeScript("arguments[0].click();", forcefullyCloseBrowserInstanceCheckbox);
             }
 
-            if(internetBrowserCookies.equalsIgnoreCase("Y")) {
+            if (internetBrowserCookies.equalsIgnoreCase("Y")) {
 //                internetBrowserCookiesCheckbox.click();
-                js.executeScript("arguments[0].click();",internetBrowserCookiesCheckbox);
+                js.executeScript("arguments[0].click();", internetBrowserCookiesCheckbox);
             }
 
-            if(history.equalsIgnoreCase("Y")) {
+            if (history.equalsIgnoreCase("Y")) {
 //                historyCheckbox.click();
-                js.executeScript("arguments[0].click();",historyCheckbox);
+                js.executeScript("arguments[0].click();", historyCheckbox);
             }
 
-            if(temporaryInternetFiles.equalsIgnoreCase("Y")) {
+            if (temporaryInternetFiles.equalsIgnoreCase("Y")) {
 //                temporaryInternetFilesCheckbox.click();
-                js.executeScript("arguments[0].click();",temporaryInternetFilesCheckbox);
+                js.executeScript("arguments[0].click();", temporaryInternetFilesCheckbox);
             }
 
             historyCleanerWebBrowserButtonSave.click();
@@ -368,10 +424,10 @@ public class AdministrationSettingsPage {
                 Assert.fail(webBroserhHistoryCleanerTaskUpdateStatusMessage.getText());
             }
 
-        }
-        else if(selectTab.equalsIgnoreCase("Windows Cleaner")) {
+        } else if (selectTab.equalsIgnoreCase("Windows Cleaner")) {
 
             windowsCleaner.click();
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
 //            // TRACES IN THE WINDOWS REGISTRY
 //            String clearTheRecentDocumentHistory = "Y"; //Y //N // test data
@@ -387,54 +443,54 @@ public class AdministrationSettingsPage {
 //            String pleaseEmptyTheRecycleBin = "Y"; //Y //N // test data
 //            String deleteWindowsTemporaryFiles = "Y"; //Y //N // test data
 
-            if(clearTheRecentDocumentHistory.equalsIgnoreCase("Y")) {
+            if (clearTheRecentDocumentHistory.equalsIgnoreCase("Y")) {
 //                clearTheRecentDocumentHistoryCheckbox.click();
-                js.executeScript("arguments[0].click();",clearTheRecentDocumentHistoryCheckbox);
+                js.executeScript("arguments[0].click();", clearTheRecentDocumentHistoryCheckbox);
             }
 
-            if(clearTheStartMenuRunHistory.equalsIgnoreCase("Y")) {
+            if (clearTheStartMenuRunHistory.equalsIgnoreCase("Y")) {
 //                clearTheStartMenuRunHistoryCheckbox.click();
-                js.executeScript("arguments[0].click();",clearTheStartMenuRunHistoryCheckbox);
+                js.executeScript("arguments[0].click();", clearTheStartMenuRunHistoryCheckbox);
             }
 
-            if(clearTheFindFilesHistory.equalsIgnoreCase("Y")) {
+            if (clearTheFindFilesHistory.equalsIgnoreCase("Y")) {
 //                clearTheFindFilesHistoryCheckbox.click();
-                js.executeScript("arguments[0].click();",clearTheFindFilesHistoryCheckbox);
+                js.executeScript("arguments[0].click();", clearTheFindFilesHistoryCheckbox);
             }
 
-            if(clearTheMsPainRecentFileHistory.equalsIgnoreCase("Y")) {
+            if (clearTheMsPainRecentFileHistory.equalsIgnoreCase("Y")) {
 //                clearTheMsPainRecentFileHistoryCheckbox.click();
-                js.executeScript("arguments[0].click();",clearTheMsPainRecentFileHistoryCheckbox);
+                js.executeScript("arguments[0].click();", clearTheMsPainRecentFileHistoryCheckbox);
             }
 
-            if(clearTheMsWordpadRecentFileHistory.equalsIgnoreCase("Y")) {
+            if (clearTheMsWordpadRecentFileHistory.equalsIgnoreCase("Y")) {
 //                clearTheMsWordpadRecentFileHistoryCheckbox.click();
-                js.executeScript("arguments[0].click();",clearTheMsWordpadRecentFileHistoryCheckbox);
+                js.executeScript("arguments[0].click();", clearTheMsWordpadRecentFileHistoryCheckbox);
             }
 
-            if(clearTheCommonDialogueOpenSaveHistory.equalsIgnoreCase("Y")) {
+            if (clearTheCommonDialogueOpenSaveHistory.equalsIgnoreCase("Y")) {
 //                clearTheMsWordpadRecentFileHistoryCheckbox.click();
-                js.executeScript("arguments[0].click();",clearTheCommonDialogueOpenSaveHistoryCheckbox);
+                js.executeScript("arguments[0].click();", clearTheCommonDialogueOpenSaveHistoryCheckbox);
             }
 
-            if(clearTheCommonDialogueLastVisitedFolderHistory.equalsIgnoreCase("Y")) {
+            if (clearTheCommonDialogueLastVisitedFolderHistory.equalsIgnoreCase("Y")) {
 //                clearTheMsWordpadRecentFileHistoryCheckbox.click();
-                js.executeScript("arguments[0].click();",clearTheCommonDialogueLastVisitedFolderHistoryCheckbox);
+                js.executeScript("arguments[0].click();", clearTheCommonDialogueLastVisitedFolderHistoryCheckbox);
             }
 
-            if(pleaseEmptyTheClipboard.equalsIgnoreCase("Y")) {
+            if (pleaseEmptyTheClipboard.equalsIgnoreCase("Y")) {
 //                pleaseEmptyTheClipboardCheckbox.click();
-                js.executeScript("arguments[0].click();",pleaseEmptyTheClipboardCheckbox);
+                js.executeScript("arguments[0].click();", pleaseEmptyTheClipboardCheckbox);
             }
 
-            if(pleaseEmptyTheRecycleBin.equalsIgnoreCase("Y")) {
+            if (pleaseEmptyTheRecycleBin.equalsIgnoreCase("Y")) {
 //                pleaseEmptyTheRecycleBinCheckbox.click();
-                js.executeScript("arguments[0].click();",pleaseEmptyTheRecycleBinCheckbox);
+                js.executeScript("arguments[0].click();", pleaseEmptyTheRecycleBinCheckbox);
             }
 
-            if(deleteWindowsTemporaryFiles.equalsIgnoreCase("Y")) {
+            if (deleteWindowsTemporaryFiles.equalsIgnoreCase("Y")) {
 //                deleteWindowsTemporaryFilesCheckbox.click();
-                js.executeScript("arguments[0].click();",deleteWindowsTemporaryFilesCheckbox);
+                js.executeScript("arguments[0].click();", deleteWindowsTemporaryFilesCheckbox);
             }
 
             historyCleanerWindowsCleanerButtonSave.click();
@@ -444,6 +500,106 @@ public class AdministrationSettingsPage {
                 Assert.fail(webBroserhHistoryCleanerTaskUpdateStatusMessage.getText());
             }
 
+        }
+
+    }
+
+    public void applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore(String selectTab, String registryKeyUser, String key,
+                                                                                        String backupPath, String backupName) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsPerformanceManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsPerformanceManagementRhsMenu));
+            windowsAdministrationSettingsPerformanceManagementRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsPerformanceManagementRegistryBackupRestoreRhsMenu.click();
+
+        Select select;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+//        String selectTab = "Obtain Registry"; // Obtain Registry //Registry Backup //HKEY_CURRENT_CONFIG
+        if (selectTab.equalsIgnoreCase("Obtain Registry")) {
+            obtainRegistryLabel.click();
+
+//            String registryKeyUser = "HKEY_USERS"; //HKEY_CLASSES_ROOT //
+            select = new Select(registryKeyUserDropdown);
+            select.selectByVisibleText(registryKeyUser);
+
+//            String key = "xxxxx";
+            keyTextbox.sendKeys(key);
+
+            obtainRegistryButtonSave.click();
+
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            if (!((obtainRegistryTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+                Assert.fail(obtainRegistryTaskUpdateStatusMessage.getText());
+            }
+        } else if (selectTab.equalsIgnoreCase("Registry Backup")) {
+            registryBackupLabel.click();
+
+            backupPathTextbox.sendKeys(backupPath);
+            backupNameTextbox.sendKeys(backupName);
+
+            registryBackupButtonSave.click();
+
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            if (!((registryBackupTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+                Assert.fail(registryBackupTaskUpdateStatusMessage.getText());
+            }
+        }
+    }
+
+    public void applyAdministrationSettings_PerformanceManagement_StartApplicationList(String applicationPath, String applicationName, String enabled) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsPerformanceManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsPerformanceManagementRhsMenu));
+            windowsAdministrationSettingsPerformanceManagementRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsPerformanceManagementStartApplicationListRhsMenu.click();
+
+        startupApplicationButtonClear.click();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        startApplicationPathTextbox.sendKeys(applicationPath); // "C:\Example\file.exe";
+        applicationNameTextbox.sendKeys(applicationName);
+
+        if (enabled.equalsIgnoreCase("Y")) {
+            js.executeScript("arguments[0].click();", enabledCheckbox);
+        }
+
+        startupApplicationButtonSave.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        if (!((startupApplicationTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(registryBackupTaskUpdateStatusMessage.getText());
         }
 
     }
