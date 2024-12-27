@@ -162,6 +162,12 @@ public class TaskManagerTest extends Base {
         return data;
     }
 
+    @DataProvider
+    public Object[][] supplyTestData_taskScheduler() {
+        Object[][] data = Utilities.getTestDataFromExcel("Task Scheduler");
+        return data;
+    }
+
     // Test Cases
 
     @Test(priority = 1, dataProvider = "supplyTestData_template") //supplyTestData_template")
@@ -504,8 +510,8 @@ public class TaskManagerTest extends Base {
             String pleaseEmptyTheClipboard, String pleaseEmptyTheRecycleBin, String deleteWindowsTemporaryFiles) {
 
 
-    //        taskManagerPage.navigateToTemplateMangerRhsMenu();
-    //        templateManagerPage.searchAndViewTheTemplate(templateName);
+        //        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        //        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // Administration
         // Performance Management
@@ -533,7 +539,7 @@ public class TaskManagerTest extends Base {
         // Administration
         // Performance Management
         // Registry Backup Restore
-        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore( selectTab,  registryKeyUser,  key, backupPath,  backupName);
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore(selectTab, registryKeyUser, key, backupPath, backupName);
 
     }
 
@@ -547,17 +553,36 @@ public class TaskManagerTest extends Base {
             String applicationPath, String applicationName, String enabled) {
 
 
-    //        taskManagerPage.navigateToTemplateMangerRhsMenu();
-    //        templateManagerPage.searchAndViewTheTemplate(templateName);
+        //        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        //        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // Administration
         // Performance Management
         // Start Application List
-        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_StartApplicationList( applicationPath,  applicationName,  enabled);
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_StartApplicationList(applicationPath, applicationName, enabled);
 
     }
 
+    @Test(priority = 20, dataProvider = "supplyTestData_taskScheduler")
+//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_020_apply_administration_settings_performance_management_task_scheduler(
 
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Start Application List
+            String taskName, String delete, String refresh) {
+
+
+        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Performance Management
+        // Task Scheduler
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_taskScheduler(taskName, delete, refresh);
+
+    }
 
 
     // Administration Settings

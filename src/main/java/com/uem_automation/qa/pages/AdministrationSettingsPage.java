@@ -1,6 +1,7 @@
 package com.uem_automation.qa.pages;
 
 import com.uem_automation.qa.utils.Utilities;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.util.List;
 
 import java.time.Duration;
 
@@ -222,6 +225,31 @@ public class AdministrationSettingsPage {
     @FindBy(xpath = "//label[@id='XPStartUpApp_lblMsg']")
     private WebElement startupApplicationTaskUpdateStatusMessage;
 
+    // task scheduler
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Task Scheduler'][normalize-space()='Task Scheduler']")
+    private WebElement windowsAdministrationSettingsPerformanceManagementTaskSchedulerRhsMenu;
+
+    @FindBy(xpath = "//input[@aria-controls='XPTaskScheduler_tblParents']")
+    private WebElement taskSchedulerSearchbox;
+
+    @FindBy(xpath = "//input[@id='XPTaskScheduler_btnApplyTaskSch']")
+    private WebElement taskSchedulerButtonApply;
+
+    @FindBy(xpath = "//div[@id='XPTaskScheduler_dvShowResults']")
+    private WebElement taskSchedulerTaskUpdateStatusMessage;
+
+    @FindBy(xpath = "//table[@id='XPTaskScheduler_tblParents']/tbody/tr")
+    private List<WebElement> rows;
+
+    @FindBy(xpath = "//input[@id='XPTaskScheduler_btnDeleteXPTaskSch']")
+    private WebElement deleteButton;
+
+    @FindBy(xpath = "//input[@id='btnOkDeviceConformation']")
+    private WebElement deviceConfirmationOkButton;
+
+    @FindBy(xpath = "//input[@id='XPTaskScheduler_btnRefresh']")
+    private WebElement refreshButton;
 
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
@@ -600,6 +628,72 @@ public class AdministrationSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
         if (!((startupApplicationTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(registryBackupTaskUpdateStatusMessage.getText());
+        }
+
+    }
+
+    public void applyAdministrationSettings_PerformanceManagement_taskScheduler(String taskName, String delete, String refresh) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsPerformanceManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsPerformanceManagementRhsMenu));
+            windowsAdministrationSettingsPerformanceManagementRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsPerformanceManagementTaskSchedulerRhsMenu.click();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+//        String taskName = "MicrosoftEdgeUpdateTaskMachineCore";
+        taskSchedulerSearchbox.sendKeys(taskName);
+        try {
+//            List<WebElement> rows = driver.findElements(By.xpath("//table[@id='XPTaskScheduler_tblParents']/tbody/tr"));
+
+            for (WebElement row : rows) {
+                // locate the status cell
+                WebElement statusCell = row.findElement(By.xpath("./td[6]"));
+
+                String status = statusCell.getText().trim();
+
+                if (status.equalsIgnoreCase("READY")) {
+                    WebElement checkbox = row.findElement(By.xpath("./td[1]/input[@type='checkbox']"));
+                    if (!(checkbox.isSelected())) {
+                        js.executeScript("arguments[0].click();", checkbox);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // click on delete or refresh
+
+        if (delete.equalsIgnoreCase("Y")) {
+            deleteButton.click();
+            deviceConfirmationOkButton.click();
+        } else if (refresh.equalsIgnoreCase("Y")) {
+            refreshButton.click();
+        }
+
+        taskSchedulerButtonApply.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        if (!((taskSchedulerTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(taskSchedulerTaskUpdateStatusMessage.getText());
         }
 
     }
