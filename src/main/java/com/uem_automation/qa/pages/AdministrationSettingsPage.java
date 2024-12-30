@@ -251,6 +251,143 @@ public class AdministrationSettingsPage {
     @FindBy(xpath = "//input[@id='XPTaskScheduler_btnRefresh']")
     private WebElement refreshButton;
 
+    // Remote agent Advance Setting
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_remoteagent_Window']")
+    private WebElement windowsAdministrationSettingsRemoteAgentRhsMenu;
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']//label[@title='Advanced Settings'][normalize-space()='Advanced Settings']")
+    private WebElement windowsAdministrationSettingsRemoteAgentAdvancedSettingsRhsMenu;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettchk_IsNewPoll']")
+    private WebElement taskRebootMorningCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettchk_isDHCPEnabled']")
+    private WebElement dhcpDiscoveryCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_IsMMRequired']")
+    private WebElement monitoringAndMaintainanceCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_IsBatteryIndicator']")
+    private WebElement batteryIndicatorCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_SendIdleStateReport']")
+    private WebElement idleStateCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_IsConfigSync']")
+    private WebElement configSyncCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_LocationExits']")
+    private WebElement locationCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_BootLogs']")
+    private WebElement bootLogCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_USBLogs']")
+    private WebElement usbMassStorageLogsCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_ScreenSaverLogs']")
+    private WebElement screenSaverLogsCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_VNCAcceptancesetting']")
+    private WebElement enableVncAcceptanceCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_TaskSchedulerSync']")
+    private WebElement syncTaskSchedulerCheckbox;
+
+    @FindBy(xpath = "//div[@id='WinAdvSettRA_Div1']//div[@class='d-flex mr-2 ml-1']//span")
+    private WebElement applicationLogCheckbox;
+
+    @FindBy(xpath = "//div[@id='WinAdvSettRA_Div22']//div[@class='d-flex mr-2 ml-1']//span")
+    private WebElement cpuUtilizationLogCheckbox;
+
+    @FindBy(xpath = "//div[@id='WinAdvSettRA_Div24']//div[@class='d-flex mr-2 ml-1']//span")
+    private WebElement writeFilterLogsCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_SRMonitoring']")
+    private WebElement signalRMonitoringCheckbox;
+
+    @FindBy(xpath = "//label[@for='WinAdvSettcbx_HardwareLogs']")
+    private WebElement hardwareLogsCheckbox;
+
+    @FindBy(xpath = "//select[@id='WinAdvSettddl_Debug']")
+    private WebElement enableAgentDebugLogsDropdown;
+
+    @FindBy(xpath = "//select[@id='WinAdvSettddlRedownloadingAttempts']")
+    private WebElement downloadAttemptsDropdown;
+
+    @FindBy(xpath = "//select[@id='WinAdvSettddlLocationinMeters']")
+    private WebElement locationRangeDropdown;
+
+    @FindBy(xpath = "//div[@class='col-lg-8 row']//div[@class='line-height-sm ml-2']//a[@class='icon-21--Asc']")
+    private WebElement decreaseMinutes;
+
+    @FindBy(xpath = "//div[@class='col-lg-8 row']//div[@class='line-height-sm ml-2']//a[@class='icon-65--Desc']")
+    private WebElement increaseMinutes;
+
+    @FindBy(xpath = "//input[@id='WinAdvSetttxt_HeartBeatInterval']")
+    private WebElement heartBeatIntervalTextbox;
+
+    @FindBy(xpath = "//input[@id='WinAdvSettSignalRConnectioPath']")
+    private WebElement signalRConnectionPathTextbox;
+
+    @FindBy(xpath = "//input[@id='WinAdvSettbtnSave']")
+    private WebElement advanceSettingButtonSave;
+
+    @FindBy(xpath = "//div[@id='WinAdvSetttrSettings']")
+    private WebElement advanceSettingTaskUpdateStatusMessage;
+
+    // Software Deployment
+    // Software And Patch Install Uninstall
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_software_deployment_Win']")
+    private WebElement windowsSoftwareDeploymentRhsMenu;
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_software_patch_Win']//label")
+    private WebElement windowsSoftwareDeploymentSoftwareAndPatchInstallUninstallRhsMenu;
+
+    @FindBy(xpath = "//input[@id='XPSoftwareUpgrade_btnNewInstall']")
+    private WebElement newInstallButton;
+
+    @FindBy(xpath = "//select[@id='XPSoftwareUpgrade_ddlSourceType']")
+    private WebElement sourceTypeDropdown;
+
+    @FindBy(xpath = "//select[@id='XPSoftwareUpgrade_ddlSource']")
+    private WebElement sourceDropdown;
+
+    @FindBy(xpath = "//input[@id='XPSoftwareUpgrade_fileUpload']")
+    private WebElement fileUploadIcon;
+
+    @FindBy(xpath = "//input[@id='XPSoftwareUpgrade_btnUpload']")
+    private WebElement fileUploadButton;
+
+    @FindBy(xpath = "//div[@id='trSummaryButton']")
+    private WebElement fileUploadStatus;
+
+    @FindBy(xpath = "//select[@id='XPSoftwareUpgrade_ddlFile']")
+    private WebElement fileDropdown;
+
+    @FindBy(xpath = "//input[@id='btnVldtCnnctnsoftwarePatechXP']")
+    private WebElement validateConnectionButton;
+
+    @FindBy(xpath = "//label[@id='lblErrorMsgForAddConnection']")
+    private WebElement connectionStatus;
+
+    @FindBy(xpath = "//input[@id='XPSoftwareUpgrade_txtParameter']")
+    private WebElement parameterTextbox;
+
+    @FindBy(xpath = "//input[@id='XPSoftwareUpgrade_isglobal']")
+    private WebElement globalRepositoryCheckbox;
+
+    @FindBy(xpath = "//input[@id='XPSoftwareUpgrade_btnInstall']")
+    private WebElement softwarePatchInstallUninstallButtonSave;
+
+    @FindBy(xpath = "//div[@id='trSummaryButton']")
+    private WebElement softwarePatchInstallUninstallTaskUpdateStatusMessage;
+
+    @FindBy(xpath = "//input[@id='XPSoftwareUpgrade_InstallidRebootRequired']")
+    private WebElement softwareUpgradeSkipWriteFilterCheckbox;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
 
@@ -694,6 +831,286 @@ public class AdministrationSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
         if (!((taskSchedulerTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(taskSchedulerTaskUpdateStatusMessage.getText());
+        }
+
+    }
+
+    public void applyAdministrationSettings_RemoteAgent_AdvancedSettings(
+            String taskRebootMonitoring,
+            String dhcpDiscovery,
+            String monitoringAndMaintainance,
+            String batteryIndicator,
+            String idleState,
+            String configSync,
+            String location,
+            String bootLog,
+            String usbMassStorageLogs,
+            String screenSaverLogs,
+            String enableVncAcceptance,
+            String syncTaskScheduler,
+            String applicationLog,
+            String cpuUtilizationLog,
+            String writeFilterLogs,
+            String signalRMonitoring,
+            String hardwareLogs,
+            String enableAgentDebugLogs,
+            String downloadAttempts,
+            String locationRange,
+            String hardwareLogsInterval,
+            String heartBeatInterval,
+            String signalRConnectionPath
+
+    ) {
+
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsRemoteAgentRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRemoteAgentRhsMenu));
+            windowsAdministrationSettingsRemoteAgentRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsRemoteAgentAdvancedSettingsRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+//        String taskRebootMonitoring = "Y";
+//        String dhcpDiscovery = "Y";
+//        String monitoringAndMaintainance = "Y";
+//        String batteryIndicator = "Y";
+//        String idleState = "Y";
+//        String configSync = "Y";
+//        String location = "Y";
+//        String bootLog = "Y";
+//        String usbMassStorageLogs = "Y";
+//        String screenSaverLogs = "Y";
+//        String enableVncAcceptance = "Y";
+//        String syncTaskScheduler = "Y";
+//        String applicationLog = "Y";
+//        String cpuUtilizationLog = "Y";
+//        String writeFilterLogs = "Y";
+//        String signalRMonitoring = "Y";
+//        String hardwareLogs = "Y";
+//        String enableAgentDebugLogs = "User Level"; //User Level //Developer Level
+//        String downloadAttempts = "5"; // 1 - 10
+//        String locationRange = "200"; // 100 - 5000 meters
+//        int hardwareLogsInterval = 6; // 3 - onwards
+//        int heartBeatInterval = 45; // clear and sendkeys
+//        String signalRConnectionPath = "/communication/signalr/hubs"; // test data // /communication/signalr/hubs
+
+        Select select;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        if (taskRebootMonitoring.equalsIgnoreCase("N")) {
+            taskRebootMorningCheckbox.click();
+        }
+        if (dhcpDiscovery.equalsIgnoreCase("N")) {
+            dhcpDiscoveryCheckbox.click();
+        }
+        if (monitoringAndMaintainance.equalsIgnoreCase("N")) {
+            monitoringAndMaintainanceCheckbox.click();
+        }
+        if (batteryIndicator.equalsIgnoreCase("N")) {
+            batteryIndicatorCheckbox.click();
+        }
+        if (idleState.equalsIgnoreCase("N")) {
+            idleStateCheckbox.click();
+        }
+        if (configSync.equalsIgnoreCase("N")) {
+            configSyncCheckbox.click();
+        }
+        if (location.equalsIgnoreCase("N")) {
+            locationCheckbox.click();
+        }
+        if (bootLog.equalsIgnoreCase("N")) {
+            bootLogCheckbox.click();
+        }
+        if (usbMassStorageLogs.equalsIgnoreCase("N")) {
+            usbMassStorageLogsCheckbox.click();
+        }
+        if (screenSaverLogs.equalsIgnoreCase("N")) {
+            screenSaverLogsCheckbox.click();
+        }
+        if (enableVncAcceptance.equalsIgnoreCase("N")) {
+            enableVncAcceptanceCheckbox.click();
+        }
+        if (syncTaskScheduler.equalsIgnoreCase("N")) {
+            syncTaskSchedulerCheckbox.click();
+        }
+        if (applicationLog.equalsIgnoreCase("N")) {
+            applicationLogCheckbox.click();
+        }
+        if (cpuUtilizationLog.equalsIgnoreCase("N")) {
+            cpuUtilizationLogCheckbox.click();
+        }
+        if (writeFilterLogs.equalsIgnoreCase("N")) {
+            writeFilterLogsCheckbox.click();
+        }
+        if (signalRMonitoring.equalsIgnoreCase("N")) {
+            signalRMonitoringCheckbox.click();
+        }
+        if (hardwareLogs.equalsIgnoreCase("N")) {
+            hardwareLogsCheckbox.click();
+        }
+
+        js.executeScript("arguments[0].scrollIntoView(true);", enableAgentDebugLogsDropdown);
+
+        select = new Select(enableAgentDebugLogsDropdown);
+        select.selectByVisibleText(enableAgentDebugLogs);
+
+        select = new Select(downloadAttemptsDropdown);
+        select.selectByVisibleText(downloadAttempts);
+
+        select = new Select(locationRangeDropdown);
+        select.selectByVisibleText(locationRange);
+
+        // hardware log interval
+        int hardwareLogsIntervalInt = Integer.parseInt(hardwareLogsInterval);
+        int count = hardwareLogsIntervalInt - 3; // by default it's 3
+
+        if (count < 0) {
+            for (int i = 0; i < -count; i++) {
+                decreaseMinutes.click();
+            }
+        } else if (count > 0) {
+            for (int i = 0; i < count; i++) {
+                increaseMinutes.click();
+            }
+        } else {
+            System.out.println("Count is 0");
+        }
+
+        // heartbeat interval
+        heartBeatIntervalTextbox.clear();
+        heartBeatIntervalTextbox.sendKeys(heartBeatInterval);
+
+        // Signal R Connection path
+        signalRConnectionPathTextbox.clear();
+        signalRConnectionPathTextbox.sendKeys(signalRConnectionPath);
+
+        advanceSettingButtonSave.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        if (!((advanceSettingTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(advanceSettingTaskUpdateStatusMessage.getText());
+        }
+
+    }
+
+    public void applySoftwareDeployment_SoftwareAndPatch_InstallUninstall(String selectNewInstallOrUninstall, String sourceType, String source,
+                                                                          String fileName, String parameter, String skipWriteFilter, String globalRepository) {
+
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsSoftwareDeploymentRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSoftwareDeploymentRhsMenu));
+            windowsSoftwareDeploymentRhsMenu.click();
+        }
+
+        windowsSoftwareDeploymentSoftwareAndPatchInstallUninstallRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        Select select;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+//        String selectNewInstallOrUninstall = "NEW INSTALL"; // test data // UNINSTALL
+
+        if (selectNewInstallOrUninstall.equalsIgnoreCase("NEW INSTALL")) {
+
+            newInstallButton.click();
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+            js.executeScript("arguments[0].scrollIntoView(true);", softwarePatchInstallUninstallButtonSave);
+
+//            String sourceType = "Repository"; //Repository //New Upload //$Group$
+            wait.until(ExpectedConditions.visibilityOf(sourceTypeDropdown));
+            select = new Select(sourceTypeDropdown);
+            select.selectByVisibleText(sourceType);
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+            wait.until(ExpectedConditions.visibilityOf(sourceTypeDropdown));
+            wait.until(ExpectedConditions.elementToBeClickable(sourceTypeDropdown));
+//            String source = "HTTPS"; //FDM_HTTP //FTPS //CIFS //HTTPS //$GROUP$
+
+
+            if (sourceType.equalsIgnoreCase("New Upload")) {
+
+                select = new Select(sourceDropdown);
+                select.selectByVisibleText(source);
+                wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+                // upload file
+                fileUploadIcon.sendKeys(System.getProperty("user.dir") + ("\\src\\main\\java\\com\\uem_automation\\qa\\testdata\\") + fileName);
+                fileUploadButton.click();
+                wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+                Assert.assertTrue((fileUploadStatus.getText()).equalsIgnoreCase(fileName + " is uploaded"));
+
+            } else if (sourceType.equalsIgnoreCase("$Group$")) {
+                select = new Select(fileDropdown);
+                select.selectByVisibleText(fileName);
+                wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+                validateConnectionButton.click();
+                Assert.assertTrue((connectionStatus.getText()).equalsIgnoreCase("Connection validated successfully."));
+
+            } else {
+
+                select = new Select(sourceDropdown);
+                select.selectByVisibleText(source);
+                wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+//                String fileName = "ChromeSetup.exe"; // test data
+
+                select = new Select(fileDropdown);
+                select.selectByVisibleText(fileName);
+                wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+                validateConnectionButton.click();
+                Assert.assertTrue((connectionStatus.getText()).equalsIgnoreCase("Connection validated successfully."));
+
+            }
+
+//            String parameter = "/quiet"; // test data
+            parameterTextbox.clear();
+            parameterTextbox.sendKeys(parameter);
+
+//            String skipWriteFilter = "Y"; //Y //N
+            if (skipWriteFilter.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", softwareUpgradeSkipWriteFilterCheckbox);//input[@id='XPSoftwareUpgrade_InstallidRebootRequired']
+            }
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+//            String globalRepository = "Y"; //Y //N
+            if (globalRepository.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", globalRepositoryCheckbox);
+            }
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+            softwarePatchInstallUninstallButtonSave.click();
+
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            if (!((softwarePatchInstallUninstallTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+                Assert.fail(softwarePatchInstallUninstallTaskUpdateStatusMessage.getText());
+            }
+
+        } else if (selectNewInstallOrUninstall.equalsIgnoreCase("UNINSTALL")) {
+            Assert.fail("Uninstall code development is in progress....");
         }
 
     }

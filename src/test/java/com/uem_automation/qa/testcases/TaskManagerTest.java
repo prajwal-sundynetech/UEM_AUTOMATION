@@ -38,10 +38,10 @@ public class TaskManagerTest extends Base {
 
         loginPage.enterUsername(configProp.getProperty("validEmail"));
         loginPage.enterPassword(configProp.getProperty("validPass"));
-//        loginPage.selectView("Task Manager"); //select the direct view //Default View - Device Manager //Task Manager
+        loginPage.selectView("Task Manager"); //select the direct view //Default View - Device Manager //Task Manager
         loginPage.clickOnLoginButton();
         deviceManagerPage.changeTheLeftMenuPositionToTopDirection();
-        deviceManagerPage.clickOnTaskManagementTopMenu();
+//        deviceManagerPage.clickOnTaskManagementTopMenu();
 //        deviceManagerPage.waitTillFooterCompanyWebsiteURLIsDisplayed(testdataProp.getProperty("companyWebsiteUrl"));
 
     }
@@ -168,6 +168,18 @@ public class TaskManagerTest extends Base {
         return data;
     }
 
+    @DataProvider
+    public Object[][] supplyTestData_advancedSettings() {
+        Object[][] data = Utilities.getTestDataFromExcel("Advanced Settings");
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] supplyTestData_softwareAndPatchInstallUninstall() {
+        Object[][] data = Utilities.getTestDataFromExcel("SoftwarePatchInstallUninstall");
+        return data;
+    }
+
     // Test Cases
 
     @Test(priority = 1, dataProvider = "supplyTestData_template") //supplyTestData_template")
@@ -182,7 +194,8 @@ public class TaskManagerTest extends Base {
 
     // System Settings
 
-    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity")//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity")
+//, dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_002_apply_system_settings_networkSettings_802xSecurity(
 
             // searchAndViewTheTemplate
@@ -368,7 +381,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter")//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter")
+//, dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_011_apply_system_settings_printerSettings_add_printer(
 
             // searchAndViewTheTemplate
@@ -570,7 +584,7 @@ public class TaskManagerTest extends Base {
             // searchAndViewTheTemplate
             String templateName,
 
-            // Start Application List
+            // Task Scheduler
             String taskName, String delete, String refresh) {
 
 
@@ -584,123 +598,56 @@ public class TaskManagerTest extends Base {
 
     }
 
+    @Test(priority = 21, dataProvider = "supplyTestData_advancedSettings")
+//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_021_apply_administration_settings_remote_agent_advanced_settings(
 
-    // Administration Settings
+            // searchAndViewTheTemplate
+            String templateName,
 
-//    @Test(priority = 4, dataProvider = "supplyTestData_template")
-//    public void TC_TM_014_Create_template_and_apply_administration_settings(String templateName, String osType, String skipWriteFilter,
-//                                                                            String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
-//
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
-//
+            // advance settings
+            String taskRebootMonitoring, String dhcpDiscovery, String monitoringAndMaintainance, String batteryIndicator,
+            String idleState, String configSync, String location, String bootLog, String usbMassStorageLogs, String screenSaverLogs,
+            String enableVncAcceptance, String syncTaskScheduler, String applicationLog, String cpuUtilizationLog, String writeFilterLogs,
+            String signalRMonitoring, String hardwareLogs, String enableAgentDebugLogs, String downloadAttempts, String locationRange,
+            String hardwareLogsInterval, String heartBeatInterval, String signalRConnectionPath) {
+
 //        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//
-////        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage,
-////                displayTime);
-//
-//        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
-//
-//        // Administration Settings
-//        // Application command
-//        administrationSettingsPage.applyAdministrationSettings_ApplicationCommand();
-//        administrationSettingsPage.applyAdministrationSettings_EnvironementVariable();
-//        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_HistoryCleaner();
-//
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore();
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_StartupApplicationList();
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_TaskScheduler();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_AdvancedSettings();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_ChangeVncPassword();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_GeneralSettings();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_Services();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UsbDeviceManager();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UserManagement();
-//
-//    }
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
 
+        // Administration
+        // Remote agent
+        // Advanced Settings
+        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_AdvancedSettings(
+                taskRebootMonitoring, dhcpDiscovery, monitoringAndMaintainance, batteryIndicator, idleState, configSync, location, bootLog,
+                usbMassStorageLogs, screenSaverLogs, enableVncAcceptance, syncTaskScheduler, applicationLog, cpuUtilizationLog,
+                writeFilterLogs, signalRMonitoring, hardwareLogs, enableAgentDebugLogs, downloadAttempts, locationRange, hardwareLogsInterval,
+                heartBeatInterval, signalRConnectionPath);
 
-//    @Test(priority = 2, dataProvider = "supplyTestData")
-//    public void TC_TM_002_apply_system_settings() {
-//
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
+    }
+
+    // Software Deployment
+    // Software and Patch Install/Uninstall
+    @Test(priority = 22, dataProvider = "supplyTestData_softwareAndPatchInstallUninstall")
+//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_022_software_deployment_software_and_patch_install_uninstall(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Software and patch install uninstall
+            String selectNewInstallOrUninstall, String sourceType, String source,
+            String fileName, String parameter, String skipWriteFilter, String globalRepository) {
+
 //        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//        // System Settings
-//        // Network Settings
-//        systemSettingsPage.applySystemSettings_networkSettings_802xSecurity();
-//        systemSettingsPage.applySystemSettings_networkSettings_computerName();
-//        systemSettingsPage.applySystemSettings_networkSettings_ethernetSetup();
-//        systemSettingsPage.applySystemSettings_networkSettings_wirelessProperties();
-//        systemSettingsPage.applySystemSettings_networkSettings_wirelessSetup();
-//
-//        // Peripheral Settings
-//        systemSettingsPage.applySystemSettings_peripheralSettings_displaySettings();
-//        systemSettingsPage.applySystemSettings_peripheralSettings_keyboardSettings();
-//        systemSettingsPage.applySystemSettings_peripheralSettings_mouseSettings();
-//
-//        // Power Management
-//        systemSettingsPage.applySystemSettings_powerManagement_powerOption();
-//
-//        // Printer Settings
-//        systemSettingsPage.applySystemSettings_printerSettings_addPrinter();
-//
-//        // Time and Language
-//        systemSettingsPage.applySystemSettings_timeAndLanguage_dateAndTime();
-//        systemSettingsPage.applySystemSettings_timeAndLanguage_regionAndLocation();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
 
-//    }
+        // Software Deployment
+        // Software and patch install uninstall
+        administrationSettingsPage.applySoftwareDeployment_SoftwareAndPatch_InstallUninstall(
+                 selectNewInstallOrUninstall,  sourceType,  source, fileName,  parameter,  skipWriteFilter, globalRepository);
 
-//    @Test(priority = 2, dataProvider = "supplyTestData")
-//    public void TC_TM_002_Create_template_and_apply_user_settings(String templateName, String osType, String skipWriteFilter,
-//                                                                  String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
-//
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
-//
-//        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//
-//        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage,
-//                displayTime);
-//
-////        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
-//
-//        // User Settings
-//        // User Interface Settings
-//        userSettingsPage.applyUserInterface_ScreenSaverSettings();
-//        userSettingsPage.applyUserInterface_TaskbarProperties();
-//        userSettingsPage.applyUserInterface_UserInterfaceSettings();
-//        userSettingsPage.applyUserInterface_WallpaperSettings();
-//
-//    }
-//
-//    @Test(priority = 3, dataProvider = "supplyTestData")
-//    public void TC_TM_003_Create_template_and_apply_administration_settings(String templateName, String osType, String skipWriteFilter,
-//                                                                            String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
-//
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
-//
-//        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//
-////        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage,
-////                displayTime);
-//
-//        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
-//
-//        // Administration Settings
-//        // Application command
-//        administrationSettingsPage.applyAdministrationSettings_ApplicationCommand();
-//        administrationSettingsPage.applyAdministrationSettings_EnvironementVariable();
-//        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_HistoryCleaner();
-//
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore();
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_StartupApplicationList();
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_TaskScheduler();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_AdvancedSettings();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_ChangeVncPassword();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_GeneralSettings();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_Services();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UsbDeviceManager();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UserManagement();
-//
-//    }
+    }
 
 
 }
