@@ -43,7 +43,7 @@ public class LoginPage {
 	@FindBy(xpath = "//label[@id='lblRecoveryPassword']") //label[@id='lblRecoveryPassword']")
 	private WebElement recoveryPasswordLabelElement;
 
-	@FindBy(xpath = "//label[@id='lblRecoveryPassword' or @id='lblFailureText']") //label[@id='lblRecoveryPassword']")
+	@FindBy(xpath = "//label[@id='lblFailureText']") //(//label[@id='lblRecoveryPassword' or @id='lblFailureText'])[1]") //label[@id='lblRecoveryPassword']")
 	private WebElement recoveryPasswordSMTPServerNotConfiguredLabelElement;
 
 	@FindBy(xpath = "//input[contains(@placeholder, 'Please Enter Username')]")
@@ -97,6 +97,12 @@ public class LoginPage {
 	}
 
 	public String retrieveLabelText() {
+
+
+
+
+
+
 		try {
 			if(recoveryPasswordSMTPServerNotConfiguredLabelElement.isDisplayed()){
 				return recoveryPasswordSMTPServerNotConfiguredLabelElement.getText();

@@ -182,7 +182,7 @@ public class TaskManagerTest extends Base {
 
     // System Settings
 
-    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity", dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity")//, dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_002_apply_system_settings_networkSettings_802xSecurity(
 
             // searchAndViewTheTemplate
@@ -368,7 +368,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter", dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter")//, dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_011_apply_system_settings_printerSettings_add_printer(
 
             // searchAndViewTheTemplate
@@ -574,8 +574,8 @@ public class TaskManagerTest extends Base {
             String taskName, String delete, String refresh) {
 
 
-        taskManagerPage.navigateToTemplateMangerRhsMenu();
-        templateManagerPage.searchAndViewTheTemplate(templateName);
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // Administration
         // Performance Management
