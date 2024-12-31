@@ -180,6 +180,18 @@ public class TaskManagerTest extends Base {
         return data;
     }
 
+    @DataProvider
+    public Object[][] supplyTestData_changeVncPassword() {
+        Object[][] data = Utilities.getTestDataFromExcel("Change VNC Password");
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] supplyTestData_generalSettings() {
+        Object[][] data = Utilities.getTestDataFromExcel("General Settings");
+        return data;
+    }
+
     // Test Cases
 
     @Test(priority = 1, dataProvider = "supplyTestData_template") //supplyTestData_template")
@@ -626,11 +638,51 @@ public class TaskManagerTest extends Base {
 
     }
 
+    @Test(priority = 22, dataProvider = "supplyTestData_changeVncPassword")
+//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_022_apply_administration_settings_remote_agent_change_vnc_password(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // change vnc password
+            String vncPassword) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Remote agent
+        // change vnc password
+        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_ChangeVncPassword( vncPassword);
+
+    }
+
+    @Test(priority = 23, dataProvider = "supplyTestData_generalSettings")
+//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_023_apply_administration_settings_remote_agent_general_settings(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // general settings
+            String serverIpName,String portNumber,String heartBeatInterval) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Remote agent
+        // general settings
+        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_GeneralSettings(  serverIpName, portNumber, heartBeatInterval);
+
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
-    @Test(priority = 22, dataProvider = "supplyTestData_softwareAndPatchInstallUninstall")
+    @Test(priority = 30, dataProvider = "supplyTestData_softwareAndPatchInstallUninstall")
 //, dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_022_software_deployment_software_and_patch_install_uninstall(
+    public void TC_TM_030_software_deployment_software_and_patch_install_uninstall(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -648,6 +700,8 @@ public class TaskManagerTest extends Base {
                  selectNewInstallOrUninstall,  sourceType,  source, fileName,  parameter,  skipWriteFilter, globalRepository);
 
     }
+
+
 
 
 }

@@ -388,6 +388,38 @@ public class AdministrationSettingsPage {
     @FindBy(xpath = "//input[@id='XPSoftwareUpgrade_InstallidRebootRequired']")
     private WebElement softwareUpgradeSkipWriteFilterCheckbox;
 
+    // Change VNC Password
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']//label[@title='Change VNC Password'][normalize-space()='Change VNC Password']")
+    private WebElement windowsAdministrationSettingsRemoteAgentChangeVncPasswordRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='WinVNCpw_txtDefaultVNC_Password']")
+    private WebElement vncPasswordTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinVNCpw_btnVNC_Apply']")
+    private WebElement vncPasswordButtonSave ;
+
+    @FindBy(xpath = "//div[@id='WinVNCpw_dvShowResult']")
+    private WebElement vncPasswordTaskUpdateStatusMessage ;
+
+    // General Settings
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']//label[@title='General Settings'][normalize-space()='General Settings']")
+    private WebElement windowsAdministrationSettingsRemoteAgentChangeGeneralSettingsRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='WinGenSetting_txtIPAddress']")
+    private WebElement serverIpNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinGenSetting_txtRMAgentPortNO']")
+    private WebElement portNumberTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinGenSetting_txtPollingInterval']")
+    private WebElement heartBeatIntervalGenSettTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinGenSetting_btnApplyGS']")
+    private WebElement generalSettingsButtonSave ;
+
+    @FindBy(xpath = "//div[@id='WinGenSetting_tblRemAgentSettingView']/div[@class='card-footer']/div[@class='clearfix']/div[1]")
+    private WebElement generalSettingsTaskUpdateStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
 
@@ -1111,6 +1143,81 @@ public class AdministrationSettingsPage {
 
         } else if (selectNewInstallOrUninstall.equalsIgnoreCase("UNINSTALL")) {
             Assert.fail("Uninstall code development is in progress....");
+        }
+
+    }
+
+    public void applyAdministrationSettings_RemoteAgent_ChangeVncPassword(String vncPassword) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsRemoteAgentRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRemoteAgentRhsMenu));
+            windowsAdministrationSettingsRemoteAgentRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsRemoteAgentChangeVncPasswordRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        vncPasswordTextbox.sendKeys(vncPassword); // testdata //1234
+
+        vncPasswordButtonSave.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        if (!((vncPasswordTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(vncPasswordTaskUpdateStatusMessage.getText());
+        }
+    }
+
+    public void applyAdministrationSettings_RemoteAgent_GeneralSettings(String serverIpName,String portNumber,String heartBeatInterval) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsRemoteAgentRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRemoteAgentRhsMenu));
+            windowsAdministrationSettingsRemoteAgentRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsRemoteAgentChangeGeneralSettingsRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        serverIpNameTextbox.clear();
+        serverIpNameTextbox.sendKeys(serverIpName); //testdata //winserver.vdi.com
+
+        portNumberTextbox.clear();
+        portNumberTextbox.sendKeys(portNumber); //testdata // 443
+
+        heartBeatIntervalGenSettTextbox.clear();
+        heartBeatIntervalGenSettTextbox.sendKeys(heartBeatInterval); //testdata //30
+
+        // communication type textbox - disabled
+        // client on call checkbox - disabled
+
+        generalSettingsButtonSave.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        if (!((generalSettingsTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(generalSettingsTaskUpdateStatusMessage.getText());
         }
 
     }
