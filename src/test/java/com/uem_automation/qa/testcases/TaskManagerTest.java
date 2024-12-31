@@ -192,6 +192,24 @@ public class TaskManagerTest extends Base {
         return data;
     }
 
+    @DataProvider
+    public Object[][] supplyTestData_services() {
+        Object[][] data = Utilities.getTestDataFromExcel("Services");
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] supplyTestData_usbDeviceManager() {
+        Object[][] data = Utilities.getTestDataFromExcel("USB Device Manager");
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] supplyTestData_userManagement() {
+        Object[][] data = Utilities.getTestDataFromExcel("User Management");
+        return data;
+    }
+
     // Test Cases
 
     @Test(priority = 1, dataProvider = "supplyTestData_template") //supplyTestData_template")
@@ -206,8 +224,7 @@ public class TaskManagerTest extends Base {
 
     // System Settings
 
-    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity")
-//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_002_apply_system_settings_networkSettings_802xSecurity(
 
             // searchAndViewTheTemplate
@@ -393,8 +410,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter")
-//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_011_apply_system_settings_printerSettings_add_printer(
 
             // searchAndViewTheTemplate
@@ -589,8 +605,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 20, dataProvider = "supplyTestData_taskScheduler")
-//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 20, dataProvider = "supplyTestData_taskScheduler", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_020_apply_administration_settings_performance_management_task_scheduler(
 
             // searchAndViewTheTemplate
@@ -610,8 +625,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 21, dataProvider = "supplyTestData_advancedSettings")
-//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 21, dataProvider = "supplyTestData_advancedSettings", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_021_apply_administration_settings_remote_agent_advanced_settings(
 
             // searchAndViewTheTemplate
@@ -638,8 +652,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 22, dataProvider = "supplyTestData_changeVncPassword")
-//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 22, dataProvider = "supplyTestData_changeVncPassword", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_022_apply_administration_settings_remote_agent_change_vnc_password(
 
             // searchAndViewTheTemplate
@@ -658,8 +671,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 23, dataProvider = "supplyTestData_generalSettings")
-//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 23, dataProvider = "supplyTestData_generalSettings", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_023_apply_administration_settings_remote_agent_general_settings(
 
             // searchAndViewTheTemplate
@@ -678,10 +690,74 @@ public class TaskManagerTest extends Base {
 
     }
 
+    @Test(priority = 24, dataProvider = "supplyTestData_services", dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_024_apply_administration_settings_service_management_services(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Services
+            String name, String operation, String startupType, String skipWriteFilter) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Service Management
+        // Services
+        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_Services( name,  operation,  startupType,  skipWriteFilter);
+
+    }
+
+    @Test(priority = 25, dataProvider = "supplyTestData_usbDeviceManager", dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_025_apply_administration_settings_service_management_usb_device_manager(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Usb device manager
+            String usbDeviceControllerStatus, String audioDevices, String audioVideoDevices, String humanInterfacesDevices,
+            String imageDevices, String massStorageDevices, String printers, String smartcardReader,
+            String videoDevices, String wirelessControllers) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Service Management
+        // Usb Device Manager
+        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UsbDeviceManager(
+                 usbDeviceControllerStatus,  audioDevices,  audioVideoDevices,  humanInterfacesDevices,
+                 imageDevices,  massStorageDevices,  printers,  smartcardReader,
+                 videoDevices,  wirelessControllers
+        );
+    }
+
+    @Test(priority = 26, dataProvider = "supplyTestData_userManagement", dependsOnMethods = {"TC_TM_001_Create_template"})
+    public void TC_TM_026_apply_administration_settings_service_management_user_management(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // user management
+            String selectTab, String username, String password, String fullName, String description, String memberOf,
+            String userCannotChangeThePassword, String passwordNeverExpires, String disableUser) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Service Management
+        // user management
+        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UserManagement(
+                 selectTab,  username,  password,  fullName,  description,  memberOf,
+                 userCannotChangeThePassword,  passwordNeverExpires,  disableUser
+        );
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
-    @Test(priority = 30, dataProvider = "supplyTestData_softwareAndPatchInstallUninstall")
-//, dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 30, dataProvider = "supplyTestData_softwareAndPatchInstallUninstall", dependsOnMethods = {"TC_TM_001_Create_template"})
     public void TC_TM_030_software_deployment_software_and_patch_install_uninstall(
 
             // searchAndViewTheTemplate

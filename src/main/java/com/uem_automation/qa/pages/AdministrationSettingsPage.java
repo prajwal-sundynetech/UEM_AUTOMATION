@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import javax.naming.Name;
 import java.util.List;
 
 import java.time.Duration;
@@ -390,35 +391,156 @@ public class AdministrationSettingsPage {
 
     // Change VNC Password
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']//label[@title='Change VNC Password'][normalize-space()='Change VNC Password']")
-    private WebElement windowsAdministrationSettingsRemoteAgentChangeVncPasswordRhsMenu ;
+    private WebElement windowsAdministrationSettingsRemoteAgentChangeVncPasswordRhsMenu;
 
     @FindBy(xpath = "//input[@id='WinVNCpw_txtDefaultVNC_Password']")
-    private WebElement vncPasswordTextbox ;
+    private WebElement vncPasswordTextbox;
 
     @FindBy(xpath = "//input[@id='WinVNCpw_btnVNC_Apply']")
-    private WebElement vncPasswordButtonSave ;
+    private WebElement vncPasswordButtonSave;
 
     @FindBy(xpath = "//div[@id='WinVNCpw_dvShowResult']")
-    private WebElement vncPasswordTaskUpdateStatusMessage ;
+    private WebElement vncPasswordTaskUpdateStatusMessage;
 
     // General Settings
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']//label[@title='General Settings'][normalize-space()='General Settings']")
-    private WebElement windowsAdministrationSettingsRemoteAgentChangeGeneralSettingsRhsMenu ;
+    private WebElement windowsAdministrationSettingsRemoteAgentChangeGeneralSettingsRhsMenu;
 
     @FindBy(xpath = "//input[@id='WinGenSetting_txtIPAddress']")
-    private WebElement serverIpNameTextbox ;
+    private WebElement serverIpNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinGenSetting_txtRMAgentPortNO']")
-    private WebElement portNumberTextbox ;
+    private WebElement portNumberTextbox;
 
     @FindBy(xpath = "//input[@id='WinGenSetting_txtPollingInterval']")
-    private WebElement heartBeatIntervalGenSettTextbox ;
+    private WebElement heartBeatIntervalGenSettTextbox;
 
     @FindBy(xpath = "//input[@id='WinGenSetting_btnApplyGS']")
-    private WebElement generalSettingsButtonSave ;
+    private WebElement generalSettingsButtonSave;
 
     @FindBy(xpath = "//div[@id='WinGenSetting_tblRemAgentSettingView']/div[@class='card-footer']/div[@class='clearfix']/div[1]")
-    private WebElement generalSettingsTaskUpdateStatusMessage ;
+    private WebElement generalSettingsTaskUpdateStatusMessage;
+
+    // Service Management
+    // Services
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_servicesmanagement_Window']")
+    private WebElement windowsAdministrationSettingsServiceManagementRhsMenu ;
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']//label[@title='Services'][normalize-space()='Services']")
+    private WebElement windowsAdministrationSettingsServiceManagementServicesRhsMenu ;
+
+    @FindBy(xpath = "//input[@aria-controls='XPService_tblForServiesGrpMac']")
+    private WebElement searchTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPService_btnView']")
+    private WebElement viewButton ;
+
+    @FindBy(xpath = "//select[@id='XPService_ddlStartupType']")
+    private WebElement startupTypeDropdown ;
+
+    @FindBy(xpath = "//input[@id='XPService_idRebootRequired']")
+    private WebElement servicesSkipWriteFilterCheckbox ;
+
+    @FindBy(xpath = "//input[@id='XPService_btnApply']")
+    private WebElement servicesViewApplyButton ;
+
+    @FindBy(xpath = "//input[@id='XPService_btnStartSysView']")
+    private WebElement startButton ;
+
+    @FindBy(xpath = "//input[@id='XPService_btnRestartSysView']")
+    private WebElement restartButton ;
+
+    @FindBy(xpath = "//input[@id='XPService_btnStopSysView']")
+    private WebElement stopButton ;
+
+    @FindBy(xpath = "//div[@id='XPService_Div5']")
+    private WebElement servicesTaskUpdateStatusMessage ;
+
+    // Usb Device Manager
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']//label[@title='USB Device Manager'][normalize-space()='USB Device Manager']")
+    private WebElement windowsAdministrationSettingsServiceManagementUsbDeviceManagerRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='XPUSBchkOnOffStatus']")
+    private WebElement usbDeviceControllerStatusCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_AudioDevices']")
+    private WebElement audioDeviceCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_AudioVideoDevices']")
+    private WebElement audioVideoDevicesCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_HumanInterfaceDevices']")
+    private WebElement humanInterfacesDevicesCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_ImageDevices']")
+    private WebElement imageDevicesCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_MassStorageDevices']")
+    private WebElement massStorageDevicesCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_Printers']")
+    private WebElement printersCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_SmartCardReader']")
+    private WebElement smartcardReaderCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_VideoDevices']")
+    private WebElement videoDevicesCheckbox ;
+
+    @FindBy(xpath = "//label[@id='XPUSBlblchk_WirelessControllers']")
+    private WebElement wirelessControllersCheckbox ;
+
+    @FindBy(xpath = "//input[@id='XPUSBbtnSave']")
+    private WebElement usbDeviceManagerButtonSave ;
+
+    @FindBy(xpath = "//div[@id='XPUSBtrSettings']")
+    private WebElement usbDeviceManagerTaskUpdateStatusMessage ;
+
+    // User Management
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_administration_Window']//label[@title='User Management'][normalize-space()='User Management']")
+    private WebElement windowsAdministrationSettingsServiceManagementUserManagementRhsMenu ;
+
+    @FindBy(xpath = "//a[@id='XPUserManagement_lnkaddUser']")
+    private WebElement addUserTab ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_txtUserName']")
+    private WebElement umUsernameTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_txtPassword']")
+    private WebElement umPasswordTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_txtConfirmpassword']")
+    private WebElement umConfirmPasswordTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_txtFullName']")
+    private WebElement umFullNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_txtDescription']")
+    private WebElement umDescriptionTextbox ;
+
+    @FindBy(xpath = "//select[@id='XPUserManagement_ddlMemberOf']")
+    private WebElement memberOfDropdown ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_cbxDontChangePassword']")
+    private WebElement userCannotChangeThePasswordCheckbox ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_cbxPasswordNeverExpires']")
+    private WebElement passwordNeverExpiresCheckbox ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_cbxDisableUser']")
+    private WebElement disableUserCheckbox ;
+
+    @FindBy(xpath = "//a[@id='XPUserManagement_lnkUserRsetetPass']")
+    private WebElement resetUserTab ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_btnAdd']")
+    private WebElement userManagementAddUserButtonSave ;
+
+    @FindBy(xpath = "//input[@id='XPUserManagement_btnEditSave']")
+    private WebElement userManagementResetUserButtonSave ;
+
+    @FindBy(xpath = "//div[@id='XPUserManagement_trApplySetting']//div[@class='pull-left']")
+    private WebElement userManagementTaskUpdateStatusMessage ;
 
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
@@ -1179,7 +1301,7 @@ public class AdministrationSettingsPage {
         }
     }
 
-    public void applyAdministrationSettings_RemoteAgent_GeneralSettings(String serverIpName,String portNumber,String heartBeatInterval) {
+    public void applyAdministrationSettings_RemoteAgent_GeneralSettings(String serverIpName, String portNumber, String heartBeatInterval) {
 
         if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
             wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
@@ -1218,6 +1340,219 @@ public class AdministrationSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
         if (!((generalSettingsTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(generalSettingsTaskUpdateStatusMessage.getText());
+        }
+
+    }
+
+    public void applyAdministrationSettings_ServiceManagement_Services(String name, String operation, String startupType, String skipWriteFilter) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsServiceManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsServiceManagementRhsMenu));
+            windowsAdministrationSettingsServiceManagementRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsServiceManagementServicesRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        Select select;
+
+        searchTextbox.sendKeys(name); //testdata
+
+        try {
+            WebElement row = driver.findElement(By.xpath("(//table[@id='XPService_tblForServiesGrpMac']//tr[1])[2]"));
+            WebElement checkbox = row.findElement(By.xpath("./td[1]/input[@type='checkbox']"));
+            if (!checkbox.isSelected()) {
+                js.executeScript("arguments[0].click();", checkbox);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+//        String operation = "VIEW"; //VIEW //START //RESTART //STOP
+
+        if(skipWriteFilter.equalsIgnoreCase("Y")) {
+//                servicesSkipWriteFilterCheckbox.click();
+            js.executeScript("arguments[0].click();",servicesSkipWriteFilterCheckbox);
+        }
+
+        if(operation.equalsIgnoreCase("VIEW")) {
+            viewButton.click();
+            select = new Select(startupTypeDropdown);
+            select.selectByVisibleText(startupType); //testdata //---Select--- //Automatic (Delayed Start) //Automatic //Manual //Disabled
+            servicesViewApplyButton.click();
+        } else if (operation.equalsIgnoreCase("START")) {
+            startButton.click();
+        } else if (operation.equalsIgnoreCase("RESTART")) {
+            restartButton.click();
+        } else if (operation.equalsIgnoreCase("STOP")) {
+            stopButton.click();
+        }
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        if (!((servicesTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(servicesTaskUpdateStatusMessage.getText());
+        }
+
+    }
+
+    public void applyAdministrationSettings_ServiceManagement_UsbDeviceManager(
+            String usbDeviceControllerStatus, String audioDevices, String audioVideoDevices, String humanInterfacesDevices,
+            String imageDevices, String massStorageDevices, String printers, String smartcardReader,
+            String videoDevices, String wirelessControllers) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsServiceManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsServiceManagementRhsMenu));
+            windowsAdministrationSettingsServiceManagementRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsServiceManagementUsbDeviceManagerRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+//        String usbDeviceControllerStatus = "Y"; //testdata //Y
+
+        if(usbDeviceControllerStatus.equalsIgnoreCase("Y")) {
+//            usbDeviceControllerStatusCheckbox.click();
+            js.executeScript("arguments[0].click();", usbDeviceControllerStatusCheckbox);
+            if(audioDevices.equalsIgnoreCase("Y")) {
+//                audioDevicesCheckbox.click();
+                js.executeScript("arguments[0].click();", audioDeviceCheckbox);
+            }
+            if(audioVideoDevices.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", audioVideoDevicesCheckbox);
+            }
+            if(humanInterfacesDevices.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", humanInterfacesDevicesCheckbox);
+            }
+            if(imageDevices.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", imageDevicesCheckbox);
+            }
+            if(massStorageDevices.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", massStorageDevicesCheckbox);
+            }
+            if(printers.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", printersCheckbox);
+            }
+            if(smartcardReader.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", smartcardReaderCheckbox);
+            }
+            if(videoDevices.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", videoDevicesCheckbox);
+            }
+            if(wirelessControllers.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", wirelessControllersCheckbox);
+            }
+
+            usbDeviceManagerButtonSave.click();
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            if (!((usbDeviceManagerTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+                Assert.fail(usbDeviceManagerTaskUpdateStatusMessage.getText());
+            }
+        }
+    }
+
+    public void applyAdministrationSettings_ServiceManagement_UserManagement(
+            String selectTab, String username, String password, String fullName, String description, String memberOf,
+            String userCannotChangeThePassword, String passwordNeverExpires, String disableUser) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsAdministrationSettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRhsMenu));
+            windowsAdministrationSettingsRhsMenu.click();
+        }
+
+        if (!(windowsAdministrationSettingsServiceManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsServiceManagementRhsMenu));
+            windowsAdministrationSettingsServiceManagementRhsMenu.click();
+        }
+
+        windowsAdministrationSettingsServiceManagementUserManagementRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        Select select;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+//        String selectTab = "Add User"; //Add User //Reset User //testdata
+
+        if(selectTab.equalsIgnoreCase("Add User")) {
+            addUserTab.click();
+            umUsernameTextbox.sendKeys(username); // testdata
+            umPasswordTextbox.sendKeys(password); // testdata
+            umConfirmPasswordTextbox.sendKeys(password); // testdata
+            umFullNameTextbox.sendKeys(fullName); // testdata
+            umDescriptionTextbox.sendKeys(description); // testdata
+
+            select = new Select(memberOfDropdown);
+            select.selectByVisibleText(memberOf); // testdata
+
+            if(userCannotChangeThePassword.equalsIgnoreCase("Y")) {
+//                userCannotChangeThePasswordCheckbox.click();
+                js.executeScript("arguments[0].click();", userCannotChangeThePasswordCheckbox);
+            }
+
+            if(passwordNeverExpires.equalsIgnoreCase("Y")) {
+                if(!passwordNeverExpiresCheckbox.isSelected()) {
+                    js.executeScript("arguments[0].click();", passwordNeverExpiresCheckbox);
+                }
+            } else if (passwordNeverExpires.equalsIgnoreCase("N")) {
+                if(passwordNeverExpiresCheckbox.isSelected()) {
+                    js.executeScript("arguments[0].click();", passwordNeverExpiresCheckbox);
+                }
+            }
+
+            if(disableUser.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", disableUserCheckbox);
+            }
+            userManagementAddUserButtonSave.click();
+
+        } else if (selectTab.equalsIgnoreCase("Reset User")) {
+            resetUserTab.click();
+            umUsernameTextbox.sendKeys(username); // testdata
+            umPasswordTextbox.sendKeys(password); // testdata
+            umConfirmPasswordTextbox.sendKeys(password); // testdata
+
+            userManagementResetUserButtonSave.click();
+        }
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        if (!((userManagementTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(userManagementTaskUpdateStatusMessage.getText());
         }
 
     }
