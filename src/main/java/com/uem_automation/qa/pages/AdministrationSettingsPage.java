@@ -1220,7 +1220,9 @@ public class AdministrationSettingsPage {
                 select.selectByVisibleText(fileName);
                 wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
-                validateConnectionButton.click();
+//                validateConnectionButton.click();
+                js.executeScript("arguments[0].click();", validateConnectionButton);
+                wait.until(ExpectedConditions.visibilityOf(connectionStatus));
                 Assert.assertTrue((connectionStatus.getText()).equalsIgnoreCase("Connection validated successfully."));
 
             } else {

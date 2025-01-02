@@ -105,7 +105,7 @@ public class SystemSettingsPage {
     // Network Setting
 
     // 802.1x Security
-    @FindBy(xpath = "//select[@id='ddl8021NetworkType']")
+    @FindBy(xpath = "//div[@id='div8021xWirelessNetworkDropdown']//select") //select[@id='ddl8021NetworkType']")
     private WebElement networkType;
 
     @FindBy(xpath = "//input[@id='Text8021xSSID']")
