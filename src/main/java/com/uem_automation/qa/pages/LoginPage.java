@@ -97,7 +97,7 @@ public class LoginPage {
 	}
 
 	public String retrieveLabelText() {
-
+		wait.until(ExpectedConditions.visibilityOf(recoveryPasswordLabelElement));
 		return recoveryPasswordLabelElement.getText();
 
 //		try {
