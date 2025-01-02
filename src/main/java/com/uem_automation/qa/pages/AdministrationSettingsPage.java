@@ -573,6 +573,7 @@ public class AdministrationSettingsPage {
             windowsAdministrationSettingsRhsMenu.click();
         }
 
+        wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsApplicationCommandRhsMenu));
         windowsAdministrationSettingsApplicationCommandRhsMenu.click();
 
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
@@ -1034,7 +1035,7 @@ public class AdministrationSettingsPage {
             wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRemoteAgentRhsMenu));
             windowsAdministrationSettingsRemoteAgentRhsMenu.click();
         }
-
+        wait.until(ExpectedConditions.elementToBeClickable(windowsAdministrationSettingsRemoteAgentAdvancedSettingsRhsMenu));
         windowsAdministrationSettingsRemoteAgentAdvancedSettingsRhsMenu.click();
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 

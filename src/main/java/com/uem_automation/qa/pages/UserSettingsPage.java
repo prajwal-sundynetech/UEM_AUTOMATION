@@ -44,7 +44,7 @@ public class UserSettingsPage {
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']")
     private WebElement windowsUserSettingsRhsMenu ;
 
-    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']//label[@title='User Interface'][normalize-space()='User Interface']")
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_userinterface_window']")
     private WebElement windowsUserSettingsUserInterfaceRhsMenu ;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']//label[@title='Screen Saver Settings'][normalize-space()='Screen Saver Settings']")

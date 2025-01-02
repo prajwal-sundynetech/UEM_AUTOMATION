@@ -336,14 +336,15 @@ public class TaskManagerTest extends Base {
 //     User Settings
 
     @Test(priority = 14, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
-    public void TC_TM_014_apply_UserSettings(String templateName, String osType, String skipWriteFilter,
-                                              String taskScheduleType, String allowTaskPostponement, String postponementMessage,
-                                              String postponementDisplayTime, String templateStartMessage, String displayTime) {
+    public void TC_TM_014_apply_UserSettings(String templateName
+//    , String osType, String skipWriteFilter, String taskScheduleType, String allowTaskPostponement, String postponementMessage,
+//    String postponementDisplayTime, String templateStartMessage, String displayTime
 
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
-//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        ) {
 
 //        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage, displayTime);
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
 //        templateManagerPage.searchAndViewTheTemplate(templateName); //testdataProp.getProperty("templateName"));
 
         // User Settings
