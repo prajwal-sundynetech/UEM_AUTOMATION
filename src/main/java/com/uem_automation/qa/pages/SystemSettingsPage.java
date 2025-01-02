@@ -545,16 +545,9 @@ public class SystemSettingsPage {
     // Actions
 
     public void applySystemSettings_networkSettings_802xSecurity(
-            String networkTypeString,
-            String ssidInput,
-            String securityTypeString,
-            String encryptionTypeString,
-            String domainNameInput,
-            String domainUsernameInput,
-            String domainPasswordInput,
-            String advanceSettOr802xSettingsString,
-            String specifyAuthenticationString,
-            String authenticationModeString) {
+            String networkTypeString, String ssidInput, String securityTypeString, String encryptionTypeString,
+            String domainNameInput, String domainUsernameInput, String domainPasswordInput, String advanceSettOr802xSettingsString,
+            String specifyAuthenticationString, String authenticationModeString) {
 
         // Close the RHS menu if it's active
         if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
@@ -749,7 +742,7 @@ public class SystemSettingsPage {
     }
 
     public void applySystemSettings_networkSettings_ethernetSetup(String ethernetSetupType, String obtainDnsAutomatically, String primaryDnsInput,
-                                                                  String secondaryDnsInput) throws InterruptedException {
+                                                                  String secondaryDnsInput)  {
 
         if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
             wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));

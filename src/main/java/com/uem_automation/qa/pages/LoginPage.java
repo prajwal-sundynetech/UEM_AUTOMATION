@@ -98,20 +98,17 @@ public class LoginPage {
 
 	public String retrieveLabelText() {
 
+		return recoveryPasswordLabelElement.getText();
 
-
-
-
-
-		try {
-			if(recoveryPasswordSMTPServerNotConfiguredLabelElement.isDisplayed()){
-				return recoveryPasswordSMTPServerNotConfiguredLabelElement.getText();
-			}
-//			wait.until(ExpectedConditions.visibilityOf(recoveryPasswordLabelElement));
-			return recoveryPasswordLabelElement.getText();
-		} catch (NoSuchElementException e){
-			return null;
-		}
+//		try {
+//			if(recoveryPasswordSMTPServerNotConfiguredLabelElement.isDisplayed()){
+//				return recoveryPasswordSMTPServerNotConfiguredLabelElement.getText();
+//			}
+////			wait.until(ExpectedConditions.visibilityOf(recoveryPasswordLabelElement));
+//			return recoveryPasswordLabelElement.getText();
+//		} catch (NoSuchElementException e){
+//			return null;
+//		}
 		
 	}
 

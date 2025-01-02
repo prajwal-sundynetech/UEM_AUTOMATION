@@ -1407,7 +1407,6 @@ public class AdministrationSettingsPage {
         if (!((servicesTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(servicesTaskUpdateStatusMessage.getText());
         }
-
     }
 
     public void applyAdministrationSettings_ServiceManagement_UsbDeviceManager(
