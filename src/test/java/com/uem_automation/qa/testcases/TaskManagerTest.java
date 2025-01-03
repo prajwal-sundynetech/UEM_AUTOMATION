@@ -7,6 +7,8 @@ import org.testng.annotations.*;
 import com.uem_automation.qa.base.Base;
 import com.uem_automation.qa.utils.Utilities;
 
+import java.lang.reflect.Method;
+
 public class TaskManagerTest extends Base {
 
     public WebDriver driver;
@@ -17,6 +19,8 @@ public class TaskManagerTest extends Base {
     UserSettingsPage userSettingsPage;
     SystemSettingsPage systemSettingsPage;
     AdministrationSettingsPage administrationSettingsPage;
+    SecuritySettingsPage securitySettingsPage;
+    SoftwareDeploymentPage softwareDeploymentPage;
 
     // Constructor
     public TaskManagerTest() {
@@ -35,13 +39,15 @@ public class TaskManagerTest extends Base {
         systemSettingsPage = new SystemSettingsPage(driver);
         userSettingsPage = new UserSettingsPage(driver);
         administrationSettingsPage = new AdministrationSettingsPage(driver);
+        securitySettingsPage = new SecuritySettingsPage(driver);
+        softwareDeploymentPage = new SoftwareDeploymentPage(driver);
 
         loginPage.enterUsername(configProp.getProperty("validEmail"));
         loginPage.enterPassword(configProp.getProperty("validPass"));
-//        loginPage.selectView("Task Manager"); //select the direct view //Default View - Device Manager //Task Manager
+        loginPage.selectView("Task Manager"); //select the direct view //Default View - Device Manager //Task Manager
         loginPage.clickOnLoginButton();
         deviceManagerPage.changeTheLeftMenuPositionToTopDirection();
-        deviceManagerPage.clickOnTaskManagementTopMenu();
+//        deviceManagerPage.clickOnTaskManagementTopMenu();
 //        deviceManagerPage.waitTillFooterCompanyWebsiteURLIsDisplayed(testdataProp.getProperty("companyWebsiteUrl"));
 
     }
@@ -51,109 +57,25 @@ public class TaskManagerTest extends Base {
         driver.quit();
     }
 
-
-    // Data Provider Methods
-
-    @DataProvider
-    public Object[][] supplyTestData_template() {
-        Object[][] data = Utilities.getTestDataFromExcel("Template");
+    // Data Provider Method
+    @DataProvider(name = "supplyTestData")
+    public Object[][] supplyTestData(Method method) {
+        String methodName = method.getName();
+        String sheetName = getSheetNameFromMethodName(methodName);
+        Object data[][] = Utilities.getTestDataFromExcel(sheetName);
         return data;
     }
 
-    @DataProvider
-    public Object[][] supplyTestData_802xSecurity() {
-        Object[][] data = Utilities.getTestDataFromExcel("802.1x Security");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_computerName() {
-        Object[][] data = Utilities.getTestDataFromExcel("Computer Name");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_ethernetSetup() {
-        Object[][] data = Utilities.getTestDataFromExcel("Ethernet Setup");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_wirelessProperties() {
-        Object[][] data = Utilities.getTestDataFromExcel("Wireless Properties");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_wirelessSetup() {
-        Object[][] data = Utilities.getTestDataFromExcel("Wireless Setup");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_displaySettings() {
-        Object[][] data = Utilities.getTestDataFromExcel("Display Settings");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_keyboardSettings() {
-        Object[][] data = Utilities.getTestDataFromExcel("Keyboard Settings");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_mouseSettings() {
-        Object[][] data = Utilities.getTestDataFromExcel("Mouse Settings");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_powerOption() {
-        Object[][] data = Utilities.getTestDataFromExcel("Power Option");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_addPrinter() {
-        Object[][] data = Utilities.getTestDataFromExcel("Add Printer");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_dateAndTime() {
-        Object[][] data = Utilities.getTestDataFromExcel("Date & Time");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_regionAndLocation() {
-        Object[][] data = Utilities.getTestDataFromExcel("Region & Location");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_applicationCommand() {
-        Object[][] data = Utilities.getTestDataFromExcel("Application Command");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_environmentVariable() {
-        Object[][] data = Utilities.getTestDataFromExcel("Environment Variable");
-        return data;
-    }
-
-    @DataProvider
-    public Object[][] supplyTestData_historyCleaner() {
-        Object[][] data = Utilities.getTestDataFromExcel("History Cleaner");
-        return data;
+    public String getSheetNameFromMethodName(String methodName) {
+        String[] parts = methodName.split("_");
+        String sheet = parts[parts.length - 1];
+        return sheet;
     }
 
     // Test Cases
 
-    @Test(priority = 1, dataProvider = "supplyTestData_template") //supplyTestData_template")
-    public void TC_TM_001_Create_template(String templateName, String osType, String skipWriteFilter,
+    @Test(priority = 1, dataProvider = "supplyTestData")//supplyTestData_template") //supplyTestData_template")
+    public void TC_TM_001_Create_Template(String templateName, String osType, String skipWriteFilter,
                                           String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
 
         //        deviceManagerPage.clickOnTaskManagementTopMenu();
@@ -164,7 +86,7 @@ public class TaskManagerTest extends Base {
 
     // System Settings
 
-    @Test(priority = 2, dataProvider = "supplyTestData_802xSecurity", dependsOnMethods = {"TC_TM_001_Create_template"})
+    @Test(priority = 2, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
     public void TC_TM_002_apply_system_settings_networkSettings_802xSecurity(
 
             // searchAndViewTheTemplate
@@ -188,8 +110,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 3, dataProvider = "supplyTestData_computerName", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_003_apply_system_settings_networkSettings_computer_name(
+    @Test(priority = 3, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_003_apply_system_settings_networkSettings_ComputerName(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -214,8 +136,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 4, dataProvider = "supplyTestData_ethernetSetup", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_004_apply_system_settings_networkSettings_ethernet_setup(
+    @Test(priority = 4, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_004_apply_system_settings_networkSettings_EthernetSetup(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -234,8 +156,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 5, dataProvider = "supplyTestData_wirelessProperties", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_005_apply_system_settings_networkSettings_wireless_properties(
+    @Test(priority = 5, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_005_apply_system_settings_networkSettings_WirelessProperties(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -255,8 +177,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 6, dataProvider = "supplyTestData_wirelessSetup", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_006_apply_system_settings_networkSettings_wireless_setup(
+    @Test(priority = 6, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_006_apply_system_settings_networkSettings_WirelessSetup(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -274,8 +196,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 7, dataProvider = "supplyTestData_displaySettings", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_007_apply_system_settings_peripheralSettings_display_settings(
+    @Test(priority = 7, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_007_apply_system_settings_peripheralSettings_DisplaySettings(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -293,8 +215,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 8, dataProvider = "supplyTestData_keyboardSettings", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_008_apply_system_settings_peripheralSettings_keyboard_settings(
+    @Test(priority = 8, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_008_apply_system_settings_peripheralSettings_KeyboardSettings(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -312,8 +234,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 9, dataProvider = "supplyTestData_mouseSettings", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_009_apply_system_settings_peripheralSettings_mouse_settings(
+    @Test(priority = 9, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_009_apply_system_settings_peripheralSettings_MouseSettings(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -331,8 +253,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 10, dataProvider = "supplyTestData_powerOption", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_010_apply_system_settings_powerManagement_power_option(
+    @Test(priority = 10, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_010_apply_system_settings_powerManagement_PowerOption(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -350,8 +272,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 11, dataProvider = "supplyTestData_addPrinter", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_011_apply_system_settings_printerSettings_add_printer(
+    @Test(priority = 11, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_011_apply_system_settings_printerSettings_AddPrinter(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -373,8 +295,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 12, dataProvider = "supplyTestData_dateAndTime", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_012_apply_system_settings_timeAndLanguage_dateAndTime(
+    @Test(priority = 12, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_012_apply_system_settings_timeAndLanguage_DateAndTime(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -394,8 +316,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 13, dataProvider = "supplyTestData_regionAndLocation", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_013_apply_system_settings_timeAndLanguage_region_and_location(
+    @Test(priority = 13, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_013_apply_system_settings_timeAndLanguage_RegionAndLocation(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -417,15 +339,16 @@ public class TaskManagerTest extends Base {
 
 //     User Settings
 
-    @Test(priority = 14, dataProvider = "supplyTestData_template", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_014_apply_user_settings(String templateName, String osType, String skipWriteFilter,
-                                              String taskScheduleType, String allowTaskPostponement, String postponementMessage,
-                                              String postponementDisplayTime, String templateStartMessage, String displayTime) {
+    @Test(priority = 14, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_014_apply_UserSettings(String templateName
+//    , String osType, String skipWriteFilter, String taskScheduleType, String allowTaskPostponement, String postponementMessage,
+//    String postponementDisplayTime, String templateStartMessage, String displayTime
 
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
-//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        ) {
 
 //        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage, displayTime);
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
 //        templateManagerPage.searchAndViewTheTemplate(templateName); //testdataProp.getProperty("templateName"));
 
         // User Settings
@@ -439,8 +362,8 @@ public class TaskManagerTest extends Base {
 
     // Administration Settings
 
-    @Test(priority = 15, dataProvider = "supplyTestData_applicationCommand", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_015_apply_administration_settings_application_command(
+    @Test(priority = 15, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_015_apply_administration_settings_ApplicationCommand(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -461,8 +384,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 16, dataProvider = "supplyTestData_environmentVariable", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_016_apply_administration_settings_environment_variable(
+    @Test(priority = 16, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_016_apply_administration_settings_EnvironmentVariable(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -479,8 +402,8 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 17, dataProvider = "supplyTestData_historyCleaner", dependsOnMethods = {"TC_TM_001_Create_template"})
-    public void TC_TM_017_apply_administration_settings_performance_management_history_cleaner(
+    @Test(priority = 17, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_017_apply_administration_settings_performance_management_HistoryCleaner(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -491,8 +414,9 @@ public class TaskManagerTest extends Base {
             String clearTheCommonDialogueOpenSaveHistory, String clearTheCommonDialogueLastVisitedFolderHistory,
             String pleaseEmptyTheClipboard, String pleaseEmptyTheRecycleBin, String deleteWindowsTemporaryFiles) {
 
-//        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        //        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        //        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // Administration
         // Performance Management
@@ -504,123 +428,242 @@ public class TaskManagerTest extends Base {
 
     }
 
+    @Test(priority = 18, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_018_apply_administration_settings_performance_management_RegistryBackupRestore(
 
-    // Administration Settings
+            // searchAndViewTheTemplate
+            String templateName,
 
-//    @Test(priority = 4, dataProvider = "supplyTestData_template")
-//    public void TC_TM_014_Create_template_and_apply_administration_settings(String templateName, String osType, String skipWriteFilter,
-//                                                                            String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
-//
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
-//
+            // Registry Backup Restore
+            String selectTab, String registryKeyUser, String key,
+            String backupPath, String backupName) {
+
 //        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//
-////        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage,
-////                displayTime);
-//
-//        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
-//
-//        // Administration Settings
-//        // Application command
-//        administrationSettingsPage.applyAdministrationSettings_ApplicationCommand();
-//        administrationSettingsPage.applyAdministrationSettings_EnvironementVariable();
-//        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_HistoryCleaner();
-//
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore();
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_StartupApplicationList();
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_TaskScheduler();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_AdvancedSettings();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_ChangeVncPassword();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_GeneralSettings();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_Services();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UsbDeviceManager();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UserManagement();
-//
-//    }
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Performance Management
+        // Registry Backup Restore
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore(selectTab, registryKeyUser, key, backupPath, backupName);
+
+    }
+
+    @Test(priority = 19, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_019_apply_administration_settings_performance_management_StartupApplicationList(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Start Application List
+            String applicationPath, String applicationName, String enabled) {
 
 
-//    @Test(priority = 2, dataProvider = "supplyTestData")
-//    public void TC_TM_002_apply_system_settings() {
-//
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
+        //        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        //        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Performance Management
+        // Start Application List
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_StartApplicationList(applicationPath, applicationName, enabled);
+
+    }
+
+    @Test(priority = 20, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_020_apply_administration_settings_performance_management_TaskScheduler(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Task Scheduler
+            String taskName, String delete, String refresh) {
+
+
 //        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//        // System Settings
-//        // Network Settings
-//        systemSettingsPage.applySystemSettings_networkSettings_802xSecurity();
-//        systemSettingsPage.applySystemSettings_networkSettings_computerName();
-//        systemSettingsPage.applySystemSettings_networkSettings_ethernetSetup();
-//        systemSettingsPage.applySystemSettings_networkSettings_wirelessProperties();
-//        systemSettingsPage.applySystemSettings_networkSettings_wirelessSetup();
-//
-//        // Peripheral Settings
-//        systemSettingsPage.applySystemSettings_peripheralSettings_displaySettings();
-//        systemSettingsPage.applySystemSettings_peripheralSettings_keyboardSettings();
-//        systemSettingsPage.applySystemSettings_peripheralSettings_mouseSettings();
-//
-//        // Power Management
-//        systemSettingsPage.applySystemSettings_powerManagement_powerOption();
-//
-//        // Printer Settings
-//        systemSettingsPage.applySystemSettings_printerSettings_addPrinter();
-//
-//        // Time and Language
-//        systemSettingsPage.applySystemSettings_timeAndLanguage_dateAndTime();
-//        systemSettingsPage.applySystemSettings_timeAndLanguage_regionAndLocation();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
 
-//    }
+        // Administration
+        // Performance Management
+        // Task Scheduler
+        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_taskScheduler(taskName, delete, refresh);
 
-//    @Test(priority = 2, dataProvider = "supplyTestData")
-//    public void TC_TM_002_Create_template_and_apply_user_settings(String templateName, String osType, String skipWriteFilter,
-//                                                                  String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
-//
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
-//
+    }
+
+    @Test(priority = 21, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_021_apply_administration_settings_remote_agent_AdvancedSettings(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // advance settings
+            String taskRebootMonitoring, String dhcpDiscovery, String monitoringAndMaintainance, String batteryIndicator,
+            String idleState, String configSync, String location, String bootLog, String usbMassStorageLogs, String screenSaverLogs,
+            String enableVncAcceptance, String syncTaskScheduler, String applicationLog, String cpuUtilizationLog, String writeFilterLogs,
+            String signalRMonitoring, String hardwareLogs, String enableAgentDebugLogs, String downloadAttempts, String locationRange,
+            String hardwareLogsInterval, String heartBeatInterval, String signalRConnectionPath) {
+
 //        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//
-//        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage,
-//                displayTime);
-//
-////        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
-//
-//        // User Settings
-//        // User Interface Settings
-//        userSettingsPage.applyUserInterface_ScreenSaverSettings();
-//        userSettingsPage.applyUserInterface_TaskbarProperties();
-//        userSettingsPage.applyUserInterface_UserInterfaceSettings();
-//        userSettingsPage.applyUserInterface_WallpaperSettings();
-//
-//    }
-//
-//    @Test(priority = 3, dataProvider = "supplyTestData")
-//    public void TC_TM_003_Create_template_and_apply_administration_settings(String templateName, String osType, String skipWriteFilter,
-//                                                                            String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
-//
-//        deviceManagerPage.clickOnTaskManagementTopMenu();
-//
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Remote agent
+        // Advanced Settings
+        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_AdvancedSettings(
+                taskRebootMonitoring, dhcpDiscovery, monitoringAndMaintainance, batteryIndicator, idleState, configSync, location, bootLog,
+                usbMassStorageLogs, screenSaverLogs, enableVncAcceptance, syncTaskScheduler, applicationLog, cpuUtilizationLog,
+                writeFilterLogs, signalRMonitoring, hardwareLogs, enableAgentDebugLogs, downloadAttempts, locationRange, hardwareLogsInterval,
+                heartBeatInterval, signalRConnectionPath);
+
+    }
+
+    @Test(priority = 22, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_022_apply_administration_settings_remote_agent_ChangeVNCPassword(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // change vnc password
+            String vncPassword) {
+
 //        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//
-////        templateManagerPage.createTemplate(templateName, osType, skipWriteFilter, taskScheduleType, allowTaskPostponement, postponementMessage, postponementDisplayTime, templateStartMessage,
-////                displayTime);
-//
-//        templateManagerPage.searchAndViewTheTemplate(testdataProp.getProperty("templateName"));
-//
-//        // Administration Settings
-//        // Application command
-//        administrationSettingsPage.applyAdministrationSettings_ApplicationCommand();
-//        administrationSettingsPage.applyAdministrationSettings_EnvironementVariable();
-//        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_HistoryCleaner();
-//
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_RegistryBackupRestore();
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_StartupApplicationList();
-////        administrationSettingsPage.applyAdministrationSettings_PerformanceManagement_TaskScheduler();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_AdvancedSettings();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_ChangeVncPassword();
-////        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_GeneralSettings();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_Services();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UsbDeviceManager();
-////        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UserManagement();
-//
-//    }
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Remote agent
+        // change vnc password
+        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_ChangeVncPassword( vncPassword);
+
+    }
+
+    @Test(priority = 23, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_023_apply_administration_settings_remote_agent_GeneralSettings(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // general settings
+            String serverIpName,String portNumber,String heartBeatInterval) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Remote agent
+        // general settings
+        administrationSettingsPage.applyAdministrationSettings_RemoteAgent_GeneralSettings(  serverIpName, portNumber, heartBeatInterval);
+
+    }
+
+    @Test(priority = 24, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_024_apply_administration_settings_service_management_Services(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Services
+            String name, String operation, String startupType, String skipWriteFilter) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Service Management
+        // Services
+        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_Services( name,  operation,  startupType,  skipWriteFilter);
+
+    }
+
+    @Test(priority = 25, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_025_apply_administration_settings_service_management_USBDeviceManager(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Usb device manager
+            String usbDeviceControllerStatus, String audioDevices, String audioVideoDevices, String humanInterfacesDevices,
+            String imageDevices, String massStorageDevices, String printers, String smartcardReader,
+            String videoDevices, String wirelessControllers) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Service Management
+        // Usb Device Manager
+        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UsbDeviceManager(
+                 usbDeviceControllerStatus,  audioDevices,  audioVideoDevices,  humanInterfacesDevices,
+                 imageDevices,  massStorageDevices,  printers,  smartcardReader,
+                 videoDevices,  wirelessControllers
+        );
+    }
+
+    @Test(priority = 26, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_026_apply_administration_settings_service_management_UserManagement(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // user management
+            String selectTab, String username, String password, String fullName, String description, String memberOf,
+            String userCannotChangeThePassword, String passwordNeverExpires, String disableUser) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Administration
+        // Service Management
+        // user management
+        administrationSettingsPage.applyAdministrationSettings_ServiceManagement_UserManagement(
+                 selectTab,  username,  password,  fullName,  description,  memberOf,
+                 userCannotChangeThePassword,  passwordNeverExpires,  disableUser
+        );
+    }
+
+    @Test(priority = 27, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_027_apply_security_file_system_WriteFilterOperations(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // write filter operations
+            String selectTab, String writeFilterSetting, String writeFilter, String fileAndFolderPath,
+            String registryPath, String setMaxCacheSizeForNextSession, String overlaySize,
+            String alertUser, String messageType, String messageImportant, String title, String message,
+            String displayTime) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // File System
+        // Write Filter Operations
+        securitySettingsPage.applySecuritySettings_FileSystem_WriteFilterOperations( selectTab, writeFilterSetting, writeFilter, fileAndFolderPath,
+                registryPath, setMaxCacheSizeForNextSession, overlaySize, alertUser, messageType, messageImportant, title, message, displayTime
+        );
+    }
+
+    // Software Deployment
+    // Software and Patch Install/Uninstall
+    @Test(priority = 30, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_030_software_deployment_SoftwarePatchInstallUninstall(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Software and patch install uninstall
+            String selectNewInstallOrUninstall, String sourceType, String source,
+            String fileName, String parameter, String skipWriteFilter, String globalRepository) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Software Deployment
+        // Software and patch install uninstall
+        softwareDeploymentPage.applySoftwareDeployment_SoftwareAndPatch_InstallUninstall(
+                selectNewInstallOrUninstall,  sourceType,  source, fileName,  parameter,  skipWriteFilter, globalRepository);
+
+    }
+
+
 
 
 }

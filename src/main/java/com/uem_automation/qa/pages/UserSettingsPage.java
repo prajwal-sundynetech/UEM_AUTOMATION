@@ -44,7 +44,7 @@ public class UserSettingsPage {
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']")
     private WebElement windowsUserSettingsRhsMenu ;
 
-    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']//label[@title='User Interface'][normalize-space()='User Interface']")
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_userinterface_window']")
     private WebElement windowsUserSettingsUserInterfaceRhsMenu ;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_usersettings_window']//label[@title='Screen Saver Settings'][normalize-space()='Screen Saver Settings']")
@@ -247,6 +247,8 @@ public class UserSettingsPage {
 
             fileUploadIcon.sendKeys(System.getProperty("user.dir") + ("\\src\\main\\java\\com\\uem_automation\\qa\\testdata\\LiquidArtWinScreenSaver.scr")); // test data  //LiquidArtWinScreenSaver.scr
 
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            
             screenSaverWaitTextbox.clear();
             screenSaverWaitTextbox.sendKeys("5"); // in minutes // test data
 
@@ -402,7 +404,7 @@ public class UserSettingsPage {
 
             autoLogonTab.click();
 
-            String ui_username = "Admin"; //Admin //Guest //shradha // etc. chk the application
+            String ui_username = "shradha"; //Admin //Guest //shradha // etc. chk the application
 
             Select select = new Select(uiUsernameDropdown);
             select.selectByVisibleText(ui_username);

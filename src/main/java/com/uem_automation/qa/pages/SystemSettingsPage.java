@@ -105,7 +105,7 @@ public class SystemSettingsPage {
     // Network Setting
 
     // 802.1x Security
-    @FindBy(xpath = "//select[@id='ddl8021NetworkType']")
+    @FindBy(xpath = "//div[@id='div8021xWirelessNetworkDropdown']//select") //select[@id='ddl8021NetworkType']")
     private WebElement networkType;
 
     @FindBy(xpath = "//input[@id='Text8021xSSID']")
@@ -545,16 +545,9 @@ public class SystemSettingsPage {
     // Actions
 
     public void applySystemSettings_networkSettings_802xSecurity(
-            String networkTypeString,
-            String ssidInput,
-            String securityTypeString,
-            String encryptionTypeString,
-            String domainNameInput,
-            String domainUsernameInput,
-            String domainPasswordInput,
-            String advanceSettOr802xSettingsString,
-            String specifyAuthenticationString,
-            String authenticationModeString) {
+            String networkTypeString, String ssidInput, String securityTypeString, String encryptionTypeString,
+            String domainNameInput, String domainUsernameInput, String domainPasswordInput, String advanceSettOr802xSettingsString,
+            String specifyAuthenticationString, String authenticationModeString) {
 
         // Close the RHS menu if it's active
         if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
@@ -585,8 +578,12 @@ public class SystemSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         // Select the network type (Wireless/Ethernet)
-        Select select = new Select(networkType);
+        WebElement networkType1 = driver.findElement(By.xpath("//div[@id='div8021xWirelessNetworkDropdown']//select"));
+        select = new Select(networkType1);
         select.selectByVisibleText(networkTypeString);
+
+//        Select select1 = new Select(networkType);
+//        select1.selectByVisibleText(networkTypeString);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -749,7 +746,7 @@ public class SystemSettingsPage {
     }
 
     public void applySystemSettings_networkSettings_ethernetSetup(String ethernetSetupType, String obtainDnsAutomatically, String primaryDnsInput,
-                                                                  String secondaryDnsInput) throws InterruptedException {
+                                                                  String secondaryDnsInput)  {
 
         if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
             wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
@@ -1267,7 +1264,13 @@ public class SystemSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
 //        windowsSystemSettingsPrinterSettingsDropdown.click();
-        windowsSystemSettingsPrinterSettings_addPrinter_Menu.click();
+        try {
+            windowsSystemSettingsPrinterSettings_addPrinter_Menu.click();
+        } catch(ElementNotInteractableException e) {
+            Assert.fail("Printer Menu subitems not visible, 'add printer' menu is not visible.");
+        } catch(Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
         Thread.sleep(3000);
 
