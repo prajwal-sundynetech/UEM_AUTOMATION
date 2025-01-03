@@ -247,6 +247,8 @@ public class UserSettingsPage {
 
             fileUploadIcon.sendKeys(System.getProperty("user.dir") + ("\\src\\main\\java\\com\\uem_automation\\qa\\testdata\\LiquidArtWinScreenSaver.scr")); // test data  //LiquidArtWinScreenSaver.scr
 
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            
             screenSaverWaitTextbox.clear();
             screenSaverWaitTextbox.sendKeys("5"); // in minutes // test data
 

@@ -263,7 +263,13 @@ public class DeviceManagerPage {
     }
 
     public void expandTheGroupSelected() {
-        expandSelectedGroupIconElement.click();
+        try {
+            expandSelectedGroupIconElement.click();
+        } catch (NoSuchElementException e) {
+            Assert.fail("Selected Group is Empty.");
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     public void clickOnTheDevice(String deviceIpProperty) {

@@ -19,6 +19,8 @@ public class TaskManagerTest extends Base {
     UserSettingsPage userSettingsPage;
     SystemSettingsPage systemSettingsPage;
     AdministrationSettingsPage administrationSettingsPage;
+    SecuritySettingsPage securitySettingsPage;
+    SoftwareDeploymentPage softwareDeploymentPage;
 
     // Constructor
     public TaskManagerTest() {
@@ -37,6 +39,8 @@ public class TaskManagerTest extends Base {
         systemSettingsPage = new SystemSettingsPage(driver);
         userSettingsPage = new UserSettingsPage(driver);
         administrationSettingsPage = new AdministrationSettingsPage(driver);
+        securitySettingsPage = new SecuritySettingsPage(driver);
+        softwareDeploymentPage = new SoftwareDeploymentPage(driver);
 
         loginPage.enterUsername(configProp.getProperty("validEmail"));
         loginPage.enterPassword(configProp.getProperty("validPass"));
@@ -614,6 +618,29 @@ public class TaskManagerTest extends Base {
         );
     }
 
+    @Test(priority = 27, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_027_apply_security_file_system_WriteFilterOperations(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // write filter operations
+            String selectTab, String writeFilterSetting, String writeFilter, String fileAndFolderPath,
+            String registryPath, String setMaxCacheSizeForNextSession, String overlaySize,
+            String alertUser, String messageType, String messageImportant, String title, String message,
+            String displayTime) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // File System
+        // Write Filter Operations
+        securitySettingsPage.applySecuritySettings_FileSystem_WriteFilterOperations( selectTab, writeFilterSetting, writeFilter, fileAndFolderPath,
+                registryPath, setMaxCacheSizeForNextSession, overlaySize, alertUser, messageType, messageImportant, title, message, displayTime
+        );
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 30, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
@@ -631,8 +658,8 @@ public class TaskManagerTest extends Base {
 
         // Software Deployment
         // Software and patch install uninstall
-        administrationSettingsPage.applySoftwareDeployment_SoftwareAndPatch_InstallUninstall(
-                 selectNewInstallOrUninstall,  sourceType,  source, fileName,  parameter,  skipWriteFilter, globalRepository);
+        softwareDeploymentPage.applySoftwareDeployment_SoftwareAndPatch_InstallUninstall(
+                selectNewInstallOrUninstall,  sourceType,  source, fileName,  parameter,  skipWriteFilter, globalRepository);
 
     }
 

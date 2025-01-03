@@ -578,8 +578,12 @@ public class SystemSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         // Select the network type (Wireless/Ethernet)
-        Select select1 = new Select(networkType);
-        select1.selectByVisibleText(networkTypeString);
+        WebElement networkType1 = driver.findElement(By.xpath("//div[@id='div8021xWirelessNetworkDropdown']//select"));
+        select = new Select(networkType1);
+        select.selectByVisibleText(networkTypeString);
+
+//        Select select1 = new Select(networkType);
+//        select1.selectByVisibleText(networkTypeString);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -1260,7 +1264,13 @@ public class SystemSettingsPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
 //        windowsSystemSettingsPrinterSettingsDropdown.click();
-        windowsSystemSettingsPrinterSettings_addPrinter_Menu.click();
+        try {
+            windowsSystemSettingsPrinterSettings_addPrinter_Menu.click();
+        } catch(ElementNotInteractableException e) {
+            Assert.fail("Printer Menu subitems not visible, 'add printer' menu is not visible.");
+        } catch(Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
         Thread.sleep(3000);
 

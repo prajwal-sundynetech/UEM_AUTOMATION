@@ -52,7 +52,7 @@ public class Base {
 
 	}
 
-	// cross-browsr browser invocation
+	// cross-browser browser invocation
 	public WebDriver initializeBrowserAndOpenApplicationURL(String browserName) {
 
 		if (browserName.equalsIgnoreCase("chrome")) {
