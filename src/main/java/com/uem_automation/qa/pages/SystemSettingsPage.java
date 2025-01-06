@@ -989,7 +989,7 @@ public class SystemSettingsPage {
 
         wirelessSetupSaveButton.click();
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
-
+        wait.until(ExpectedConditions.visibilityOf(wirelessSetupTaskUpdateStatusMessage));
         if (!((wirelessSetupTaskUpdateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(wirelessSetupTaskUpdateStatusMessage.getText());
         }
