@@ -96,8 +96,52 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//div[@id='WinWriteFilterRowWriteFilterApply']//div[@class='pull-left']")
     private WebElement writeFilterOperationsTaskUpdateStatusMessage ;
 
+    // Firewall
+    @FindBy(xpath = "//label[@id='XPFirewall_lblMenuAddPort']")
+    private WebElement addPortLabel ;
+
+    @FindBy(xpath = "//input[@id='XPFirewall_txtName']")
+    private WebElement nameTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPFirewall_txtFirewallPortNo']")
+    private WebElement portNumberTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPFirewall_rbtnTCP']")
+    private WebElement tcpRadioButton ;
+
+    @FindBy(xpath = "//input[@id='XPFirewall_rbtnUDP']")
+    private WebElement udpRadioButton ;
+
+    @FindBy(xpath = "//input[@id='XPFirewall_btnSavePortXP']")
+    private WebElement addPortSaveButton ;
+
+    @FindBy(xpath = "//div[@id='XPFirewall_pnlPort']//div[@class='pull-left']")
+    private WebElement addPortStatusMessage ;
+
+    @FindBy(xpath = "//label[@id='XPFirewall_lblMenuAddProgram']")
+    private WebElement addProgramLabel ;
+
+    @FindBy(xpath = "//input[@id='XPFirewall_txtProgramName']")
+    private WebElement programNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPFirewall_txtProgramPath']")
+    private WebElement programPathTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPFirewall_btnSaveProgram']")
+    private WebElement addProgramSaveButton ;
+
+    @FindBy(xpath = "//div[@id='XPFirewall_pnlAddProgram']//div[@class='pull-left']")
+    private WebElement addProgramStatusMessage ;
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_network_Window']")
+    private WebElement windowsSecuritySettingsNetworkRhsMenu ;
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Firewall'][normalize-space()='Firewall']")
+    private WebElement windowsSecuritySettingsNetworkFirewallRhsMenu ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
+//
 
 
     // Constructor
@@ -234,4 +278,76 @@ public class SecuritySettingsPage {
     }
 
 
+    public void applySecuritySettings_Network_Firewall(String selectTab, String name, String portNumber, String selectProtocol,
+                                                       String programName, String programPath) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsSecuritySettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsRhsMenu));
+            windowsSecuritySettingsRhsMenu.click();
+        }
+
+        if (!(windowsSecuritySettingsNetworkRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsNetworkRhsMenu));
+            windowsSecuritySettingsNetworkRhsMenu.click();
+        }
+
+        windowsSecuritySettingsNetworkFirewallRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+//        String selectTab = "Add Port"; //testdata
+
+        if(selectTab.equalsIgnoreCase("Add Port")) {
+
+            addPortLabel.click();
+
+//            String name = "testname"; // testdata
+            nameTextbox.sendKeys(name);
+
+//            String portNumber = "testportnumber"; // testdata
+            portNumberTextbox.sendKeys(portNumber);
+
+//            String selectProtocol = "UDP"; //testdata
+
+            if(selectProtocol.equalsIgnoreCase("TCP")) {
+                js.executeScript("arguments[0].click();", tcpRadioButton);
+            } else if (selectProtocol.equalsIgnoreCase("UDP")) {
+                js.executeScript("arguments[0].click();", udpRadioButton);
+            }
+            addPortSaveButton.click();
+
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.visibilityOf(addPortStatusMessage));
+            if (!((addPortStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+                Assert.fail(addPortStatusMessage.getText());
+            }
+
+        } else if (selectTab.equalsIgnoreCase("Add Program")) {
+
+            addProgramLabel.click();
+
+//            String programName = "testName"; //testdata
+            programNameTextbox.sendKeys(programName);
+
+//            String programPath = "C:\\Program Files\\Internet Explorer\\iexplore.exe"; //testdata
+            programPathTextbox.sendKeys(programPath);
+
+            addProgramSaveButton.click();
+
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.visibilityOf(addProgramStatusMessage));
+            if (!((addProgramStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+                Assert.fail(addProgramStatusMessage.getText());
+            }
+        }
+    }
 }

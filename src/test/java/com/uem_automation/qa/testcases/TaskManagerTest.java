@@ -641,6 +641,26 @@ public class TaskManagerTest extends Base {
         );
     }
 
+    @Test(priority = 28, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_028_apply_security_network_Firewall(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // firewall
+            String selectTab, String name, String portNumber, String selectProtocol,
+            String programName, String programPath) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Network
+        // Firewall
+        securitySettingsPage.applySecuritySettings_Network_Firewall( selectTab,  name,  portNumber,  selectProtocol,
+                 programName,  programPath);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 30, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
