@@ -148,6 +148,7 @@ public class SoftwareDeploymentPage {
 
 //                validateConnectionButton.click();
                 js.executeScript("arguments[0].click();", validateConnectionButton);
+                wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
                 wait.until(ExpectedConditions.visibilityOf(connectionStatus));
                 Assert.assertTrue((connectionStatus.getText()).equalsIgnoreCase("Connection validated successfully."));
 

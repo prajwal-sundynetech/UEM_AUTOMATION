@@ -84,6 +84,9 @@ public class Utilities {
 				case BOOLEAN:
 					data[i][j] = cell.getBooleanCellValue();
 					break;
+				case FORMULA:
+					data[i][j] = cell.getRawValue(); // string
+					break;
 				default:
 					break;
 				}
