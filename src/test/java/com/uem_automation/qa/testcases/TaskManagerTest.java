@@ -661,6 +661,24 @@ public class TaskManagerTest extends Base {
                  programName,  programPath);
     }
 
+    @Test(priority = 29, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_029_apply_security_network_ProxySettings(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // ProxySettings
+            String automaticallyDetectSettings, String useAutomaticConfigScript, String address) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Network
+        // Proxy Settings
+        securitySettingsPage.applySecuritySettings_Network_ProxySettings( automaticallyDetectSettings,  useAutomaticConfigScript,  address);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 30, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})

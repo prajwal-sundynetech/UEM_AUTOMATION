@@ -28,120 +28,138 @@ public class SecuritySettingsPage {
 
     // Write Filter Application
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_security_window']")
-    private WebElement windowsSecuritySettingsRhsMenu ;
+    private WebElement windowsSecuritySettingsRhsMenu;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_filesystem_Window']")
-    private WebElement windowsSecuritySettingsFileSystemRhsMenu ;
+    private WebElement windowsSecuritySettingsFileSystemRhsMenu;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Write Filter Operations'][normalize-space()='Write Filter Operations']")
-    private WebElement windowsSecuritySettingsFileSystemWriteFilterOperationsRhsMenu ;
+    private WebElement windowsSecuritySettingsFileSystemWriteFilterOperationsRhsMenu;
 
     @FindBy(xpath = "//label[@id='WinWriteFilterlblMenuWrtFlterSett']")
-    private WebElement writeFilterSettingLabel ;
+    private WebElement writeFilterSettingLabel;
 
     @FindBy(xpath = "//label[@id='WinWriteFilterlblMenuFBWFCnfgrtn']")
-    private WebElement writeFilterExclusionListLabel ;
+    private WebElement writeFilterExclusionListLabel;
 
     @FindBy(xpath = "//select[@id='WinWriteFilterddlWriteFilterSelection']")
-    private WebElement writeFilterDropdown ;
+    private WebElement writeFilterDropdown;
 
     @FindBy(xpath = "//input[@id='WinWriteFiltertxtCombobox']")
-    private WebElement fileAndFolderPathTextbox ;
+    private WebElement fileAndFolderPathTextbox;
 
     @FindBy(xpath = "//input[@id='WinWriteFilterbtnadd']")
-    private WebElement addButton1 ;
+    private WebElement addButton1;
 
     @FindBy(xpath = "//input[@id='WinWriteFiltertxtCombobox1']")
-    private WebElement registryPathTextbox ;
+    private WebElement registryPathTextbox;
 
     @FindBy(xpath = "//input[@id='WinWriteFilterbtnaddRegistry']")
-    private WebElement addButton2 ;
+    private WebElement addButton2;
 
     @FindBy(xpath = "//label[@id='WinWriteFilterlblMenuFBWFCacheSize']")
-    private WebElement fbwfCacheSize ;
+    private WebElement fbwfCacheSize;
 
     @FindBy(xpath = "//input[@id='WinWriteFiltertxtcatchsize']")
-    private WebElement setMaxCacheSizeForNextSessionTextbox ;
+    private WebElement setMaxCacheSizeForNextSessionTextbox;
 
     @FindBy(xpath = "//label[@id='WinWriteFilterlblMenuOverlaySettings']")
-    private WebElement overlaySettingsLabel ;
+    private WebElement overlaySettingsLabel;
 
     @FindBy(xpath = "//input[@id='WinOverlay_txtOverlaySize']")
-    private WebElement overlaySizeTextbox ;
+    private WebElement overlaySizeTextbox;
 
     @FindBy(xpath = "//input[@id='WinWriteFilterchkWarnUser']/following-sibling::span")
-    private WebElement alertUserCheckbox ;
+    private WebElement alertUserCheckbox;
 
     @FindBy(xpath = "//select[@id='WinWriteFilterddlMessageType']")
-    private WebElement messageTypeDropdown ;
+    private WebElement messageTypeDropdown;
 
     @FindBy(xpath = "//select[@id='WinWriteFilterddlMessageImp']")
-    private WebElement messageImportantDropdown ;
+    private WebElement messageImportantDropdown;
 
     @FindBy(xpath = "//input[@id='WinWriteFiltertxttitle']")
-    private WebElement titleTextbox ;
+    private WebElement titleTextbox;
 
     @FindBy(xpath = "//input[@id='WinWriteFiltertxtMsg']")
-    private WebElement messageTextbox ;
+    private WebElement messageTextbox;
 
     @FindBy(xpath = "//select[@id='WinWriteFilterddlDisplayTime']")
-    private WebElement displayTimeDropdown ;
+    private WebElement displayTimeDropdown;
 
     @FindBy(xpath = "//input[@id='WinWriteFilterbtnFWFSaveNew']")
-    private WebElement exclusionAndFbwfSizeButtonSave ;
+    private WebElement exclusionAndFbwfSizeButtonSave;
 
     @FindBy(xpath = "//input[@id='WinOverlaySettingbtnFWFSave']")
-    private WebElement overlaySettingsButtonSave ;
+    private WebElement overlaySettingsButtonSave;
 
     @FindBy(xpath = "//div[@id='WinWriteFilterRowWriteFilterApply']//div[@class='pull-left']")
-    private WebElement writeFilterOperationsTaskUpdateStatusMessage ;
+    private WebElement writeFilterOperationsTaskUpdateStatusMessage;
 
     // Firewall
     @FindBy(xpath = "//label[@id='XPFirewall_lblMenuAddPort']")
-    private WebElement addPortLabel ;
+    private WebElement addPortLabel;
 
     @FindBy(xpath = "//input[@id='XPFirewall_txtName']")
-    private WebElement nameTextbox ;
+    private WebElement nameTextbox;
 
     @FindBy(xpath = "//input[@id='XPFirewall_txtFirewallPortNo']")
-    private WebElement portNumberTextbox ;
+    private WebElement portNumberTextbox;
 
     @FindBy(xpath = "//input[@id='XPFirewall_rbtnTCP']")
-    private WebElement tcpRadioButton ;
+    private WebElement tcpRadioButton;
 
     @FindBy(xpath = "//input[@id='XPFirewall_rbtnUDP']")
-    private WebElement udpRadioButton ;
+    private WebElement udpRadioButton;
 
     @FindBy(xpath = "//input[@id='XPFirewall_btnSavePortXP']")
-    private WebElement addPortSaveButton ;
+    private WebElement addPortSaveButton;
 
     @FindBy(xpath = "//div[@id='XPFirewall_pnlPort']//div[@class='pull-left']")
-    private WebElement addPortStatusMessage ;
+    private WebElement addPortStatusMessage;
 
     @FindBy(xpath = "//label[@id='XPFirewall_lblMenuAddProgram']")
-    private WebElement addProgramLabel ;
+    private WebElement addProgramLabel;
 
     @FindBy(xpath = "//input[@id='XPFirewall_txtProgramName']")
-    private WebElement programNameTextbox ;
+    private WebElement programNameTextbox;
 
     @FindBy(xpath = "//input[@id='XPFirewall_txtProgramPath']")
-    private WebElement programPathTextbox ;
+    private WebElement programPathTextbox;
 
     @FindBy(xpath = "//input[@id='XPFirewall_btnSaveProgram']")
-    private WebElement addProgramSaveButton ;
+    private WebElement addProgramSaveButton;
 
     @FindBy(xpath = "//div[@id='XPFirewall_pnlAddProgram']//div[@class='pull-left']")
-    private WebElement addProgramStatusMessage ;
+    private WebElement addProgramStatusMessage;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_network_Window']")
-    private WebElement windowsSecuritySettingsNetworkRhsMenu ;
+    private WebElement windowsSecuritySettingsNetworkRhsMenu;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Firewall'][normalize-space()='Firewall']")
-    private WebElement windowsSecuritySettingsNetworkFirewallRhsMenu ;
+    private WebElement windowsSecuritySettingsNetworkFirewallRhsMenu;
+
+    //Proxy Settings
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Proxy Settings'][normalize-space()='Proxy Settings']")
+    private WebElement windowsSecuritySettingsNetworkProxySettingsRhsMenu;
+
+    @FindBy(xpath = "//input[@id='WinProxySettingscbxAutoSelection']")
+    private WebElement automaticallyDetectSettingsCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinProxySettingscbxAutomaticConfiguration']")
+    private WebElement useAutomaticConfigScriptCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinProxySettingstxtAddress']")
+    private WebElement addressTextbox;
+
+    @FindBy(xpath = "//input[@id='WinProxySettingsbtnApplyIESettings']")
+    private WebElement proxySettingSaveButton;
+
+    @FindBy(xpath = "//div[@id='WinProxySettingsRowApplyIESettings']//div[@class='pull-left']")
+    private WebElement proxySettingStatusMessage;
 
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
-//
 
 
     // Constructor
@@ -306,7 +324,7 @@ public class SecuritySettingsPage {
 
 //        String selectTab = "Add Port"; //testdata
 
-        if(selectTab.equalsIgnoreCase("Add Port")) {
+        if (selectTab.equalsIgnoreCase("Add Port")) {
 
             addPortLabel.click();
 
@@ -318,7 +336,7 @@ public class SecuritySettingsPage {
 
 //            String selectProtocol = "UDP"; //testdata
 
-            if(selectProtocol.equalsIgnoreCase("TCP")) {
+            if (selectProtocol.equalsIgnoreCase("TCP")) {
                 js.executeScript("arguments[0].click();", tcpRadioButton);
             } else if (selectProtocol.equalsIgnoreCase("UDP")) {
                 js.executeScript("arguments[0].click();", udpRadioButton);
@@ -349,5 +367,71 @@ public class SecuritySettingsPage {
                 Assert.fail(addProgramStatusMessage.getText());
             }
         }
+    }
+
+    public void applySecuritySettings_Network_ProxySettings(String automaticallyDetectSettings, String useAutomaticConfigScript, String address) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsSecuritySettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsRhsMenu));
+            windowsSecuritySettingsRhsMenu.click();
+        }
+
+        if (!(windowsSecuritySettingsNetworkRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsNetworkRhsMenu));
+            windowsSecuritySettingsNetworkRhsMenu.click();
+        }
+
+        windowsSecuritySettingsNetworkProxySettingsRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        //Automatic Configuration
+//        String automaticallyDetectSettings = "Y"; //testdata
+//        String useAutomaticConfigScript = "Y"; //testdata
+
+        if (automaticallyDetectSettings.equalsIgnoreCase("Y")) {
+            js.executeScript("arguments[0].click();", automaticallyDetectSettingsCheckbox);
+            if (useAutomaticConfigScript.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", useAutomaticConfigScriptCheckbox);
+//                String address = "testaddress"; //testdata
+                addressTextbox.sendKeys(address);
+            }
+        }
+
+        // below settings are not required for the time period
+
+        //Proxy Settings
+//        String useProxyServerForLan = "Y"; //testdata
+//        String bypassProxyServerForLocalAddress = "Y"; //testdata
+//
+//        if(useProxyServerForLan.equalsIgnoreCase("Y")) {
+//            js.executeScript("arguments[0].click();", useProxyServerForLanCheckbox);
+//            if(bypassProxyServerForLocalAddress.equalsIgnoreCase("Y")) {
+//                js.executeScript("arguments[0].click();", bypassProxyServerForLocalAddressCheckbox);
+//            }
+//        }
+//
+//        //Servers
+//        if(useProxyServerForLan.equalsIgnoreCase("Y")) {
+//
+//        }
+
+        proxySettingSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(proxySettingStatusMessage));
+        if (!((proxySettingStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(proxySettingStatusMessage.getText());
+        }
+
     }
 }
