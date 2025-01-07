@@ -158,6 +158,52 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//div[@id='WinProxySettingsRowApplyIESettings']//div[@class='pull-left']")
     private WebElement proxySettingStatusMessage;
 
+    // Software Restriction
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_security_window']//label[@title='Software Restriction'][normalize-space()='Software Restriction']")
+    private WebElement windowsSecuritySettingsNetworkSoftwareRestrictionRhsMenu ;
+
+    @FindBy(xpath = "//a[@id='XPRestrictionlibtnInstallationUninstallation']")
+    private WebElement installationAndUninstallationLabel ;
+
+    @FindBy(xpath = "//label[@for='XPRestrictionchkIntstall']")
+    private WebElement installationAndUninstallationRestrictionSwitch ;
+
+    @FindBy(xpath = "//a[@id='XPRestrictionlibtnApplicationRestriction']")
+    private WebElement applicatonRestrictionLabel ;
+
+    @FindBy(xpath = "//select[@id='XPRestrictionddlsoftwareRestictionAllowOrDeny']")
+    private WebElement softwareRestrictionDropdown ;
+
+    @FindBy(xpath = "//input[@id='XPRestrictiontxtName']")
+    private WebElement softwareApplicationNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='XPRestrictionbtnAddToAppList']")
+    private WebElement softwareApplicationNameAddButton ;
+
+    @FindBy(xpath = "//div[@id='XPRestrictionRowApplySettings']//div[@class='pull-left']")
+    private WebElement applicationAddStatus ;
+
+    @FindBy(xpath = "//select[@id='XPRestrictionApplIst']")
+    private WebElement restrictionAppListDropdown ;
+
+    @FindBy(xpath = "//input[@id='XPRestrictionbtnLoadToBlocklist']")
+    private WebElement loadToBlockListButton ;
+
+    @FindBy(xpath = "//a[@id='XPRestrictionlibtnBrowserRestriction']")
+    private WebElement browserRestrctionLabel ;
+
+    @FindBy(xpath = "//select[@id='XPRestrictionblacklistBrowser_ddlBrowserName']")
+    private WebElement browserNameDropdown ;
+
+    @FindBy(xpath = "//select[@id='XPRestrictionblacklistBrowser_RestrictionType']")
+    private WebElement restrictionTypeDropdown ;
+
+    @FindBy(xpath = "//input[@id='XPRestrictionSoftwareRestrictionXP_btnSave']")
+    private WebElement softwareRestrictionSaveButton ;
+
+    @FindBy(xpath = "//div[@id='XPRestrictionRowApplySettings']//div[@class='pull-left']")
+    private WebElement softwareRestrictionStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
 
@@ -431,6 +477,89 @@ public class SecuritySettingsPage {
         wait.until(ExpectedConditions.visibilityOf(proxySettingStatusMessage));
         if (!((proxySettingStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(proxySettingStatusMessage.getText());
+        }
+
+    }
+
+    public void applySecuritySettings_Network_SoftwareRestriction(String selectTab, String installationAndUninstallationRestriction, String softwareRestriction,
+                                                                  String softwareApplicationName, String browserName, String restrictionType) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsSecuritySettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsRhsMenu));
+            windowsSecuritySettingsRhsMenu.click();
+        }
+
+        if (!(windowsSecuritySettingsNetworkRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsNetworkRhsMenu));
+            windowsSecuritySettingsNetworkRhsMenu.click();
+        }
+
+        windowsSecuritySettingsNetworkSoftwareRestrictionRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        Select select;
+
+        //Software Restriction
+
+//        String selectTab = "Installation & Uninstallation"; //testdata
+
+        if(selectTab.equalsIgnoreCase("Installation & Uninstallation")) {
+
+            installationAndUninstallationLabel.click();
+
+//            String installationAndUninstallationRestriction = "Y"; //testdata
+
+            if(installationAndUninstallationRestriction.equalsIgnoreCase("Y")) {
+                installationAndUninstallationRestrictionSwitch.click();
+            }
+
+        } else if (selectTab.equalsIgnoreCase("Application Restriction")) {
+
+            applicatonRestrictionLabel.click();
+
+//            String softwareRestriction = "Allow All"; //testdata //Allow All //Deny All
+
+            select = new Select(softwareRestrictionDropdown);
+            select.selectByVisibleText(softwareRestriction);
+
+//            String softwareApplicationName = "notepad.exe"; //testdata //notepad.exe
+//            softwareApplicationNameTextbox.sendKeys(softwareApplicationName);
+//            softwareApplicationNameAddButton.click();
+//            Assert.assertEquals(applicationAddStatus.getText(), softwareApplicationName + " Added Successfully");
+
+            select = new Select(restrictionAppListDropdown);
+            select.selectByVisibleText(softwareApplicationName);
+
+            loadToBlockListButton.click();
+
+        } else if (selectTab.equalsIgnoreCase("Browser Restriction")) {
+
+            browserRestrctionLabel.click();
+
+//            String browserName = "Google Chrome"; //testdata //Google Chrome
+//            String restrictionType = "Block dangerous downloads"; //testdata //Block dangerous downloads
+
+            select = new Select(browserNameDropdown);
+            select.selectByVisibleText(browserName);
+
+            select = new Select(restrictionTypeDropdown);
+            select.selectByVisibleText(restrictionType);
+        }
+
+        softwareRestrictionSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(softwareRestrictionStatusMessage));
+        if (!((softwareRestrictionStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(softwareRestrictionStatusMessage.getText());
         }
 
     }

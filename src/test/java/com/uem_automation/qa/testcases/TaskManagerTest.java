@@ -679,10 +679,30 @@ public class TaskManagerTest extends Base {
         securitySettingsPage.applySecuritySettings_Network_ProxySettings( automaticallyDetectSettings,  useAutomaticConfigScript,  address);
     }
 
+    @Test(priority = 30, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_030_apply_security_network_SoftwareRestriction(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // SoftwareRestriction
+            String selectTab, String installationAndUninstallationRestriction, String softwareRestriction,
+            String softwareApplicationName, String browserName, String restrictionType) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Network
+        // Proxy Settings
+        securitySettingsPage.applySecuritySettings_Network_SoftwareRestriction( selectTab,  installationAndUninstallationRestriction,  softwareRestriction,
+                 softwareApplicationName,  browserName,  restrictionType);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
-    @Test(priority = 30, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
-    public void TC_TM_030_software_deployment_SoftwarePatchInstallUninstall(
+    @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_040_software_deployment_SoftwarePatchInstallUninstall(
 
             // searchAndViewTheTemplate
             String templateName,

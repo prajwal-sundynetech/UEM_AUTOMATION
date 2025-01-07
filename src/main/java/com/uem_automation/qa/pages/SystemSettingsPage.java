@@ -633,6 +633,7 @@ public class SystemSettingsPage {
         // Save the 802.x security settings
         security802xButtonSave.click();
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(windows802taskUpdateStatusMessage));
 
         // Verify if the settings were saved successfully
         String statusMessage = windows802taskUpdateStatusMessage.getText();
