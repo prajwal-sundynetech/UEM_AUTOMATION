@@ -699,9 +699,47 @@ public class TaskManagerTest extends Base {
                  softwareApplicationName,  browserName,  restrictionType);
     }
 
+    @Test(priority = 31, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_031_apply_security_system_DataWipe(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Data Wipe
+            String fileFolder) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // System
+        // Data Wipe
+        securitySettingsPage.applySecuritySettings_System_DataWipe( fileFolder);
+    }
+
+    @Test(priority = 32, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_032_apply_security_system_DeployCertificate(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Deploy Certificate
+            String source, String connectionName, String certificateType,
+            String fileName, String storeName, String password, String file) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // System
+        // Deploy Certificate
+        securitySettingsPage.applySecuritySettings_System_DeployCertificate( source,  connectionName,  certificateType,
+                fileName,  storeName,  password,  file);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
-    @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    @Test(priority = 40, dataProvider = "supplyTestData")//, dependsOnMethods = {"TC_TM_001_Create_Template"})
     public void TC_TM_040_software_deployment_SoftwarePatchInstallUninstall(
 
             // searchAndViewTheTemplate
@@ -711,8 +749,8 @@ public class TaskManagerTest extends Base {
             String selectNewInstallOrUninstall, String sourceType, String source,
             String fileName, String parameter, String skipWriteFilter, String globalRepository) {
 
-//        taskManagerPage.navigateToTemplateMangerRhsMenu();
-//        templateManagerPage.searchAndViewTheTemplate(templateName);
+        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // Software Deployment
         // Software and patch install uninstall

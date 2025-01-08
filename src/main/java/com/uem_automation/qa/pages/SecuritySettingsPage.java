@@ -1,6 +1,7 @@
 package com.uem_automation.qa.pages;
 
 import com.uem_automation.qa.utils.Utilities;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -160,49 +161,102 @@ public class SecuritySettingsPage {
 
     // Software Restriction
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_security_window']//label[@title='Software Restriction'][normalize-space()='Software Restriction']")
-    private WebElement windowsSecuritySettingsNetworkSoftwareRestrictionRhsMenu ;
+    private WebElement windowsSecuritySettingsNetworkSoftwareRestrictionRhsMenu;
 
     @FindBy(xpath = "//a[@id='XPRestrictionlibtnInstallationUninstallation']")
-    private WebElement installationAndUninstallationLabel ;
+    private WebElement installationAndUninstallationLabel;
 
     @FindBy(xpath = "//label[@for='XPRestrictionchkIntstall']")
-    private WebElement installationAndUninstallationRestrictionSwitch ;
+    private WebElement installationAndUninstallationRestrictionSwitch;
 
     @FindBy(xpath = "//a[@id='XPRestrictionlibtnApplicationRestriction']")
-    private WebElement applicatonRestrictionLabel ;
+    private WebElement applicatonRestrictionLabel;
 
     @FindBy(xpath = "//select[@id='XPRestrictionddlsoftwareRestictionAllowOrDeny']")
-    private WebElement softwareRestrictionDropdown ;
+    private WebElement softwareRestrictionDropdown;
 
     @FindBy(xpath = "//input[@id='XPRestrictiontxtName']")
-    private WebElement softwareApplicationNameTextbox ;
+    private WebElement softwareApplicationNameTextbox;
 
     @FindBy(xpath = "//input[@id='XPRestrictionbtnAddToAppList']")
-    private WebElement softwareApplicationNameAddButton ;
+    private WebElement softwareApplicationNameAddButton;
 
     @FindBy(xpath = "//div[@id='XPRestrictionRowApplySettings']//div[@class='pull-left']")
-    private WebElement applicationAddStatus ;
+    private WebElement applicationAddStatus;
 
     @FindBy(xpath = "//select[@id='XPRestrictionApplIst']")
-    private WebElement restrictionAppListDropdown ;
+    private WebElement restrictionAppListDropdown;
 
     @FindBy(xpath = "//input[@id='XPRestrictionbtnLoadToBlocklist']")
-    private WebElement loadToBlockListButton ;
+    private WebElement loadToBlockListButton;
 
     @FindBy(xpath = "//a[@id='XPRestrictionlibtnBrowserRestriction']")
-    private WebElement browserRestrctionLabel ;
+    private WebElement browserRestrctionLabel;
 
     @FindBy(xpath = "//select[@id='XPRestrictionblacklistBrowser_ddlBrowserName']")
-    private WebElement browserNameDropdown ;
+    private WebElement browserNameDropdown;
 
     @FindBy(xpath = "//select[@id='XPRestrictionblacklistBrowser_RestrictionType']")
-    private WebElement restrictionTypeDropdown ;
+    private WebElement restrictionTypeDropdown;
 
     @FindBy(xpath = "//input[@id='XPRestrictionSoftwareRestrictionXP_btnSave']")
-    private WebElement softwareRestrictionSaveButton ;
+    private WebElement softwareRestrictionSaveButton;
 
     @FindBy(xpath = "//div[@id='XPRestrictionRowApplySettings']//div[@class='pull-left']")
-    private WebElement softwareRestrictionStatusMessage ;
+    private WebElement softwareRestrictionStatusMessage;
+
+    //Data Wipe
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_System_Win']")
+    private WebElement windowsSecuritySettingsSystemRhsMenu;
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Data Wipe'][normalize-space()='Data Wipe']")
+    private WebElement windowsSecuritySettingsNetworkDataWipeRhsMenu;
+
+    @FindBy(xpath = "//input[@id='XPDataWipe_txtCombobox']")
+    private WebElement fileFolderTextbox;
+
+    @FindBy(xpath = "//div[@onclick='WinDataWipe_AddDataWipePath()']")
+    private WebElement addDataWipePathSymbol;
+
+    @FindBy(xpath = "//input[@id='WinDataWipebtnSaveAuth']")
+    private WebElement dataWipeSaveButton;
+
+    @FindBy(xpath = "//div[@id='WinDataWipeRowApplyDateTimeSettings']//div[@class='pull-left']")
+    private WebElement dataWipeStatusMessage;
+
+    //Deploy Certificate
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Deploy Certificate'][normalize-space()='Deploy Certificate']")
+    private WebElement windowsSecuritySettingsNetworkDeployCertificateRhsMenu;
+
+    @FindBy(xpath = "//select[@id='WinInstallCertificateddlBrowseUpload']")
+    private WebElement sourceDropdown;
+
+    @FindBy(xpath = "//select[@id='WinInstallCertificateddlConnName']")
+    private WebElement connectionNameDropdown;
+
+    @FindBy(xpath = "//select[@id='WinInstallCertificateddlPositions']")
+    private WebElement certificateTypeDropdown;
+
+    @FindBy(xpath = "//input[@id='WinInstallCertificatefileUpload']")
+    private WebElement fileUpload;
+
+    @FindBy(xpath = "//label[@id='WinInstallCertificatelblMessage']")
+    private WebElement certficateStatusMessage;
+
+    @FindBy(xpath = "//select[@id='WinInstallCertificateddlStoreName']")
+    private WebElement storeNameDropdown;
+
+    @FindBy(xpath = "//input[@id='WinInstallCertificatetxtCertTypePassword']")
+    private WebElement passwordTextbox;
+
+    @FindBy(xpath = "//select[@id='WinInstallCertificateddlFile']")
+    private WebElement fileDropdown;
+
+    @FindBy(xpath = "//input[@id='WinInstallCertificatebtnApply_DeployCertificate_XP']")
+    private WebElement deployCertificateSaveButton;
+
+    @FindBy(xpath = "//label[@id='WinInstallCertificatelblMessage']")
+    private WebElement deployCertificateStatusMessage;
 
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
@@ -511,13 +565,13 @@ public class SecuritySettingsPage {
 
 //        String selectTab = "Installation & Uninstallation"; //testdata
 
-        if(selectTab.equalsIgnoreCase("Installation & Uninstallation")) {
+        if (selectTab.equalsIgnoreCase("Installation & Uninstallation")) {
 
             installationAndUninstallationLabel.click();
 
 //            String installationAndUninstallationRestriction = "Y"; //testdata
 
-            if(installationAndUninstallationRestriction.equalsIgnoreCase("Y")) {
+            if (installationAndUninstallationRestriction.equalsIgnoreCase("Y")) {
                 installationAndUninstallationRestrictionSwitch.click();
             }
 
@@ -563,4 +617,159 @@ public class SecuritySettingsPage {
         }
 
     }
+
+    public void applySecuritySettings_System_DataWipe(String fileFolder) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsSecuritySettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsRhsMenu));
+            windowsSecuritySettingsRhsMenu.click();
+        }
+
+        if (!(windowsSecuritySettingsSystemRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsSystemRhsMenu));
+            windowsSecuritySettingsSystemRhsMenu.click();
+        }
+
+        windowsSecuritySettingsNetworkDataWipeRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+//        String fileFolder = "C:\Users\admin\Documents"; //testdata
+        fileFolderTextbox.clear();
+        fileFolderTextbox.sendKeys(fileFolder);
+        addDataWipePathSymbol.click();
+
+        WebElement addedFileCheckbox = driver.findElement(By.xpath("//td[normalize-space()='" + fileFolder + "']/preceding-sibling::td/input[@type='checkbox']\n"));
+        addedFileCheckbox.click();
+
+        dataWipeSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(dataWipeStatusMessage));
+        if (!((dataWipeStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(dataWipeStatusMessage.getText());
+        }
+
+
+    }
+
+    public void applySecuritySettings_System_DeployCertificate(String source, String connectionName, String certificateType, String fileName, String storeName, String password, String file) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsSecuritySettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsRhsMenu));
+            windowsSecuritySettingsRhsMenu.click();
+        }
+
+        if (!(windowsSecuritySettingsSystemRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsSystemRhsMenu));
+            windowsSecuritySettingsSystemRhsMenu.click();
+        }
+
+        windowsSecuritySettingsNetworkDeployCertificateRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+//        String source = "New Upload"; //testdata
+        Select select = new Select(sourceDropdown);
+        select.selectByVisibleText(source);
+
+        if (source.equalsIgnoreCase("New Upload")) {
+
+//            String connectionName = "FTPS"; //testdata
+            select = new Select(connectionNameDropdown);
+            select.selectByVisibleText(connectionName);
+
+//            String certificateType = "CER"; //testdata
+            select = new Select(certificateTypeDropdown);
+            select.selectByVisibleText(certificateType);
+
+//            String fileName = "Shradha-20.cer"; //testdata
+            fileUpload.sendKeys(System.getProperty("user.dir")
+                    + ("//src//main//java//com//uem_automation//qa//testdata//" + fileName));
+            Assert.assertEquals(certficateStatusMessage.getText(), fileName + " is uploaded");
+
+//            String storeName = "Untrusted Certificates"; //testdata
+            select = new Select(storeNameDropdown);
+            select.selectByVisibleText(storeName);
+
+            // agent action is not having any options
+
+            if (certificateType.equalsIgnoreCase("PFX")) {
+//                String password = "testpassword"; //testdata
+                passwordTextbox.sendKeys(password);
+            }
+
+        } else if (source.equalsIgnoreCase("Repository")) {
+
+//            String connectionName = "FTPS"; //testdata
+            select = new Select(connectionNameDropdown);
+            select.selectByVisibleText(connectionName);
+
+//            String file = "fusion.key"; //testdata
+            select = new Select(fileDropdown);
+            select.selectByVisibleText(file);
+
+//            String certificateType = "CER"; //testdata
+            select = new Select(certificateTypeDropdown);
+            select.selectByVisibleText(certificateType);
+
+//            String storeName = "Untrusted Certificates"; //testdata
+            select = new Select(storeNameDropdown);
+            select.selectByVisibleText(storeName);
+
+            // agent action is not having any options
+
+            if (certificateType.equalsIgnoreCase("PFX")) {
+//                String password = "testpassword"; //testdata
+                passwordTextbox.sendKeys(password);
+            }
+
+        } else if (source.equalsIgnoreCase("$GROUP$")) {
+
+            wait.until(ExpectedConditions.visibilityOf(fileDropdown));
+//            String file = "Shradha-20.cer"; //testdata
+            select = new Select(fileDropdown);
+            select.selectByVisibleText(file);
+
+//            String certificateType = "CER"; //testdata
+            select = new Select(certificateTypeDropdown);
+            select.selectByVisibleText(certificateType);
+
+//            String storeName = "Untrusted Certificates"; //testdata
+            select = new Select(storeNameDropdown);
+            select.selectByVisibleText(storeName);
+
+            // agent action is not having any options
+
+            if (certificateType.equalsIgnoreCase("PFX")) {
+//                String password = "testpassword"; //testdata
+                passwordTextbox.sendKeys(password);
+            }
+
+        }
+
+        deployCertificateSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(deployCertificateStatusMessage));
+        if (!((deployCertificateStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(deployCertificateStatusMessage.getText());
+        }
+    }
+
+
 }
