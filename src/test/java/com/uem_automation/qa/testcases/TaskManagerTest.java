@@ -144,7 +144,7 @@ public class TaskManagerTest extends Base {
 
             // Ethernet Setup
             String ethernetSetupType, String obtainDnsAutomatically, String primaryDnsInput,
-            String secondaryDnsInput) throws InterruptedException {
+            String secondaryDnsInput) {
 
 //        taskManagerPage.navigateToTemplateMangerRhsMenu();
 //        templateManagerPage.searchAndViewTheTemplate(templateName);

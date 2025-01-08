@@ -962,15 +962,15 @@ public class SecuritySettingsPage {
 
        // Usb write protect is disabled in the script section
 
-//       if (usbWriteProtect.equalsIgnoreCase("Y")) {
-//            if (!usbWriteProtectCheckbox.isSelected()) {
-//                js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
-//            }
-//       } else if (usbWriteProtect.equalsIgnoreCase("N")) {
-//           if (usbWriteProtectCheckbox.isSelected()) {
-//               js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
-//           }
-//       }
+       if (usbWriteProtect.equalsIgnoreCase("Y")) {
+            if (!usbWriteProtectCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
+            }
+       } else if (usbWriteProtect.equalsIgnoreCase("N")) {
+           if (usbWriteProtectCheckbox.isSelected()) {
+               js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
+           }
+       }
 
         portSettingsSaveButton.click();
 
