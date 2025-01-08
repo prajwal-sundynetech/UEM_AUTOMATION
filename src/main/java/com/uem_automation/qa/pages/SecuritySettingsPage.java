@@ -660,7 +660,7 @@ public class SecuritySettingsPage {
 
     }
 
-    public void applySecuritySettings_System_DeployCertificate(String source, String connectionName, String certificateType, String fileName, String storeName, String password, String file) {
+    public void applySecuritySettings_System_DeployCertificate(String source, String connectionName, String certificateType, String fileName, String storeName, String password, String file) throws InterruptedException {
 
         if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
             wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
@@ -686,6 +686,8 @@ public class SecuritySettingsPage {
 //        String source = "New Upload"; //testdata
         Select select = new Select(sourceDropdown);
         select.selectByVisibleText(source);
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
         if (source.equalsIgnoreCase("New Upload")) {
 
@@ -739,7 +741,7 @@ public class SecuritySettingsPage {
             }
 
         } else if (source.equalsIgnoreCase("$GROUP$")) {
-
+            Thread.sleep(2000);
             wait.until(ExpectedConditions.visibilityOf(fileDropdown));
 //            String file = "Shradha-20.cer"; //testdata
             select = new Select(fileDropdown);

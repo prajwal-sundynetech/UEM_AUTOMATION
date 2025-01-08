@@ -725,7 +725,7 @@ public class TaskManagerTest extends Base {
 
             // Deploy Certificate
             String source, String connectionName, String certificateType,
-            String fileName, String storeName, String password, String file) {
+            String fileName, String storeName, String password, String file) throws InterruptedException {
 
 //        taskManagerPage.navigateToTemplateMangerRhsMenu();
 //        templateManagerPage.searchAndViewTheTemplate(templateName);
@@ -739,7 +739,7 @@ public class TaskManagerTest extends Base {
 
     // Software Deployment
     // Software and Patch Install/Uninstall
-    @Test(priority = 40, dataProvider = "supplyTestData")//, dependsOnMethods = {"TC_TM_001_Create_Template"})
+    @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
     public void TC_TM_040_software_deployment_SoftwarePatchInstallUninstall(
 
             // searchAndViewTheTemplate
@@ -749,8 +749,8 @@ public class TaskManagerTest extends Base {
             String selectNewInstallOrUninstall, String sourceType, String source,
             String fileName, String parameter, String skipWriteFilter, String globalRepository) {
 
-        taskManagerPage.navigateToTemplateMangerRhsMenu();
-        templateManagerPage.searchAndViewTheTemplate(templateName);
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // Software Deployment
         // Software and patch install uninstall
