@@ -737,6 +737,24 @@ public class TaskManagerTest extends Base {
                 fileName,  storeName,  password,  file);
     }
 
+    @Test(priority = 33, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_033_apply_security_system_IntegratedPeripheral(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Integrated Peripheral
+            String enableCdDvd, String bluetoothDevice) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // System
+        // Integrated Peripheral
+        securitySettingsPage.applySecuritySettings_System_IntegratedPeripheral( enableCdDvd,  bluetoothDevice);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})

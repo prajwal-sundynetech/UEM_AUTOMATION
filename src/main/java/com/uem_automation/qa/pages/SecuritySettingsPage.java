@@ -258,8 +258,25 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//label[@id='WinInstallCertificatelblMessage']")
     private WebElement deployCertificateStatusMessage;
 
+    //Integrated Peripheral
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Integrated Peripheral'][normalize-space()='Integrated Peripheral']")
+    private WebElement windowsSecuritySettingsNetworkIntegratedPeripheralRhsMenu ;
+
+    @FindBy(xpath = "//select[@id='XPIntPeripheralddlWirelessSecurity']")
+    private WebElement enableCdDvdDropdown ;
+
+    @FindBy(xpath = "//select[@id='XPIntPeripheralddlBluetoothSett']")
+    private WebElement bluetoothDeviceDropdown ;
+
+    @FindBy(xpath = "//input[@id='XPIntPeripheralbtnTaskbarSave']")
+    private WebElement integratedPeripheralSaveButton ;
+
+    @FindBy(xpath = "//div[@id='XPIntPeripheraldvShowResult']")
+    private WebElement integratedPeripheralStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
+
 
 
     // Constructor
@@ -774,4 +791,48 @@ public class SecuritySettingsPage {
     }
 
 
+    public void applySecuritySettings_System_IntegratedPeripheral(String enableCdDvd, String bluetoothDevice) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsSecuritySettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsRhsMenu));
+            windowsSecuritySettingsRhsMenu.click();
+        }
+
+        if (!(windowsSecuritySettingsSystemRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsSystemRhsMenu));
+            windowsSecuritySettingsSystemRhsMenu.click();
+        }
+
+        windowsSecuritySettingsNetworkIntegratedPeripheralRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+//        String enableCdDvd = "Enable"; //testdata
+//        String bluetoothDevice = "Enable"; //testdata
+
+        Select select;
+
+        select = new Select(enableCdDvdDropdown);
+        select.selectByVisibleText(enableCdDvd);
+
+        select = new Select(bluetoothDeviceDropdown);
+        select.selectByVisibleText(bluetoothDevice);
+
+        // camera device script is not developed
+
+        integratedPeripheralSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(integratedPeripheralStatusMessage));
+        if (!((integratedPeripheralStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(integratedPeripheralStatusMessage.getText());
+        }
+    }
 }
