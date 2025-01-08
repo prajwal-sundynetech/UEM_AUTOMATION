@@ -39,6 +39,7 @@ public class TaskManagerPage {
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
         wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
         rhsMenuToogleElement.click();
+        wait.until(ExpectedConditions.elementToBeClickable(templateManagerRhsMenuElement));
         templateManagerRhsMenuElement.click();
     }
 
