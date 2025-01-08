@@ -260,23 +260,53 @@ public class SecuritySettingsPage {
 
     //Integrated Peripheral
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Integrated Peripheral'][normalize-space()='Integrated Peripheral']")
-    private WebElement windowsSecuritySettingsNetworkIntegratedPeripheralRhsMenu ;
+    private WebElement windowsSecuritySettingsNetworkIntegratedPeripheralRhsMenu;
 
     @FindBy(xpath = "//select[@id='XPIntPeripheralddlWirelessSecurity']")
-    private WebElement enableCdDvdDropdown ;
+    private WebElement enableCdDvdDropdown;
 
     @FindBy(xpath = "//select[@id='XPIntPeripheralddlBluetoothSett']")
-    private WebElement bluetoothDeviceDropdown ;
+    private WebElement bluetoothDeviceDropdown;
 
     @FindBy(xpath = "//input[@id='XPIntPeripheralbtnTaskbarSave']")
-    private WebElement integratedPeripheralSaveButton ;
+    private WebElement integratedPeripheralSaveButton;
 
     @FindBy(xpath = "//div[@id='XPIntPeripheraldvShowResult']")
-    private WebElement integratedPeripheralStatusMessage ;
+    private WebElement integratedPeripheralStatusMessage;
+
+    //Port Settings
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Port Settings'][normalize-space()='Port Settings']")
+    private WebElement windowsSecuritySettingsNetworkPortSettingsRhsMenu;
+
+    @FindBy(xpath = "//input[@id='WinSecuritySettingscbxEnableCDDVD']")
+    private WebElement enableCdDvdCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinSecuritySettingscbxEnableFirewall']")
+    private WebElement enableFirewallCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinSecuritySettingscbxEnableParallelPort']")
+    private WebElement enableParallelPortCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinSecuritySettingscbxEnableSerialPort']")
+    private WebElement enableSerialPortCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinSecuritySettingscbxUSBPort']")
+    private WebElement enableUsbPortCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinSecuritySettingscbxUSBMassStorage']")
+    private WebElement usbMassStorageCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinSecuritySettingscbxUSBWriteProtect']")
+    private WebElement usbWriteProtectCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinSecuritySettingsbtnSaveSecuritySetting_JQ']")
+    private WebElement portSettingsSaveButton;
+
+    @FindBy(xpath = "//div[@id='WinSecuritySettingsdvShowResult']")
+    private WebElement portSettingsStatusMessage;
 
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
-
 
 
     // Constructor
@@ -833,6 +863,121 @@ public class SecuritySettingsPage {
         wait.until(ExpectedConditions.visibilityOf(integratedPeripheralStatusMessage));
         if (!((integratedPeripheralStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(integratedPeripheralStatusMessage.getText());
+        }
+    }
+
+    public void applySecuritySettings_System_PortSettings(String enableCdDvd, String enableFirewall, String enableParallelPort, String enableSerialPort
+            , String enableUsbPort, String usbMassStorage, String usbWriteProtect) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsSecuritySettingsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsRhsMenu));
+            windowsSecuritySettingsRhsMenu.click();
+        }
+
+        if (!(windowsSecuritySettingsSystemRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsSecuritySettingsSystemRhsMenu));
+            windowsSecuritySettingsSystemRhsMenu.click();
+        }
+
+        windowsSecuritySettingsNetworkPortSettingsRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+//        String enableCdDvd = "Y"; //testdata
+//        String enableFirewall = "Y"; //testdata
+//        String enableParallelPort = "Y"; //testdata
+//        String enableSerialPort = "Y"; //testdata
+//        String enableUsbPort = "Y"; //testdata
+//        String usbMassStorage = "Y"; //testdata
+//        String usbWriteProtect = "Y"; //testdata
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        if (enableCdDvd.equalsIgnoreCase("Y")) {
+            if (!enableCdDvdCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableCdDvdCheckbox);
+            }
+        } else if (enableCdDvd.equalsIgnoreCase("N")) {
+            if (enableCdDvdCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableCdDvdCheckbox);
+            }
+        }
+
+        if (enableFirewall.equalsIgnoreCase("Y")) {
+            if (!enableFirewallCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableFirewallCheckbox);
+            }
+        } else if (enableFirewall.equalsIgnoreCase("N")) {
+            if (enableFirewallCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableFirewallCheckbox);
+            }
+        }
+
+        if (enableParallelPort.equalsIgnoreCase("Y")) {
+            if (!enableParallelPortCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableParallelPortCheckbox);
+            }
+        } else if (enableParallelPort.equalsIgnoreCase("N")) {
+            if (enableParallelPortCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableParallelPortCheckbox);
+            }
+        }
+
+       if (enableSerialPort.equalsIgnoreCase("Y")) {
+            if (!enableSerialPortCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableSerialPortCheckbox);
+            }
+       } else if (enableSerialPort.equalsIgnoreCase("N")) {
+           if (enableSerialPortCheckbox.isSelected()) {
+               js.executeScript("arguments[0].click();", enableSerialPortCheckbox);
+           }
+       }
+
+       if (enableUsbPort.equalsIgnoreCase("Y")) {
+            if (!enableUsbPortCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableUsbPortCheckbox);
+            }
+       } else if (enableUsbPort.equalsIgnoreCase("N")) {
+           if (enableUsbPortCheckbox.isSelected()) {
+               js.executeScript("arguments[0].click();", enableUsbPortCheckbox);
+           }
+       }
+
+       if (usbMassStorage.equalsIgnoreCase("Y")) {
+            if (!usbMassStorageCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", usbMassStorageCheckbox);
+            }
+       } else if (usbMassStorage.equalsIgnoreCase("N")) {
+           if (usbMassStorageCheckbox.isSelected()) {
+               js.executeScript("arguments[0].click();", usbMassStorageCheckbox);
+           }
+       }
+
+       // Usb write protect is disabled in the script section
+
+//       if (usbWriteProtect.equalsIgnoreCase("Y")) {
+//            if (!usbWriteProtectCheckbox.isSelected()) {
+//                js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
+//            }
+//       } else if (usbWriteProtect.equalsIgnoreCase("N")) {
+//           if (usbWriteProtectCheckbox.isSelected()) {
+//               js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
+//           }
+//       }
+
+        portSettingsSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(portSettingsStatusMessage));
+        if (!((portSettingsStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(portSettingsStatusMessage.getText());
         }
     }
 }

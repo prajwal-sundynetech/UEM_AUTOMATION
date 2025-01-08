@@ -755,6 +755,26 @@ public class TaskManagerTest extends Base {
         securitySettingsPage.applySecuritySettings_System_IntegratedPeripheral( enableCdDvd,  bluetoothDevice);
     }
 
+    @Test(priority = 34, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_034_apply_security_system_PortSettings(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Port Settings
+            String enableCdDvd, String enableFirewall, String enableParallelPort, String enableSerialPort
+            , String enableUsbPort, String usbMassStorage, String usbWriteProtect) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // System
+        // Port Settings
+        securitySettingsPage.applySecuritySettings_System_PortSettings( enableCdDvd,  enableFirewall,  enableParallelPort,  enableSerialPort
+                ,  enableUsbPort,  usbMassStorage,  usbWriteProtect);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
