@@ -337,6 +337,31 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//div[@id='WinConrowbutton']//div[@class='pull-left']")
     private WebElement citrixWorkspaceAppStatusMessage ;
 
+    //Custom Executable
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Custom Executable'][normalize-space()='Custom Executable']")
+    private WebElement windowsConnectionManagementConnectionsCustomExecutableRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='WinContxtConNameForCustExec']")
+    private WebElement connectionNameCusExeTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtPathForCustExec']")
+    private WebElement pathCusExeTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinConChkShortDesktop']")
+    private WebElement createShortcutOnDesktopCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConChkAutoconn']")
+    private WebElement autostartConnectionCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtArgumentsForCustExec']")
+    private WebElement argumentsTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinConbtnSaveCustom']")
+    private WebElement customExecutableSaveButton ;
+
+    @FindBy(xpath = "//div[@id='WinConrowbuttonForCustExec']//div[@class='pull-left']")
+    private WebElement customExecutableStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
 
@@ -1056,5 +1081,56 @@ public class SecuritySettingsPage {
             Assert.fail(citrixWorkspaceAppStatusMessage.getText());
         }
 
+    }
+
+    public void applySecuritySettings_ConnectionManagement_Connections_CustomExecutable(String connectionName, String path, String createShortcutOnDesktop, String autostartConnection, String arguments) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsConnectionManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementRhsMenu));
+            windowsConnectionManagementRhsMenu.click();
+        }
+
+        if (!(windowsConnectionManagementConnectionsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementConnectionsRhsMenu));
+            windowsConnectionManagementConnectionsRhsMenu.click();
+        }
+
+        windowsConnectionManagementConnectionsCustomExecutableRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        connectionNameCusExeTextbox.sendKeys(connectionName); //testdata
+        pathCusExeTextbox.sendKeys(path); //testdata
+
+        if(createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", createShortcutOnDesktopCheckbox);
+        }
+
+//        if(createShortcutInStartMenu.equalsIgnoreCase("Y")) { //testdata
+//            js.executeScript("arguments[0].click();", createShortcutInStartMenuCheckbox);
+//        }
+
+        if(autostartConnection.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", autostartConnectionCheckbox);
+        }
+
+        argumentsTextbox.sendKeys(arguments); //testdata
+
+        customExecutableSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(customExecutableStatusMessage));
+        if (!((customExecutableStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(customExecutableStatusMessage.getText());
+        }
     }
 }

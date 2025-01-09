@@ -796,6 +796,27 @@ public class TaskManagerTest extends Base {
                  configurationUrl,  descriptionCitrix);
     }
 
+    @Test(priority = 36, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_036_apply_connectionManagement_Connections_CustomExecutable(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Custom Executable
+            String connectionName, String path, String createShortcutOnDesktop,
+            String autostartConnection, String arguments) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Connection Management
+        // Connections
+        // Custom Executable
+        securitySettingsPage.applySecuritySettings_ConnectionManagement_Connections_CustomExecutable( connectionName,  path,  createShortcutOnDesktop,
+                autostartConnection,  arguments);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
