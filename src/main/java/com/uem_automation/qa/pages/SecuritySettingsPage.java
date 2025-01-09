@@ -305,6 +305,38 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//div[@id='WinSecuritySettingsdvShowResult']")
     private WebElement portSettingsStatusMessage;
 
+    //Citrix Workspace App
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connection_management_settings']")
+    private WebElement windowsConnectionManagementRhsMenu ;
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connections_Win']")
+    private WebElement windowsConnectionManagementConnectionsRhsMenu ;
+
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Citrix Workspace App'][normalize-space()='Citrix Workspace App']")
+    private WebElement windowsConnectionManagementConnectionsCitrixWorkspaceAppRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='WinContxtConName']")
+    private WebElement connectionNameTextbox ;
+
+    @FindBy(xpath = "//select[@id='WinConddlType']")
+    private WebElement citrixTypeDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinContxtStore']")
+    private WebElement storeNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtConfigURL']")
+    private WebElement configurationUrlTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtDesc']")
+    private WebElement descriptionTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinConbtnSaveCitrix1']")
+    private WebElement citrixWorkspaceAppSaveButton ;
+
+    @FindBy(xpath = "//div[@id='WinConrowbutton']//div[@class='pull-left']")
+    private WebElement citrixWorkspaceAppStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
 
@@ -979,5 +1011,50 @@ public class SecuritySettingsPage {
         if (!((portSettingsStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(portSettingsStatusMessage.getText());
         }
+    }
+
+    public void applySecuritySettings_ConnectionManagement_Connections_CitrixWorkspaceApp(String connectionName, String citrixType, String storeName,
+                                                                                          String configurationUrl, String descriptionCitrix) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsConnectionManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementRhsMenu));
+            windowsConnectionManagementRhsMenu.click();
+        }
+
+        if (!(windowsConnectionManagementConnectionsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementConnectionsRhsMenu));
+            windowsConnectionManagementConnectionsRhsMenu.click();
+        }
+
+        windowsConnectionManagementConnectionsCitrixWorkspaceAppRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        connectionNameTextbox.sendKeys(connectionName); //testdata
+
+        Select select = new Select(citrixTypeDropdown);
+        select.selectByVisibleText(citrixType); //testdata
+
+        if(!citrixType.equalsIgnoreCase("PNA")) {
+            storeNameTextbox.sendKeys(storeName); //testdata
+        }
+        configurationUrlTextbox.sendKeys(configurationUrl); //testdata
+        descriptionTextbox.sendKeys(descriptionCitrix); //testdata
+
+        citrixWorkspaceAppSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(citrixWorkspaceAppStatusMessage));
+        if (!((citrixWorkspaceAppStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(citrixWorkspaceAppStatusMessage.getText());
+        }
+
     }
 }

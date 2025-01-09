@@ -775,6 +775,27 @@ public class TaskManagerTest extends Base {
                 ,  enableUsbPort,  usbMassStorage,  usbWriteProtect);
     }
 
+    @Test(priority = 35, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_035_apply_connectionManagement_Connections_CitrixWorkspace(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Citrix Workspace App
+            String connectionName, String citrixType, String storeName,
+            String configurationUrl, String descriptionCitrix) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Connection Management
+        // Connections
+        // Citrix Workspace App
+        securitySettingsPage.applySecuritySettings_ConnectionManagement_Connections_CitrixWorkspaceApp( connectionName,  citrixType,  storeName,
+                 configurationUrl,  descriptionCitrix);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
