@@ -362,6 +362,37 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//div[@id='WinConrowbuttonForCustExec']//div[@class='pull-left']")
     private WebElement customExecutableStatusMessage ;
 
+    //Browser
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connection_management_settings']//label[@title='Browser'][normalize-space()='Browser']")
+    private WebElement windowsConnectionManagementConnectionsBrowserRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='WinContxtConNameForIE']")
+    private WebElement connectionNameBrowserTextbox ;
+
+    @FindBy(xpath = "//select[@id='WinddlBrowserType']")
+    private WebElement browserTypeDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinContxtConfigURLForIE']")
+    private WebElement browserConfigurationUrlTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkKiosk']")
+    private WebElement kioskModeCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkDesktop']")
+    private WebElement browserCreateShortcutOnDesktopCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkAutostartconn']")
+    private WebElement browserAutostartConnectionCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkAutoreconnect']")
+    private WebElement autoReconnectConnectionCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConbtnSaveIEBrowser']")
+    private WebElement browserSaveButton ;
+
+    @FindBy(xpath = "//div[@id='WinConrowbuttonForIE']//div[@class='pull-left']")
+    private WebElement browserStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
 
@@ -1132,5 +1163,69 @@ public class SecuritySettingsPage {
         if (!((customExecutableStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(customExecutableStatusMessage.getText());
         }
+    }
+
+    public void applySecuritySettings_ConnectionManagement_Connections_Browser(String connectionName, String browserType, String configurationUrl,
+                                                                               String kioskMode, String createShortcutOnDesktop , String autostartConnection ,
+                                                                               String autoReconnectConnection) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsConnectionManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementRhsMenu));
+            windowsConnectionManagementRhsMenu.click();
+        }
+
+        if (!(windowsConnectionManagementConnectionsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementConnectionsRhsMenu));
+            windowsConnectionManagementConnectionsRhsMenu.click();
+        }
+
+        windowsConnectionManagementConnectionsBrowserRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        connectionNameBrowserTextbox.sendKeys(connectionName); //testdata
+
+        Select select = new Select(browserTypeDropdown);
+        select.selectByVisibleText(browserType); //testdata
+
+        browserConfigurationUrlTextbox.sendKeys(configurationUrl); //testdata
+
+        if(kioskMode.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", kioskModeCheckbox);
+        }
+
+        if(createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", browserCreateShortcutOnDesktopCheckbox);
+        }
+
+//        if(kioskMode.equalsIgnoreCase("Y")) {
+//            js.executeScript("arguments[0].click();", kioskModeCheckbox);
+//        }
+
+        if(autostartConnection.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", browserAutostartConnectionCheckbox);
+        }
+
+        if(autoReconnectConnection.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", autoReconnectConnectionCheckbox);
+        }
+
+        browserSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(browserStatusMessage));
+        if (!((browserStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(browserStatusMessage.getText());
+        }
+
     }
 }

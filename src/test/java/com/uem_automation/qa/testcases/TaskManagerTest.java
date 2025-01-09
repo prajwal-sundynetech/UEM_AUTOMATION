@@ -817,6 +817,27 @@ public class TaskManagerTest extends Base {
                 autostartConnection,  arguments);
     }
 
+    @Test(priority = 37, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_037_apply_connectionManagement_Connections_Browser(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Browser
+            String connectionName, String browserType, String configurationUrl,
+            String kioskMode, String createShortcutOnDesktop , String autostartConnection , String autoReconnectConnection) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Connection Management
+        // Connections
+        // Browser
+        securitySettingsPage.applySecuritySettings_ConnectionManagement_Connections_Browser( connectionName,  browserType,  configurationUrl,
+                 kioskMode,  createShortcutOnDesktop ,  autostartConnection , autoReconnectConnection);
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
