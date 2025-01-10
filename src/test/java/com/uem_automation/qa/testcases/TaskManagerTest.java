@@ -838,6 +838,44 @@ public class TaskManagerTest extends Base {
                  kioskMode,  createShortcutOnDesktop ,  autostartConnection , autoReconnectConnection);
     }
 
+    @Test(priority = 38, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_038_apply_connectionManagement_Connections_RDP(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // RDP
+            String rdpConnectionName, String selectTab, String iphostName, String port,
+            String alwaysAsk4Credential, String userName, String domain,
+            String password, String automaticLogon, String automaticStart, String useAllMonitorsForRemoteSession, String fullScreen,
+            String sizeOfDesktop, String colors, String displayConnectionBar,
+            String remoteAudioPlayback, String remoteAudioRecording, String drives, String clipboard,
+            String printers, String smartCards, String ports,
+            String pnpDevices, String keyboard, String startProgramOnConnection, String programPathFileName, String startInFollowingFolder,
+            String connectionSpeed, String reconnectIfConnDropped, String authenticationOption,
+            String doNotUseRDGateway
+    ) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Connection Management
+        // Connections
+        // RDP
+        securitySettingsPage.applySecuritySettings_ConnectionManagement_Connections_RDP(
+                rdpConnectionName,  selectTab,  iphostName,  port,
+                alwaysAsk4Credential,  userName,  domain,
+                password,  automaticLogon,  automaticStart,  useAllMonitorsForRemoteSession,  fullScreen,
+                sizeOfDesktop,  colors,  displayConnectionBar,
+                remoteAudioPlayback,  remoteAudioRecording,  drives,  clipboard,
+                printers,  smartCards,  ports,
+                pnpDevices,  keyboard,  startProgramOnConnection,  programPathFileName,  startInFollowingFolder,
+                connectionSpeed,  reconnectIfConnDropped,  authenticationOption,
+                doNotUseRDGateway
+        );
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})

@@ -165,7 +165,8 @@ public class SoftwareDeploymentPage {
                 wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
 
                 validateConnectionButton.click();
-                Assert.assertTrue((connectionStatus.getText()).equalsIgnoreCase("Connection validated successfully."));
+//                Assert.assertTrue((connectionStatus.getText()).equalsIgnoreCase("Connection validated successfully."));
+                Assert.assertEquals(connectionStatus.getText(), "Connection validated successfully.");
 
             }
 

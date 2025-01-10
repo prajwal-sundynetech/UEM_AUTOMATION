@@ -345,7 +345,7 @@ public class SystemSettingsPage {
     @FindBy(xpath = "//select[@id='WindowsKeyboardSettings_ddlKeyboardLocales']")
     private WebElement keyboardLocalesDropdown;
 
-    @FindBy(xpath = "//div[@id='WindowsKeyboardSettings_pnlkeyboardSetup']//div[@class='col-lg-4 checkbox-inline']//span")
+    @FindBy(xpath = "//label[@id='WindowsKeyboardSettings_lblRemoveExist']/preceding-sibling::span")//div[@id='WindowsKeyboardSettings_pnlkeyboardSetup']//div[@class='col-lg-4 checkbox-inline']//span")
     private WebElement replaceAllExistingKeyboardCheckbox;
 
     @FindBy(xpath = "//input[@id='WindowsKeyboardSettings_btnApply']")

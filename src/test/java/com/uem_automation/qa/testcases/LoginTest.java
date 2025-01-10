@@ -41,7 +41,7 @@ public class LoginTest extends Base {
 
 	@DataProvider
 	public Object[][] supplyTestData() {
-		Object[][] data = { { "pankaj.wairagade@vdi.com", "pass_123", "Default View - Device Manager" } };// , { "admin", "admin123", "Default View - Device Manager" }, { "admin1", "admin123", "Task Manager" } };
+		Object[][] data = { {"admin" , "admin" , "Default View - Device Manager"} };
 //		Object[][] data = Utilities.getTestDataFromExcel("Login");
 		return data;
 	}

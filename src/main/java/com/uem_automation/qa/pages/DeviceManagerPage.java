@@ -25,10 +25,10 @@ public class DeviceManagerPage {
     @FindBy(xpath = "//div[@class='AjaxLoaderOuter loaderDivInitial']//button[@type='button'][normalize-space()='Please wait...']")
     private WebElement ajaxLoaderOuter;
 
-    @FindBy(xpath = "//img[@src='theme/dist/assets/media/logos/topMenu-Logo-X.png']")
+    @FindBy(xpath = "//img[@src='theme/dist/assets/media/logos/topMenu-Logo-X.png']")//a[@class='topbrand-logo d-none d-block']//img[@alt='Logo']")
     private WebElement logoTopMenu;
 
-    @FindBy(xpath = "//img[@src='theme/dist/assets/media/logos/leftMenu-Logo-S.png']")
+    @FindBy(xpath = "//img[@src='theme/dist/assets/media/logos/leftMenu-Logo-S.png']") //img[@src='theme/dist/assets/media/logos/leftMenu-Logo.png']")
     private WebElement logoLeftMenu;
 
     @FindBy(xpath = "//label[@id='ContentPlaceHolder1_MUIMainMenulblGrpInfrmtn']")

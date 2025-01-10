@@ -393,8 +393,130 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//div[@id='WinConrowbuttonForIE']//div[@class='pull-left']")
     private WebElement browserStatusMessage ;
 
+    //RDP
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='RDP'][normalize-space()='RDP']")
+    private WebElement windowsConnectionManagementConnectionsRDPRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='WinContxtConnNameForRDP']")
+    private WebElement rdpConnectionNameTextbox ;
+
+//    @FindBy(xpath = "//label[@id='WinConlblgeneral']")
+//    private WebElement selectTabLabel ;
+
+    @FindBy(xpath = "//label[@id='WinConlblgeneral']")
+    private WebElement generalLabel ;
+
+    @FindBy(xpath = "//input[@id='WinContxtIPHostName']")
+    private WebElement iphostNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtPortAddress']")
+    private WebElement portTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtUserName']")
+    private WebElement logonUsernameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtDomain']")
+    private WebElement logonDomainTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxAlwaysAskForCredential']")
+    private WebElement alwaysAsk4CredentialCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxAutomaticLogon']")
+    private WebElement automaticLogonCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtPwd']")
+    private WebElement logonPasswordTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxAutoStart']")
+    private WebElement automaticStartCheckbox ;
+
+    @FindBy(xpath = "//label[@id='WinConlbldisplay']")
+    private WebElement displayLabel ;
+
+    @FindBy(xpath = "//input[@id='WinConchkRedirectMonitors']")
+    private WebElement useAllMonitorsForRemoteSessionCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkFullScreen']")
+    private WebElement fullScreenCheckbox ;
+
+    @FindBy(xpath = "//select[@id='WinConddlScreenSize']")
+    private WebElement sizeOfDesktopDropdown ;
+
+    @FindBy(xpath = "//select[@id='WinConddlColors']")
+    private WebElement colorsDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxDisplayConBar']")
+    private WebElement displayConnectionBarCheckbox ;
+
+    @FindBy(xpath = "//label[@id='WinConlbllocalresource']")
+    private WebElement localResourcesLabel ;
+
+    @FindBy(xpath = "//select[@id='WinConddlRemoteComputerSound']")
+    private WebElement remoteAudioPlaybackDropdown ;
+
+    @FindBy(xpath = "//select[@id='WinConddlremoteaudiorecordingXP']")
+    private WebElement remoteAudioRecordingDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxDiskdrives']")
+    private WebElement drivesCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxClipBoard']")
+    private WebElement clipboardCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxPrinters']")
+    private WebElement printersCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxSmartCards']")
+    private WebElement smartCardsCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxSerialPorts']")
+    private WebElement portsCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxPlugNPlayDevices']")
+    private WebElement pnpDevicesCheckbox ;
+
+    @FindBy(xpath = "//select[@id='WinConddlKeyboard']")
+    private WebElement keyboardDropdown ;
+
+    @FindBy(xpath = "//label[@id='WinConlblprograms']")
+    private WebElement programsLabel ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxStartProgmOnConnect']")
+    private WebElement startProgramOnConnectionCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtFilePath']")
+    private WebElement programPathFileNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtFolder']")
+    private WebElement startInFollowingFolderTextbox ;
+
+    @FindBy(xpath = "//label[@id='WinConlblexperience']")
+    private WebElement experienceLabel ;
+
+    @FindBy(xpath = "//select[@id='WinConddlConnectionSpeed']")
+    private WebElement connectionSpeedDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxReconnect']")
+    private WebElement reconnectIfConnDroppedCheckbox ;
+
+    @FindBy(xpath = "//label[@id='WinConlbladvanced']")
+    private WebElement advancedLabel ;
+
+    @FindBy(xpath = "//select[@id='WinConddlServerAuth']")
+    private WebElement authenticationOptionsDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinConrdbNoUseTS']")
+    private WebElement doNotUseRDGatewayRadio ;
+
+    @FindBy(xpath = "//input[@id='WinConbtnSaveRDP']")
+    private WebElement rdpSaveButton ;
+
+    @FindBy(xpath = "//div[@id='WinConrowbuttonRDP']//div[@class='pull-left']")
+    private WebElement rdpStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
+
 
 
     // Constructor
@@ -876,7 +998,7 @@ public class SecuritySettingsPage {
             }
 
         } else if (source.equalsIgnoreCase("$GROUP$")) {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             wait.until(ExpectedConditions.visibilityOf(fileDropdown));
 //            String file = "Shradha-20.cer"; //testdata
             select = new Select(fileDropdown);
@@ -1225,6 +1347,171 @@ public class SecuritySettingsPage {
         wait.until(ExpectedConditions.visibilityOf(browserStatusMessage));
         if (!((browserStatusMessage.getText()).equals("Request for settings update has been processed"))) {
             Assert.fail(browserStatusMessage.getText());
+        }
+
+    }
+
+
+    public void applySecuritySettings_ConnectionManagement_Connections_RDP(String rdpConnectionName, String selectTab, String iphostName, String port, String alwaysAsk4Credential, String userName, String domain, String password, String automaticLogon, String automaticStart, String useAllMonitorsForRemoteSession, String fullScreen, String sizeOfDesktop, String colors, String displayConnectionBar, String remoteAudioPlayback, String remoteAudioRecording, String drives, String clipboard, String printers, String smartCards, String ports, String pnpDevices, String keyboard, String startProgramOnConnection, String programPathFileName, String startInFollowingFolder, String connectionSpeed, String reconnectIfConnDropped, String authenticationOption, String doNotUseRDGateway) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsConnectionManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementRhsMenu));
+            windowsConnectionManagementRhsMenu.click();
+        }
+
+        if (!(windowsConnectionManagementConnectionsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementConnectionsRhsMenu));
+            windowsConnectionManagementConnectionsRhsMenu.click();
+        }
+
+        windowsConnectionManagementConnectionsRDPRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        Select select;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        rdpConnectionNameTextbox.sendKeys(rdpConnectionName); //testdata
+        iphostNameTextbox.sendKeys(iphostName); //testdata // it's a mandatory field without it task settings won't apply
+
+//        String selectTab = "General"; //testdata
+
+//        select = new Select(selectTabLabel);
+//        select.selectByVisibleText(selectTab);
+
+        if(selectTab.equalsIgnoreCase("General")) {
+            generalLabel.click();
+            iphostNameTextbox.clear();
+            iphostNameTextbox.sendKeys(iphostName); //testdata
+            portTextbox.sendKeys(port); //testdata
+
+            if(alwaysAsk4Credential.equalsIgnoreCase("Y")) { //testdata
+                logonUsernameTextbox.sendKeys(userName); //testdata
+                logonDomainTextbox.sendKeys(domain); //testdata
+
+            } else if (alwaysAsk4Credential.equalsIgnoreCase("N")) {
+                js.executeScript("arguments[0].click();", alwaysAsk4CredentialCheckbox);
+
+                if(automaticLogon.equalsIgnoreCase("Y")) { //testdata
+                    js.executeScript("arguments[0].click();", automaticLogonCheckbox);
+                    logonUsernameTextbox.sendKeys(userName);
+                    logonDomainTextbox.sendKeys(domain);
+                    logonPasswordTextbox.sendKeys(password); //testdata
+                }
+            }
+
+            if(automaticStart.equalsIgnoreCase("Y")) { //testdata
+                js.executeScript("arguments[0].click();", automaticStartCheckbox);
+            }
+
+        } else if (selectTab.equalsIgnoreCase("Display")) {
+            displayLabel.click();
+
+            //Remote Desktop Size
+            if(useAllMonitorsForRemoteSession.equalsIgnoreCase("N")) {  //testdata
+                js.executeScript("arguments[0].click();", useAllMonitorsForRemoteSessionCheckbox);
+                if(fullScreen.equalsIgnoreCase("N")) { //testdata
+                    js.executeScript("arguments[0].click();", fullScreenCheckbox);
+
+                    select = new Select(sizeOfDesktopDropdown);
+                    select.selectByVisibleText(sizeOfDesktop); //testdata
+                }
+            }
+
+            //Colors
+            select = new Select(colorsDropdown);
+            select.selectByVisibleText(colors); //testdata
+
+            if(displayConnectionBar.equalsIgnoreCase("N")) { //testdata
+                js.executeScript("arguments[0].click();", displayConnectionBarCheckbox);
+            }
+
+        } else if (selectTab.equalsIgnoreCase("Local Resources")) {
+            localResourcesLabel.click();
+
+            //Remote Audio
+            select = new Select(remoteAudioPlaybackDropdown);
+            select.selectByVisibleText(remoteAudioPlayback); //testdata
+
+            select = new Select(remoteAudioRecordingDropdown);
+            select.selectByVisibleText(remoteAudioRecording); //testdata
+
+            //Local Devices And Resources
+            if(drives.equalsIgnoreCase("Y")) { //testdata
+                js.executeScript("arguments[0].click();", drivesCheckbox);
+            }
+
+            if(clipboard.equalsIgnoreCase("Y")) { //testdata
+                js.executeScript("arguments[0].click();", clipboardCheckbox);
+            }
+
+            if(printers.equalsIgnoreCase("Y")) { //testdata
+                js.executeScript("arguments[0].click();", printersCheckbox);
+            }
+
+            if(smartCards.equalsIgnoreCase("Y")) { //testdata
+                js.executeScript("arguments[0].click();", smartCardsCheckbox);
+            }
+
+            if(ports.equalsIgnoreCase("Y")) { //testdata
+                js.executeScript("arguments[0].click();", portsCheckbox);
+            }
+
+            if(pnpDevices.equalsIgnoreCase("Y")) { //testdata
+                js.executeScript("arguments[0].click();", pnpDevicesCheckbox);
+            }
+
+            //Keyboard
+            select = new Select(keyboardDropdown);
+            select.selectByVisibleText(keyboard); //testdata
+
+        } else if (selectTab.equalsIgnoreCase("Programs")) {
+            programsLabel.click();
+
+            if(startProgramOnConnection.equalsIgnoreCase("Y")) {
+                js.executeScript("arguments[0].click();", startProgramOnConnectionCheckbox);
+                programPathFileNameTextbox.sendKeys(programPathFileName); //testdata
+                startInFollowingFolderTextbox.sendKeys(startInFollowingFolder); //testdata
+            }
+
+        } else if (selectTab.equalsIgnoreCase("Experience")) {
+            experienceLabel.click();
+
+            //Performance
+            select = new Select(connectionSpeedDropdown);
+            select.selectByVisibleText(connectionSpeed); //testdata
+
+            // Allowing the following checkbox script is not developed yet
+
+            if(reconnectIfConnDropped.equalsIgnoreCase("N")) { //testdata
+                js.executeScript("arguments[0].click();", reconnectIfConnDroppedCheckbox);
+            }
+
+        } else if (selectTab.equalsIgnoreCase("Advanced")) {
+            advancedLabel.click();
+
+            //Server Authentication
+            select = new Select(authenticationOptionsDropdown);
+            select.selectByVisibleText(authenticationOption); //testdata
+
+            if(doNotUseRDGateway.equalsIgnoreCase("Y")) { //testdata
+                js.executeScript("arguments[0].click();", doNotUseRDGatewayRadio);
+            }
+        }
+
+        rdpSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(rdpStatusMessage));
+        if (!((rdpStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(rdpStatusMessage.getText());
         }
 
     }

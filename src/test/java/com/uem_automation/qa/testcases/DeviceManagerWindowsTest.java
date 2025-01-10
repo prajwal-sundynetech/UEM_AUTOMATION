@@ -103,8 +103,10 @@ public class DeviceManagerWindowsTest extends Base {
 		deviceManagerPage.clickOnSystemInformationTab();
 		String expectedSystemInformation = testdataProp.getProperty("expectedSystemInformation");
 		String actualSystemInformation = deviceManagerPage.retrieveSystemInformation();
-		Assert.assertTrue(actualSystemInformation.equalsIgnoreCase(expectedSystemInformation),
-				"[Error: actualSystemInformation does not match with expectedSystemInformation]");
+//		Assert.assertTrue(actualSystemInformation.equalsIgnoreCase(expectedSystemInformation),
+//				"[Error: actualSystemInformation does not match with expectedSystemInformation]");
+
+		Assert.assertEquals(actualSystemInformation, expectedSystemInformation, "[Error: actualSystemInformation does not match with expectedSystemInformation]");
 	}
 	
 	@Test(priority = 6) // Verify users are able to view System Profile about the device registered
