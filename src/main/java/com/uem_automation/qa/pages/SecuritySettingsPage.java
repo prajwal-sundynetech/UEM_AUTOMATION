@@ -514,8 +514,55 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//div[@id='WinConrowbuttonRDP']//div[@class='pull-left']")
     private WebElement rdpStatusMessage ;
 
+    // teradici
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connection_management_settings']//label[@title='Teradici'][normalize-space()='Teradici']")
+    private WebElement windowsConnectionManagementConnectionsTeradiciRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='WinContxtConNameForTeradici']")
+    private WebElement teradiciConnectionNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtHostnameTD']")
+    private WebElement teradiciHostNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtDomainTD']")
+    private WebElement teradiciDomainNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtUsernameTD']")
+    private WebElement teradiciUserameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtPasswordTD']")
+    private WebElement teradiciPasswordTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxRemoteerkstn']")
+    private WebElement remoteWorkCardCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxUSBdisable']")
+    private WebElement usbDisableCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxcreateshrtcutdsk']")
+    private WebElement teradiciCreateShortcutOnDesktopCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxcreateshrtcutstartmenu']")
+    private WebElement teradiciCreateShortcutOnStartMenuCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConcbxlautostart']")
+    private WebElement teradiciAutostartConnectionCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConrbtnfullscreenTD']")
+    private WebElement teradiciFullScreenCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConrbtnWindowsTD']")
+    private WebElement teradiciWindowedCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConbtnsaveTeradici']")
+    private WebElement teradiciSaveButton ;
+
+    @FindBy(xpath = "//div[@id='WinConrowbuttonForTD']//div[@class='pull-left']")
+    private WebElement teradiciStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
+
 
 
 
@@ -1514,5 +1561,79 @@ public class SecuritySettingsPage {
             Assert.fail(rdpStatusMessage.getText());
         }
 
+    }
+
+    public void applySecuritySettings_ConnectionManagement_Connections_Teradici(
+
+            String connectionName, String hostName, String domainName, String Username, String password,
+            String remoteWorkCard, String usbDisable, String teradiciCreateShortcutOnDesktop,
+            String teradiciCreateShortcutOnStartMenu, String teradiciAutostartConnection, String teradiciType) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsConnectionManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementRhsMenu));
+            windowsConnectionManagementRhsMenu.click();
+        }
+
+        if (!(windowsConnectionManagementConnectionsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementConnectionsRhsMenu));
+            windowsConnectionManagementConnectionsRhsMenu.click();
+        }
+
+        windowsConnectionManagementConnectionsTeradiciRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        teradiciConnectionNameTextbox.sendKeys(connectionName); //testdata //Teradici PCoIP
+        teradiciHostNameTextbox.sendKeys(hostName);//testdata
+        teradiciDomainNameTextbox.sendKeys(domainName);//testdata
+        teradiciUserameTextbox.sendKeys(Username);//testdata
+        teradiciPasswordTextbox.sendKeys(password);//testdata
+
+        if(remoteWorkCard.equalsIgnoreCase("Y")) {//testdata
+            js.executeScript("arguments[0].click();", remoteWorkCardCheckbox);
+        }
+
+        if(usbDisable.equalsIgnoreCase("Y")) {//testdata
+            js.executeScript("arguments[0].click();", usbDisableCheckbox);
+        }
+
+        if(teradiciCreateShortcutOnDesktop.equalsIgnoreCase("Y")) {//testdata
+            js.executeScript("arguments[0].click();", teradiciCreateShortcutOnDesktopCheckbox);
+        }
+
+        if(teradiciCreateShortcutOnStartMenu.equalsIgnoreCase("N")) {//testdata
+            js.executeScript("arguments[0].click();", teradiciCreateShortcutOnStartMenuCheckbox);
+        }
+
+        if(teradiciAutostartConnection.equalsIgnoreCase("Y")) {//testdata
+            js.executeScript("arguments[0].click();", teradiciAutostartConnectionCheckbox);
+        }
+
+//        String teradiciType = "Fullscreen"; //Windowed//testdata
+
+        if(teradiciType.equalsIgnoreCase("Fullscreen")) {
+//            teradiciFullScreenCheckbox.click();
+            js.executeScript("arguments[0].click();", teradiciFullScreenCheckbox);
+
+        } else if (teradiciType.equalsIgnoreCase("Windowed")) {
+            js.executeScript("arguments[0].click();", teradiciWindowedCheckbox);
+        }
+
+        teradiciSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(teradiciStatusMessage));
+        if (!((teradiciStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(teradiciStatusMessage.getText());
+        }
     }
 }

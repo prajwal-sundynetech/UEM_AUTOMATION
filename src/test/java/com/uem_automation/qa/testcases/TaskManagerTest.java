@@ -876,6 +876,31 @@ public class TaskManagerTest extends Base {
         );
     }
 
+    @Test(priority = 39, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_039_apply_connectionManagement_Connections_Teradici(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // Teradici
+            String connectionName, String hostName, String domainName, String Username, String password,
+            String remoteWorkCard, String usbDisable, String teradiciCreateShortcutOnDesktop,
+            String teradiciCreateShortcutOnStartMenu, String teradiciAutostartConnection, String teradiciType) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Connection Management
+        // Connections
+        // Teradici
+        securitySettingsPage.applySecuritySettings_ConnectionManagement_Connections_Teradici(
+                 connectionName,  hostName,  domainName,  Username,  password,
+                 remoteWorkCard,  usbDisable,  teradiciCreateShortcutOnDesktop,
+                 teradiciCreateShortcutOnStartMenu,  teradiciAutostartConnection,  teradiciType
+        );
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
     @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
