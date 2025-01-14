@@ -46,7 +46,8 @@ public class TaskManagerTest extends Base {
         loginPage.enterPassword(configProp.getProperty("validPass"));
         loginPage.selectView("Task Manager"); //select the direct view //Default View - Device Manager //Task Manager
         loginPage.clickOnLoginButton();
-        deviceManagerPage.changeTheLeftMenuPositionToTopDirection();
+        deviceManagerPage.changeLeftMenuPosition();
+        deviceManagerPage.changeRightMenuPosition();
 //        deviceManagerPage.clickOnTaskManagementTopMenu();
 //        deviceManagerPage.waitTillFooterCompanyWebsiteURLIsDisplayed(testdataProp.getProperty("companyWebsiteUrl"));
 
@@ -901,10 +902,35 @@ public class TaskManagerTest extends Base {
         );
     }
 
+    @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_040_apply_connectionManagement_Connections_VMWareview(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // vmwareview
+            String vmConnectionName, String vmHostName, String vmLogin, String vmPassword, String vmDomain, String vmType,
+            String appDesktopName, String smartCardPin, String connectUsbOnStartup, String connectUsbOnInsert, String nonInteractive,
+            String reconnectBehaviour, String vmwProtocol, String createShortcutOnDesktop, String autoStartConnection, String display) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Connection Management
+        // Connections
+        // VMwareview
+        securitySettingsPage.applySecuritySettings_ConnectionManagement_Connections_VMWareview(
+                 vmConnectionName,  vmHostName,  vmLogin,  vmPassword,  vmDomain,  vmType,
+                 appDesktopName,  smartCardPin,  connectUsbOnStartup,  connectUsbOnInsert,  nonInteractive,
+                 reconnectBehaviour,  vmwProtocol,  createShortcutOnDesktop,  autoStartConnection,  display
+        );
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
-    @Test(priority = 40, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
-    public void TC_TM_040_software_deployment_SoftwarePatchInstallUninstall(
+    @Test(priority = 50, dataProvider = "supplyTestData")//, dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_050_software_deployment_SoftwarePatchInstallUninstall(
 
             // searchAndViewTheTemplate
             String templateName,
@@ -922,8 +948,5 @@ public class TaskManagerTest extends Base {
                 selectNewInstallOrUninstall,  sourceType,  source, fileName,  parameter,  skipWriteFilter, globalRepository);
 
     }
-
-
-
 
 }

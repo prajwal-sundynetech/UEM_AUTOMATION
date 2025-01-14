@@ -67,7 +67,7 @@ public class DeviceManagerPage {
     @FindBy(xpath = "(//label[@title='Time and Language'][normalize-space()='Time and Language'])[2]")
     private WebElement windowsSystemSettingsTimeAndLanguageDropdown;
 
-    @FindBy(xpath = "(//label[@title='Date & Time'][normalize-space()='Date & Time'])[3]")
+    @FindBy(xpath = "(//label[@title='Date & Time'][normalize-space()='Date & Time'])[2]")
     private WebElement windowsSystemSettingsTimeAndLanguageDateAndTimeDropdown;
 
     @FindBy(xpath = "//input[@id='XPDatetimeSett_rbtnDateInstant']/following-sibling::span") //
@@ -124,8 +124,14 @@ public class DeviceManagerPage {
     @FindBy(xpath = "//div[@class='dropdown viewDataMenu viewDataMenuTop']//div[@id='divTask']")
     private WebElement taskManagementTopMenuElement;
 
-    @FindBy(xpath = "//span[@data-original-title='Top Direction']")
+    @FindBy(xpath = "//a[contains(.,'Left Menu Position')]//span[contains(@data-position, 'top')]")
     private WebElement leftMenuPositionToTopDirection;
+
+    @FindBy(xpath = "//a[@id='kt_quick_user_close']//i[@class='ki ki-close icon-sm text-dark']")
+    private WebElement userExitIcon;
+
+    @FindBy(xpath = "//a[contains(.,'Right Menu Position')]//span[@datamenu-position='right']")
+    private WebElement rightMenuPositionToRightDirection;
 
     // constructor
     public DeviceManagerPage(WebDriver driver) {
@@ -296,12 +302,12 @@ public class DeviceManagerPage {
     }
 
     public void logOutFromApplication() {
-//		if(userNameElementLeft.isDisplayed()) {
-//			userNameElementLeft.click();
-//		} else if(userNameElementTop.isDisplayed()) {
-//			userNameElementLeft.click();
-//		}
-        userNameElementTop.click();
+		if(userNameElementLeft.isDisplayed()) {
+			userNameElementLeft.click();
+		} else if(userNameElementTop.isDisplayed()) {
+            userNameElementTop.click();
+		}
+//        userNameElementTop.click();
         logoutButtonElement.click();
         buttonAlertLogoOutElement.click();
     }
@@ -320,10 +326,25 @@ public class DeviceManagerPage {
         taskManagementTopMenuElement.click();
     }
 
-    public void changeTheLeftMenuPositionToTopDirection() {
-        if (userNameElementLeft.isDisplayed()) {
+    public void changeLeftMenuPosition() {
+        if(userNameElementLeft.isDisplayed()) {
             userNameElementLeft.click();
-            leftMenuPositionToTopDirection.click(); //span[@data-original-title='Top Direction']
+            wait.until(ExpectedConditions.elementToBeClickable(leftMenuPositionToTopDirection));
+            leftMenuPositionToTopDirection.click();
+            userExitIcon.click();
+        }
+    }
+
+    public void changeRightMenuPosition() {
+        if (!rhsMenuToogle.isDisplayed()) {
+            if (userNameElementLeft.isDisplayed()) {
+                userNameElementLeft.click();
+            } else {
+                userNameElementTop.click();
+            }
+            wait.until(ExpectedConditions.elementToBeClickable(rightMenuPositionToRightDirection));
+            rightMenuPositionToRightDirection.click();
+            userExitIcon.click();
         }
     }
 }

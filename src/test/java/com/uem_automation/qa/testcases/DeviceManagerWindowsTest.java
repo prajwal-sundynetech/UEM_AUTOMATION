@@ -32,6 +32,8 @@ public class DeviceManagerWindowsTest extends Base {
 		loginPage.enterPassword(configProp.getProperty("validPass"));
 		loginPage.selectView(configProp.getProperty("selectView"));
 		loginPage.clickOnLoginButton();
+		deviceManagerPage.changeLeftMenuPosition();
+		deviceManagerPage.changeRightMenuPosition();
 
 //		deviceManagerPage.waitTillFooterCompanyWebsiteURLIsDisplayed(testdataProp.getProperty("companyWebsiteUrl"));
 	}

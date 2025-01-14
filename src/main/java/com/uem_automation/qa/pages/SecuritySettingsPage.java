@@ -560,6 +560,64 @@ public class SecuritySettingsPage {
     @FindBy(xpath = "//div[@id='WinConrowbuttonForTD']//div[@class='pull-left']")
     private WebElement teradiciStatusMessage ;
 
+    // vm ware view
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='VMWare View'][normalize-space()='VMWare View']")
+    private WebElement windowsConnectionManagementConnectionsVMWareviewRhsMenu ;
+
+    @FindBy(xpath = "//input[@id='WinContxtConNameForVmware']")
+    private WebElement vmConnectionNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtHostname']")
+    private WebElement vmHostNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtLogin']")
+    private WebElement vmLoginTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtPassword']")
+    private WebElement vmPasswordTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtDoamin']")
+    private WebElement vmDomainTextbox ;
+
+    @FindBy(xpath = "//select[@id='WinConddApplicationName']")
+    private WebElement vmTypeDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinContxtDesktopName']")
+    private WebElement appDesktopNameTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinContxtSmartCardPIN']")
+    private WebElement smartCardPinTextbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkConnectUSBOnStartup']")
+    private WebElement vmConnectUsbOnStartupCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkConnectUSBOnInsert']")
+    private WebElement connectUsbOnInsertCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkNonInteractive']")
+    private WebElement nonInteractiveCheckbox ;
+
+    @FindBy(xpath = "//select[@id='WinConddReconnectBehaviour']")
+    private WebElement reconnectBehaviourDropdown ;
+
+    @FindBy(xpath = "//select[@id='WinConddlVMWProperty']")
+    private WebElement vmwProtocolDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinConchkDesktopForVmware']")
+    private WebElement vmCreateShortcutOnDesktopCheckbox ;
+
+    @FindBy(xpath = "//input[@id='WinConchkAutostartconnForVmware']")
+    private WebElement vmAutostartConnectionCheckbox ;
+
+    @FindBy(xpath = "//select[@id='WinConddlDisplay']")
+    private WebElement displayDropdown ;
+
+    @FindBy(xpath = "//input[@id='WinConbtnSaveVMView']")
+    private WebElement vmwareViewSaveButton ;
+
+    @FindBy(xpath = "//div[@id='WinConrowbuttonForVmware']//div[@class='pull-left']")
+    private WebElement vmwareViewStatusMessage ;
+
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
 
@@ -1636,4 +1694,88 @@ public class SecuritySettingsPage {
             Assert.fail(teradiciStatusMessage.getText());
         }
     }
+
+    public void applySecuritySettings_ConnectionManagement_Connections_VMWareview(String vmConnectionName, String vmHostName, String vmLogin, String vmPassword, String vmDomain, String vmType, String appDesktopName, String smartCardPin, String connectUsbOnStartup, String connectUsbOnInsert, String nonInteractive, String reconnectBehaviour, String vmwProtocol, String createShortcutOnDesktop, String autoStartConnection, String display) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsConnectionManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementRhsMenu));
+            windowsConnectionManagementRhsMenu.click();
+        }
+
+        if (!(windowsConnectionManagementConnectionsRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementConnectionsRhsMenu));
+            windowsConnectionManagementConnectionsRhsMenu.click();
+        }
+
+        windowsConnectionManagementConnectionsVMWareviewRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        Select select;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        vmConnectionNameTextbox.sendKeys(vmConnectionName); //testdata
+        vmHostNameTextbox.sendKeys(vmHostName); //testdata
+        vmLoginTextbox.sendKeys(vmLogin); //testdata
+        vmPasswordTextbox.sendKeys(vmPassword); //testdata
+        vmDomainTextbox.sendKeys(vmDomain); //testdata
+
+//        String vmType = "Application Name"; //testdata
+        select = new Select(vmTypeDropdown);
+        select.selectByVisibleText(vmType);
+
+        appDesktopNameTextbox.sendKeys(appDesktopName); //testdata
+        smartCardPinTextbox.sendKeys(smartCardPin); //testdata
+
+        if(connectUsbOnStartup.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", vmConnectUsbOnStartupCheckbox); //testdata
+        }
+
+        if(connectUsbOnInsert.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", connectUsbOnInsertCheckbox); //testdata
+        }
+
+        if(nonInteractive.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", nonInteractiveCheckbox); //testdata
+        }
+
+        if(vmType.equalsIgnoreCase("Application Name")) {
+//        String reconnectBehaviour = "Do not ask to reconnect and do not automatically reconnect"; //testdata
+            select = new Select(reconnectBehaviourDropdown);
+            select.selectByVisibleText(reconnectBehaviour);
+        }
+
+//        String vmwProtocol = "VMware Blast"; //testdata
+        select = new Select(vmwProtocolDropdown);
+        select.selectByVisibleText(vmwProtocol);
+
+        if(createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();",vmCreateShortcutOnDesktopCheckbox); //testdata
+        }
+
+        if(autoStartConnection.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", vmAutostartConnectionCheckbox); //testdata
+        }
+
+//        String display = "1024x768"; //testdata
+        select = new Select(displayDropdown);
+        select.selectByVisibleText(display);
+
+        vmwareViewSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(vmwareViewStatusMessage));
+        if (!((vmwareViewStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(vmwareViewStatusMessage.getText());
+        }
+
+    }
+
 }

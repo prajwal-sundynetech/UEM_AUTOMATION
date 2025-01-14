@@ -173,7 +173,6 @@ public class LoginTest extends Base {
 		loginPage.enterPassword(configProp.getProperty("validPass"));
 		loginPage.selectView(configProp.getProperty("selectView"));
 		loginPage.clickOnLoginButton();
-		deviceManagerPage.changeTheLeftMenuPositionToTopDirection();
 		Assert.assertTrue(deviceManagerPage.isLogoDisplayed(testdataProp.getProperty("companyWebsiteUrl")),
 				"[Error: Logo is not displayed]");
 		// logout
