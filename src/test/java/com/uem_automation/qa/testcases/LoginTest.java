@@ -66,6 +66,8 @@ public class LoginTest extends Base {
 		loginPage.enterPassword(password);
 		loginPage.selectView(view);
 		loginPage.clickOnLoginButton();
+		deviceManagerPage.changeRightMenuPosition();
+		deviceManagerPage.changeLeftMenuPosition();
 		Assert.assertTrue(deviceManagerPage.isLogoDisplayed(testdataProp.getProperty("companyWebsiteUrl")),
 				"[Error: Logo is not displayed]");
 	}

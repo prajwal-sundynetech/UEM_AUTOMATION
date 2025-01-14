@@ -25,10 +25,10 @@ public class DeviceManagerPage {
     @FindBy(xpath = "//div[@class='AjaxLoaderOuter loaderDivInitial']//button[@type='button'][normalize-space()='Please wait...']")
     private WebElement ajaxLoaderOuter;
 
-    @FindBy(xpath = "//img[@src='theme/dist/assets/media/logos/topMenu-Logo-X.png']")//a[@class='topbrand-logo d-none d-block']//img[@alt='Logo']")
+    @FindBy(xpath = "//a[@class='topbrand-logo d-none d-block']//img[@alt='Logo']")//a[@class='topbrand-logo d-none d-block']//img[@alt='Logo']")
     private WebElement logoTopMenu;
 
-    @FindBy(xpath = "//img[@src='theme/dist/assets/media/logos/leftMenu-Logo-S.png']") //img[@src='theme/dist/assets/media/logos/leftMenu-Logo.png']")
+    @FindBy(xpath = "//img[@src='theme/dist/assets/media/logos/leftMenu-Logo.png']") //img[@src='theme/dist/assets/media/logos/leftMenu-Logo.png']")
     private WebElement logoLeftMenu;
 
     @FindBy(xpath = "//label[@id='ContentPlaceHolder1_MUIMainMenulblGrpInfrmtn']")
@@ -67,7 +67,7 @@ public class DeviceManagerPage {
     @FindBy(xpath = "(//label[@title='Time and Language'][normalize-space()='Time and Language'])[2]")
     private WebElement windowsSystemSettingsTimeAndLanguageDropdown;
 
-    @FindBy(xpath = "(//label[@title='Date & Time'][normalize-space()='Date & Time'])[2]")
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1']//li[@id='lblMenu_SysSettings_Window']//label[@title='Date & Time'][normalize-space()='Date & Time']")
     private WebElement windowsSystemSettingsTimeAndLanguageDateAndTimeDropdown;
 
     @FindBy(xpath = "//input[@id='XPDatetimeSett_rbtnDateInstant']/following-sibling::span") //
@@ -245,6 +245,7 @@ public class DeviceManagerPage {
     }
 
     public void clickOnTheWindowsOsProfileTab() {
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
         wait.until(ExpectedConditions.elementToBeClickable(WindowsOsProfileTabElement));
         WindowsOsProfileTabElement.click();
     }

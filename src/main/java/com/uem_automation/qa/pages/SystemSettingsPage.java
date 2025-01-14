@@ -1027,6 +1027,7 @@ public class SystemSettingsPage {
 //        windowsSystemSettingsPeripheralSettingsDropdown.click();
 
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.elementToBeClickable(windowsSystemSettingsPeripheralSettings_DisplaySettings_Menu));
         windowsSystemSettingsPeripheralSettings_DisplaySettings_Menu.click();
 
         wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
@@ -1267,7 +1268,7 @@ public class SystemSettingsPage {
 //        windowsSystemSettingsPrinterSettingsDropdown.click();
         try {
             windowsSystemSettingsPrinterSettings_addPrinter_Menu.click();
-        } catch(ElementNotInteractableException e) {
+        } catch(NoSuchElementException e) {
             Assert.fail("Printer Menu subitems not visible, 'add printer' menu is not visible.");
         } catch(Exception e) {
             System.out.println("Error: " + e.getMessage());

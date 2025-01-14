@@ -2,6 +2,7 @@ package com.uem_automation.qa.testcases;
 
 import com.uem_automation.qa.pages.*;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import com.uem_automation.qa.base.Base;
@@ -715,7 +716,8 @@ public class TaskManagerTest extends Base {
         // Security
         // System
         // Data Wipe
-        securitySettingsPage.applySecuritySettings_System_DataWipe( fileFolder);
+//        securitySettingsPage.applySecuritySettings_System_DataWipe( fileFolder);
+        Assert.fail("Data Wipe Testcase Is Disabled");
     }
 
     @Test(priority = 32, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
@@ -753,7 +755,8 @@ public class TaskManagerTest extends Base {
         // Security
         // System
         // Integrated Peripheral
-        securitySettingsPage.applySecuritySettings_System_IntegratedPeripheral( enableCdDvd,  bluetoothDevice);
+//        securitySettingsPage.applySecuritySettings_System_IntegratedPeripheral( enableCdDvd,  bluetoothDevice);
+        Assert.fail("Integrated Peripheral Testcase Is Disabled");
     }
 
     @Test(priority = 34, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
@@ -927,9 +930,31 @@ public class TaskManagerTest extends Base {
         );
     }
 
+    @Test(priority = 41, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_041_apply_connectionManagement_VMViewGlobalSettings(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // VMViewGlobalSettings
+            String unAuthenticatedAccess, String hideClientAfterLaunch, String allowH264Decoding, String allowHighColorAccuracy, String configureSSL,
+            String networkCondition) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // Security
+        // Connection Management
+        // VMViewGlobalSettings
+        securitySettingsPage.applySecuritySettings_ConnectionManagement_VMViewGlobalSettings(
+                 unAuthenticatedAccess,  hideClientAfterLaunch,  allowH264Decoding,  allowHighColorAccuracy,  configureSSL,
+                 networkCondition
+        );
+    }
+
     // Software Deployment
     // Software and Patch Install/Uninstall
-    @Test(priority = 50, dataProvider = "supplyTestData")//, dependsOnMethods = {"TC_TM_001_Create_Template"})
+    @Test(priority = 50, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
     public void TC_TM_050_software_deployment_SoftwarePatchInstallUninstall(
 
             // searchAndViewTheTemplate

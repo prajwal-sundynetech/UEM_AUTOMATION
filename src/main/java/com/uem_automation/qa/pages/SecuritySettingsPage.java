@@ -308,320 +308,346 @@ public class SecuritySettingsPage {
     //Citrix Workspace App
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connection_management_settings']")
-    private WebElement windowsConnectionManagementRhsMenu ;
+    private WebElement windowsConnectionManagementRhsMenu;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connections_Win']")
-    private WebElement windowsConnectionManagementConnectionsRhsMenu ;
+    private WebElement windowsConnectionManagementConnectionsRhsMenu;
 
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Citrix Workspace App'][normalize-space()='Citrix Workspace App']")
-    private WebElement windowsConnectionManagementConnectionsCitrixWorkspaceAppRhsMenu ;
+    private WebElement windowsConnectionManagementConnectionsCitrixWorkspaceAppRhsMenu;
 
     @FindBy(xpath = "//input[@id='WinContxtConName']")
-    private WebElement connectionNameTextbox ;
+    private WebElement connectionNameTextbox;
 
     @FindBy(xpath = "//select[@id='WinConddlType']")
-    private WebElement citrixTypeDropdown ;
+    private WebElement citrixTypeDropdown;
 
     @FindBy(xpath = "//input[@id='WinContxtStore']")
-    private WebElement storeNameTextbox ;
+    private WebElement storeNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtConfigURL']")
-    private WebElement configurationUrlTextbox ;
+    private WebElement configurationUrlTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtDesc']")
-    private WebElement descriptionTextbox ;
+    private WebElement descriptionTextbox;
 
     @FindBy(xpath = "//input[@id='WinConbtnSaveCitrix1']")
-    private WebElement citrixWorkspaceAppSaveButton ;
+    private WebElement citrixWorkspaceAppSaveButton;
 
     @FindBy(xpath = "//div[@id='WinConrowbutton']//div[@class='pull-left']")
-    private WebElement citrixWorkspaceAppStatusMessage ;
+    private WebElement citrixWorkspaceAppStatusMessage;
 
     //Custom Executable
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='Custom Executable'][normalize-space()='Custom Executable']")
-    private WebElement windowsConnectionManagementConnectionsCustomExecutableRhsMenu ;
+    private WebElement windowsConnectionManagementConnectionsCustomExecutableRhsMenu;
 
     @FindBy(xpath = "//input[@id='WinContxtConNameForCustExec']")
-    private WebElement connectionNameCusExeTextbox ;
+    private WebElement connectionNameCusExeTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtPathForCustExec']")
-    private WebElement pathCusExeTextbox ;
+    private WebElement pathCusExeTextbox;
 
     @FindBy(xpath = "//input[@id='WinConChkShortDesktop']")
-    private WebElement createShortcutOnDesktopCheckbox ;
+    private WebElement createShortcutOnDesktopCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConChkAutoconn']")
-    private WebElement autostartConnectionCheckbox ;
+    private WebElement autostartConnectionCheckbox;
 
     @FindBy(xpath = "//input[@id='WinContxtArgumentsForCustExec']")
-    private WebElement argumentsTextbox ;
+    private WebElement argumentsTextbox;
 
     @FindBy(xpath = "//input[@id='WinConbtnSaveCustom']")
-    private WebElement customExecutableSaveButton ;
+    private WebElement customExecutableSaveButton;
 
     @FindBy(xpath = "//div[@id='WinConrowbuttonForCustExec']//div[@class='pull-left']")
-    private WebElement customExecutableStatusMessage ;
+    private WebElement customExecutableStatusMessage;
 
     //Browser
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connection_management_settings']//label[@title='Browser'][normalize-space()='Browser']")
-    private WebElement windowsConnectionManagementConnectionsBrowserRhsMenu ;
+    private WebElement windowsConnectionManagementConnectionsBrowserRhsMenu;
 
     @FindBy(xpath = "//input[@id='WinContxtConNameForIE']")
-    private WebElement connectionNameBrowserTextbox ;
+    private WebElement connectionNameBrowserTextbox;
 
     @FindBy(xpath = "//select[@id='WinddlBrowserType']")
-    private WebElement browserTypeDropdown ;
+    private WebElement browserTypeDropdown;
 
     @FindBy(xpath = "//input[@id='WinContxtConfigURLForIE']")
-    private WebElement browserConfigurationUrlTextbox ;
+    private WebElement browserConfigurationUrlTextbox;
 
     @FindBy(xpath = "//input[@id='WinConchkKiosk']")
-    private WebElement kioskModeCheckbox ;
+    private WebElement kioskModeCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConchkDesktop']")
-    private WebElement browserCreateShortcutOnDesktopCheckbox ;
+    private WebElement browserCreateShortcutOnDesktopCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConchkAutostartconn']")
-    private WebElement browserAutostartConnectionCheckbox ;
+    private WebElement browserAutostartConnectionCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConchkAutoreconnect']")
-    private WebElement autoReconnectConnectionCheckbox ;
+    private WebElement autoReconnectConnectionCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConbtnSaveIEBrowser']")
-    private WebElement browserSaveButton ;
+    private WebElement browserSaveButton;
 
     @FindBy(xpath = "//div[@id='WinConrowbuttonForIE']//div[@class='pull-left']")
-    private WebElement browserStatusMessage ;
+    private WebElement browserStatusMessage;
 
     //RDP
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='RDP'][normalize-space()='RDP']")
-    private WebElement windowsConnectionManagementConnectionsRDPRhsMenu ;
+    private WebElement windowsConnectionManagementConnectionsRDPRhsMenu;
 
     @FindBy(xpath = "//input[@id='WinContxtConnNameForRDP']")
-    private WebElement rdpConnectionNameTextbox ;
+    private WebElement rdpConnectionNameTextbox;
 
 //    @FindBy(xpath = "//label[@id='WinConlblgeneral']")
 //    private WebElement selectTabLabel ;
 
     @FindBy(xpath = "//label[@id='WinConlblgeneral']")
-    private WebElement generalLabel ;
+    private WebElement generalLabel;
 
     @FindBy(xpath = "//input[@id='WinContxtIPHostName']")
-    private WebElement iphostNameTextbox ;
+    private WebElement iphostNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtPortAddress']")
-    private WebElement portTextbox ;
+    private WebElement portTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtUserName']")
-    private WebElement logonUsernameTextbox ;
+    private WebElement logonUsernameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtDomain']")
-    private WebElement logonDomainTextbox ;
+    private WebElement logonDomainTextbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxAlwaysAskForCredential']")
-    private WebElement alwaysAsk4CredentialCheckbox ;
+    private WebElement alwaysAsk4CredentialCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxAutomaticLogon']")
-    private WebElement automaticLogonCheckbox ;
+    private WebElement automaticLogonCheckbox;
 
     @FindBy(xpath = "//input[@id='WinContxtPwd']")
-    private WebElement logonPasswordTextbox ;
+    private WebElement logonPasswordTextbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxAutoStart']")
-    private WebElement automaticStartCheckbox ;
+    private WebElement automaticStartCheckbox;
 
     @FindBy(xpath = "//label[@id='WinConlbldisplay']")
-    private WebElement displayLabel ;
+    private WebElement displayLabel;
 
     @FindBy(xpath = "//input[@id='WinConchkRedirectMonitors']")
-    private WebElement useAllMonitorsForRemoteSessionCheckbox ;
+    private WebElement useAllMonitorsForRemoteSessionCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConchkFullScreen']")
-    private WebElement fullScreenCheckbox ;
+    private WebElement fullScreenCheckbox;
 
     @FindBy(xpath = "//select[@id='WinConddlScreenSize']")
-    private WebElement sizeOfDesktopDropdown ;
+    private WebElement sizeOfDesktopDropdown;
 
     @FindBy(xpath = "//select[@id='WinConddlColors']")
-    private WebElement colorsDropdown ;
+    private WebElement colorsDropdown;
 
     @FindBy(xpath = "//input[@id='WinConcbxDisplayConBar']")
-    private WebElement displayConnectionBarCheckbox ;
+    private WebElement displayConnectionBarCheckbox;
 
     @FindBy(xpath = "//label[@id='WinConlbllocalresource']")
-    private WebElement localResourcesLabel ;
+    private WebElement localResourcesLabel;
 
     @FindBy(xpath = "//select[@id='WinConddlRemoteComputerSound']")
-    private WebElement remoteAudioPlaybackDropdown ;
+    private WebElement remoteAudioPlaybackDropdown;
 
     @FindBy(xpath = "//select[@id='WinConddlremoteaudiorecordingXP']")
-    private WebElement remoteAudioRecordingDropdown ;
+    private WebElement remoteAudioRecordingDropdown;
 
     @FindBy(xpath = "//input[@id='WinConcbxDiskdrives']")
-    private WebElement drivesCheckbox ;
+    private WebElement drivesCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxClipBoard']")
-    private WebElement clipboardCheckbox ;
+    private WebElement clipboardCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxPrinters']")
-    private WebElement printersCheckbox ;
+    private WebElement printersCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxSmartCards']")
-    private WebElement smartCardsCheckbox ;
+    private WebElement smartCardsCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxSerialPorts']")
-    private WebElement portsCheckbox ;
+    private WebElement portsCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxPlugNPlayDevices']")
-    private WebElement pnpDevicesCheckbox ;
+    private WebElement pnpDevicesCheckbox;
 
     @FindBy(xpath = "//select[@id='WinConddlKeyboard']")
-    private WebElement keyboardDropdown ;
+    private WebElement keyboardDropdown;
 
     @FindBy(xpath = "//label[@id='WinConlblprograms']")
-    private WebElement programsLabel ;
+    private WebElement programsLabel;
 
     @FindBy(xpath = "//input[@id='WinConcbxStartProgmOnConnect']")
-    private WebElement startProgramOnConnectionCheckbox ;
+    private WebElement startProgramOnConnectionCheckbox;
 
     @FindBy(xpath = "//input[@id='WinContxtFilePath']")
-    private WebElement programPathFileNameTextbox ;
+    private WebElement programPathFileNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtFolder']")
-    private WebElement startInFollowingFolderTextbox ;
+    private WebElement startInFollowingFolderTextbox;
 
     @FindBy(xpath = "//label[@id='WinConlblexperience']")
-    private WebElement experienceLabel ;
+    private WebElement experienceLabel;
 
     @FindBy(xpath = "//select[@id='WinConddlConnectionSpeed']")
-    private WebElement connectionSpeedDropdown ;
+    private WebElement connectionSpeedDropdown;
 
     @FindBy(xpath = "//input[@id='WinConcbxReconnect']")
-    private WebElement reconnectIfConnDroppedCheckbox ;
+    private WebElement reconnectIfConnDroppedCheckbox;
 
     @FindBy(xpath = "//label[@id='WinConlbladvanced']")
-    private WebElement advancedLabel ;
+    private WebElement advancedLabel;
 
     @FindBy(xpath = "//select[@id='WinConddlServerAuth']")
-    private WebElement authenticationOptionsDropdown ;
+    private WebElement authenticationOptionsDropdown;
 
     @FindBy(xpath = "//input[@id='WinConrdbNoUseTS']")
-    private WebElement doNotUseRDGatewayRadio ;
+    private WebElement doNotUseRDGatewayRadio;
 
     @FindBy(xpath = "//input[@id='WinConbtnSaveRDP']")
-    private WebElement rdpSaveButton ;
+    private WebElement rdpSaveButton;
 
     @FindBy(xpath = "//div[@id='WinConrowbuttonRDP']//div[@class='pull-left']")
-    private WebElement rdpStatusMessage ;
+    private WebElement rdpStatusMessage;
 
     // teradici
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connection_management_settings']//label[@title='Teradici'][normalize-space()='Teradici']")
-    private WebElement windowsConnectionManagementConnectionsTeradiciRhsMenu ;
+    private WebElement windowsConnectionManagementConnectionsTeradiciRhsMenu;
 
     @FindBy(xpath = "//input[@id='WinContxtConNameForTeradici']")
-    private WebElement teradiciConnectionNameTextbox ;
+    private WebElement teradiciConnectionNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtHostnameTD']")
-    private WebElement teradiciHostNameTextbox ;
+    private WebElement teradiciHostNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtDomainTD']")
-    private WebElement teradiciDomainNameTextbox ;
+    private WebElement teradiciDomainNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtUsernameTD']")
-    private WebElement teradiciUserameTextbox ;
+    private WebElement teradiciUserameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtPasswordTD']")
-    private WebElement teradiciPasswordTextbox ;
+    private WebElement teradiciPasswordTextbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxRemoteerkstn']")
-    private WebElement remoteWorkCardCheckbox ;
+    private WebElement remoteWorkCardCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxUSBdisable']")
-    private WebElement usbDisableCheckbox ;
+    private WebElement usbDisableCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxcreateshrtcutdsk']")
-    private WebElement teradiciCreateShortcutOnDesktopCheckbox ;
+    private WebElement teradiciCreateShortcutOnDesktopCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxcreateshrtcutstartmenu']")
-    private WebElement teradiciCreateShortcutOnStartMenuCheckbox ;
+    private WebElement teradiciCreateShortcutOnStartMenuCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConcbxlautostart']")
-    private WebElement teradiciAutostartConnectionCheckbox ;
+    private WebElement teradiciAutostartConnectionCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConrbtnfullscreenTD']")
-    private WebElement teradiciFullScreenCheckbox ;
+    private WebElement teradiciFullScreenCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConrbtnWindowsTD']")
-    private WebElement teradiciWindowedCheckbox ;
+    private WebElement teradiciWindowedCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConbtnsaveTeradici']")
-    private WebElement teradiciSaveButton ;
+    private WebElement teradiciSaveButton;
 
     @FindBy(xpath = "//div[@id='WinConrowbuttonForTD']//div[@class='pull-left']")
-    private WebElement teradiciStatusMessage ;
+    private WebElement teradiciStatusMessage;
 
     // vm ware view
     @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//label[@title='VMWare View'][normalize-space()='VMWare View']")
-    private WebElement windowsConnectionManagementConnectionsVMWareviewRhsMenu ;
+    private WebElement windowsConnectionManagementConnectionsVMWareviewRhsMenu;
 
     @FindBy(xpath = "//input[@id='WinContxtConNameForVmware']")
-    private WebElement vmConnectionNameTextbox ;
+    private WebElement vmConnectionNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtHostname']")
-    private WebElement vmHostNameTextbox ;
+    private WebElement vmHostNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtLogin']")
-    private WebElement vmLoginTextbox ;
+    private WebElement vmLoginTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtPassword']")
-    private WebElement vmPasswordTextbox ;
+    private WebElement vmPasswordTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtDoamin']")
-    private WebElement vmDomainTextbox ;
+    private WebElement vmDomainTextbox;
 
     @FindBy(xpath = "//select[@id='WinConddApplicationName']")
-    private WebElement vmTypeDropdown ;
+    private WebElement vmTypeDropdown;
 
     @FindBy(xpath = "//input[@id='WinContxtDesktopName']")
-    private WebElement appDesktopNameTextbox ;
+    private WebElement appDesktopNameTextbox;
 
     @FindBy(xpath = "//input[@id='WinContxtSmartCardPIN']")
-    private WebElement smartCardPinTextbox ;
+    private WebElement smartCardPinTextbox;
 
     @FindBy(xpath = "//input[@id='WinConchkConnectUSBOnStartup']")
-    private WebElement vmConnectUsbOnStartupCheckbox ;
+    private WebElement vmConnectUsbOnStartupCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConchkConnectUSBOnInsert']")
-    private WebElement connectUsbOnInsertCheckbox ;
+    private WebElement connectUsbOnInsertCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConchkNonInteractive']")
-    private WebElement nonInteractiveCheckbox ;
+    private WebElement nonInteractiveCheckbox;
 
     @FindBy(xpath = "//select[@id='WinConddReconnectBehaviour']")
-    private WebElement reconnectBehaviourDropdown ;
+    private WebElement reconnectBehaviourDropdown;
 
     @FindBy(xpath = "//select[@id='WinConddlVMWProperty']")
-    private WebElement vmwProtocolDropdown ;
+    private WebElement vmwProtocolDropdown;
 
     @FindBy(xpath = "//input[@id='WinConchkDesktopForVmware']")
-    private WebElement vmCreateShortcutOnDesktopCheckbox ;
+    private WebElement vmCreateShortcutOnDesktopCheckbox;
 
     @FindBy(xpath = "//input[@id='WinConchkAutostartconnForVmware']")
-    private WebElement vmAutostartConnectionCheckbox ;
+    private WebElement vmAutostartConnectionCheckbox;
 
     @FindBy(xpath = "//select[@id='WinConddlDisplay']")
-    private WebElement displayDropdown ;
+    private WebElement displayDropdown;
 
     @FindBy(xpath = "//input[@id='WinConbtnSaveVMView']")
-    private WebElement vmwareViewSaveButton ;
+    private WebElement vmwareViewSaveButton;
 
     @FindBy(xpath = "//div[@id='WinConrowbuttonForVmware']//div[@class='pull-left']")
-    private WebElement vmwareViewStatusMessage ;
+    private WebElement vmwareViewStatusMessage;
+
+    //vmview global settings
+    @FindBy(xpath = "//ul[@class='menu-nav mt-n1 page-sidebar-menu']//li[@id='lblMenu_connection_management_settings']//label[@title='VMView Global Settings'][normalize-space()='VMView Global Settings']")
+    private WebElement windowsConnectionManagementVMViewGlobalSettingsRhsMenu;
+
+    @FindBy(xpath = "//input[@id='WinVMViewchkUnauthenticatedAccessEnabled']")
+    private WebElement unAuthenticatedAccessCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinVMViewchkHideClientAfterLaunchSession']")
+    private WebElement hideClientAfterLaunchCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinVMViewchkAllowH264Decoding']")
+    private WebElement allowH264DecodingCheckbox;
+
+    @FindBy(xpath = "//input[@id='WinVMViewchkAllowHighColorAccuracy']")
+    private WebElement allowHighColorAccuracyCheckbox;
+
+    @FindBy(xpath = "//select[@id='WinVMViewddlConfigureSSL']")
+    private WebElement configureSSLDropdown;
+
+    @FindBy(xpath = "//select[@id='WinVMViewddlNetworkCondition']")
+    private WebElement networkConditionDropdown;
+
+    @FindBy(xpath = "//input[@id='WinVMViewbtnVmViewGlobalApply']")
+    private WebElement vmViewGlobalSettingsSaveButton;
+
+    @FindBy(xpath = "//div[@id='WinVMViewtblCitrixRevrViewForVmware']//div[@class='pull-left']")
+    private WebElement vmViewGlobalSettingsStatusMessage;
 
 //    @FindBy(xpath = "xxxxxx")
 //    private WebElement xxxxxx ;
-
-
 
 
     // Constructor
@@ -1245,47 +1271,47 @@ public class SecuritySettingsPage {
             }
         }
 
-       if (enableSerialPort.equalsIgnoreCase("Y")) {
+        if (enableSerialPort.equalsIgnoreCase("Y")) {
             if (!enableSerialPortCheckbox.isSelected()) {
                 js.executeScript("arguments[0].click();", enableSerialPortCheckbox);
             }
-       } else if (enableSerialPort.equalsIgnoreCase("N")) {
-           if (enableSerialPortCheckbox.isSelected()) {
-               js.executeScript("arguments[0].click();", enableSerialPortCheckbox);
-           }
-       }
+        } else if (enableSerialPort.equalsIgnoreCase("N")) {
+            if (enableSerialPortCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableSerialPortCheckbox);
+            }
+        }
 
-       if (enableUsbPort.equalsIgnoreCase("Y")) {
+        if (enableUsbPort.equalsIgnoreCase("Y")) {
             if (!enableUsbPortCheckbox.isSelected()) {
                 js.executeScript("arguments[0].click();", enableUsbPortCheckbox);
             }
-       } else if (enableUsbPort.equalsIgnoreCase("N")) {
-           if (enableUsbPortCheckbox.isSelected()) {
-               js.executeScript("arguments[0].click();", enableUsbPortCheckbox);
-           }
-       }
+        } else if (enableUsbPort.equalsIgnoreCase("N")) {
+            if (enableUsbPortCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", enableUsbPortCheckbox);
+            }
+        }
 
-       if (usbMassStorage.equalsIgnoreCase("Y")) {
+        if (usbMassStorage.equalsIgnoreCase("Y")) {
             if (!usbMassStorageCheckbox.isSelected()) {
                 js.executeScript("arguments[0].click();", usbMassStorageCheckbox);
             }
-       } else if (usbMassStorage.equalsIgnoreCase("N")) {
-           if (usbMassStorageCheckbox.isSelected()) {
-               js.executeScript("arguments[0].click();", usbMassStorageCheckbox);
-           }
-       }
+        } else if (usbMassStorage.equalsIgnoreCase("N")) {
+            if (usbMassStorageCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", usbMassStorageCheckbox);
+            }
+        }
 
-       // Usb write protect is disabled in the script section
+        // Usb write protect is disabled in the script section
 
-       if (usbWriteProtect.equalsIgnoreCase("Y")) {
+        if (usbWriteProtect.equalsIgnoreCase("Y")) {
             if (!usbWriteProtectCheckbox.isSelected()) {
                 js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
             }
-       } else if (usbWriteProtect.equalsIgnoreCase("N")) {
-           if (usbWriteProtectCheckbox.isSelected()) {
-               js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
-           }
-       }
+        } else if (usbWriteProtect.equalsIgnoreCase("N")) {
+            if (usbWriteProtectCheckbox.isSelected()) {
+                js.executeScript("arguments[0].click();", usbWriteProtectCheckbox);
+            }
+        }
 
         portSettingsSaveButton.click();
 
@@ -1325,7 +1351,7 @@ public class SecuritySettingsPage {
         Select select = new Select(citrixTypeDropdown);
         select.selectByVisibleText(citrixType); //testdata
 
-        if(!citrixType.equalsIgnoreCase("PNA")) {
+        if (!citrixType.equalsIgnoreCase("PNA")) {
             storeNameTextbox.sendKeys(storeName); //testdata
         }
         configurationUrlTextbox.sendKeys(configurationUrl); //testdata
@@ -1369,7 +1395,7 @@ public class SecuritySettingsPage {
         connectionNameCusExeTextbox.sendKeys(connectionName); //testdata
         pathCusExeTextbox.sendKeys(path); //testdata
 
-        if(createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
+        if (createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", createShortcutOnDesktopCheckbox);
         }
 
@@ -1377,7 +1403,7 @@ public class SecuritySettingsPage {
 //            js.executeScript("arguments[0].click();", createShortcutInStartMenuCheckbox);
 //        }
 
-        if(autostartConnection.equalsIgnoreCase("Y")) { //testdata
+        if (autostartConnection.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", autostartConnectionCheckbox);
         }
 
@@ -1393,7 +1419,7 @@ public class SecuritySettingsPage {
     }
 
     public void applySecuritySettings_ConnectionManagement_Connections_Browser(String connectionName, String browserType, String configurationUrl,
-                                                                               String kioskMode, String createShortcutOnDesktop , String autostartConnection ,
+                                                                               String kioskMode, String createShortcutOnDesktop, String autostartConnection,
                                                                                String autoReconnectConnection) {
 
         if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
@@ -1426,11 +1452,11 @@ public class SecuritySettingsPage {
 
         browserConfigurationUrlTextbox.sendKeys(configurationUrl); //testdata
 
-        if(kioskMode.equalsIgnoreCase("Y")) { //testdata
+        if (kioskMode.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", kioskModeCheckbox);
         }
 
-        if(createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
+        if (createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", browserCreateShortcutOnDesktopCheckbox);
         }
 
@@ -1438,11 +1464,11 @@ public class SecuritySettingsPage {
 //            js.executeScript("arguments[0].click();", kioskModeCheckbox);
 //        }
 
-        if(autostartConnection.equalsIgnoreCase("Y")) { //testdata
+        if (autostartConnection.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", browserAutostartConnectionCheckbox);
         }
 
-        if(autoReconnectConnection.equalsIgnoreCase("Y")) { //testdata
+        if (autoReconnectConnection.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", autoReconnectConnectionCheckbox);
         }
 
@@ -1491,20 +1517,20 @@ public class SecuritySettingsPage {
 //        select = new Select(selectTabLabel);
 //        select.selectByVisibleText(selectTab);
 
-        if(selectTab.equalsIgnoreCase("General")) {
+        if (selectTab.equalsIgnoreCase("General")) {
             generalLabel.click();
             iphostNameTextbox.clear();
             iphostNameTextbox.sendKeys(iphostName); //testdata
             portTextbox.sendKeys(port); //testdata
 
-            if(alwaysAsk4Credential.equalsIgnoreCase("Y")) { //testdata
+            if (alwaysAsk4Credential.equalsIgnoreCase("Y")) { //testdata
                 logonUsernameTextbox.sendKeys(userName); //testdata
                 logonDomainTextbox.sendKeys(domain); //testdata
 
             } else if (alwaysAsk4Credential.equalsIgnoreCase("N")) {
                 js.executeScript("arguments[0].click();", alwaysAsk4CredentialCheckbox);
 
-                if(automaticLogon.equalsIgnoreCase("Y")) { //testdata
+                if (automaticLogon.equalsIgnoreCase("Y")) { //testdata
                     js.executeScript("arguments[0].click();", automaticLogonCheckbox);
                     logonUsernameTextbox.sendKeys(userName);
                     logonDomainTextbox.sendKeys(domain);
@@ -1512,7 +1538,7 @@ public class SecuritySettingsPage {
                 }
             }
 
-            if(automaticStart.equalsIgnoreCase("Y")) { //testdata
+            if (automaticStart.equalsIgnoreCase("Y")) { //testdata
                 js.executeScript("arguments[0].click();", automaticStartCheckbox);
             }
 
@@ -1520,9 +1546,9 @@ public class SecuritySettingsPage {
             displayLabel.click();
 
             //Remote Desktop Size
-            if(useAllMonitorsForRemoteSession.equalsIgnoreCase("N")) {  //testdata
+            if (useAllMonitorsForRemoteSession.equalsIgnoreCase("N")) {  //testdata
                 js.executeScript("arguments[0].click();", useAllMonitorsForRemoteSessionCheckbox);
-                if(fullScreen.equalsIgnoreCase("N")) { //testdata
+                if (fullScreen.equalsIgnoreCase("N")) { //testdata
                     js.executeScript("arguments[0].click();", fullScreenCheckbox);
 
                     select = new Select(sizeOfDesktopDropdown);
@@ -1534,7 +1560,7 @@ public class SecuritySettingsPage {
             select = new Select(colorsDropdown);
             select.selectByVisibleText(colors); //testdata
 
-            if(displayConnectionBar.equalsIgnoreCase("N")) { //testdata
+            if (displayConnectionBar.equalsIgnoreCase("N")) { //testdata
                 js.executeScript("arguments[0].click();", displayConnectionBarCheckbox);
             }
 
@@ -1549,27 +1575,27 @@ public class SecuritySettingsPage {
             select.selectByVisibleText(remoteAudioRecording); //testdata
 
             //Local Devices And Resources
-            if(drives.equalsIgnoreCase("Y")) { //testdata
+            if (drives.equalsIgnoreCase("Y")) { //testdata
                 js.executeScript("arguments[0].click();", drivesCheckbox);
             }
 
-            if(clipboard.equalsIgnoreCase("Y")) { //testdata
+            if (clipboard.equalsIgnoreCase("Y")) { //testdata
                 js.executeScript("arguments[0].click();", clipboardCheckbox);
             }
 
-            if(printers.equalsIgnoreCase("Y")) { //testdata
+            if (printers.equalsIgnoreCase("Y")) { //testdata
                 js.executeScript("arguments[0].click();", printersCheckbox);
             }
 
-            if(smartCards.equalsIgnoreCase("Y")) { //testdata
+            if (smartCards.equalsIgnoreCase("Y")) { //testdata
                 js.executeScript("arguments[0].click();", smartCardsCheckbox);
             }
 
-            if(ports.equalsIgnoreCase("Y")) { //testdata
+            if (ports.equalsIgnoreCase("Y")) { //testdata
                 js.executeScript("arguments[0].click();", portsCheckbox);
             }
 
-            if(pnpDevices.equalsIgnoreCase("Y")) { //testdata
+            if (pnpDevices.equalsIgnoreCase("Y")) { //testdata
                 js.executeScript("arguments[0].click();", pnpDevicesCheckbox);
             }
 
@@ -1580,7 +1606,7 @@ public class SecuritySettingsPage {
         } else if (selectTab.equalsIgnoreCase("Programs")) {
             programsLabel.click();
 
-            if(startProgramOnConnection.equalsIgnoreCase("Y")) {
+            if (startProgramOnConnection.equalsIgnoreCase("Y")) {
                 js.executeScript("arguments[0].click();", startProgramOnConnectionCheckbox);
                 programPathFileNameTextbox.sendKeys(programPathFileName); //testdata
                 startInFollowingFolderTextbox.sendKeys(startInFollowingFolder); //testdata
@@ -1595,7 +1621,7 @@ public class SecuritySettingsPage {
 
             // Allowing the following checkbox script is not developed yet
 
-            if(reconnectIfConnDropped.equalsIgnoreCase("N")) { //testdata
+            if (reconnectIfConnDropped.equalsIgnoreCase("N")) { //testdata
                 js.executeScript("arguments[0].click();", reconnectIfConnDroppedCheckbox);
             }
 
@@ -1606,7 +1632,7 @@ public class SecuritySettingsPage {
             select = new Select(authenticationOptionsDropdown);
             select.selectByVisibleText(authenticationOption); //testdata
 
-            if(doNotUseRDGateway.equalsIgnoreCase("Y")) { //testdata
+            if (doNotUseRDGateway.equalsIgnoreCase("Y")) { //testdata
                 js.executeScript("arguments[0].click();", doNotUseRDGatewayRadio);
             }
         }
@@ -1656,29 +1682,29 @@ public class SecuritySettingsPage {
         teradiciUserameTextbox.sendKeys(Username);//testdata
         teradiciPasswordTextbox.sendKeys(password);//testdata
 
-        if(remoteWorkCard.equalsIgnoreCase("Y")) {//testdata
+        if (remoteWorkCard.equalsIgnoreCase("Y")) {//testdata
             js.executeScript("arguments[0].click();", remoteWorkCardCheckbox);
         }
 
-        if(usbDisable.equalsIgnoreCase("Y")) {//testdata
+        if (usbDisable.equalsIgnoreCase("Y")) {//testdata
             js.executeScript("arguments[0].click();", usbDisableCheckbox);
         }
 
-        if(teradiciCreateShortcutOnDesktop.equalsIgnoreCase("Y")) {//testdata
+        if (teradiciCreateShortcutOnDesktop.equalsIgnoreCase("Y")) {//testdata
             js.executeScript("arguments[0].click();", teradiciCreateShortcutOnDesktopCheckbox);
         }
 
-        if(teradiciCreateShortcutOnStartMenu.equalsIgnoreCase("N")) {//testdata
+        if (teradiciCreateShortcutOnStartMenu.equalsIgnoreCase("N")) {//testdata
             js.executeScript("arguments[0].click();", teradiciCreateShortcutOnStartMenuCheckbox);
         }
 
-        if(teradiciAutostartConnection.equalsIgnoreCase("Y")) {//testdata
+        if (teradiciAutostartConnection.equalsIgnoreCase("Y")) {//testdata
             js.executeScript("arguments[0].click();", teradiciAutostartConnectionCheckbox);
         }
 
 //        String teradiciType = "Fullscreen"; //Windowed//testdata
 
-        if(teradiciType.equalsIgnoreCase("Fullscreen")) {
+        if (teradiciType.equalsIgnoreCase("Fullscreen")) {
 //            teradiciFullScreenCheckbox.click();
             js.executeScript("arguments[0].click();", teradiciFullScreenCheckbox);
 
@@ -1734,19 +1760,19 @@ public class SecuritySettingsPage {
         appDesktopNameTextbox.sendKeys(appDesktopName); //testdata
         smartCardPinTextbox.sendKeys(smartCardPin); //testdata
 
-        if(connectUsbOnStartup.equalsIgnoreCase("Y")) { //testdata
+        if (connectUsbOnStartup.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", vmConnectUsbOnStartupCheckbox); //testdata
         }
 
-        if(connectUsbOnInsert.equalsIgnoreCase("Y")) { //testdata
+        if (connectUsbOnInsert.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", connectUsbOnInsertCheckbox); //testdata
         }
 
-        if(nonInteractive.equalsIgnoreCase("Y")) { //testdata
+        if (nonInteractive.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", nonInteractiveCheckbox); //testdata
         }
 
-        if(vmType.equalsIgnoreCase("Application Name")) {
+        if (vmType.equalsIgnoreCase("Application Name")) {
 //        String reconnectBehaviour = "Do not ask to reconnect and do not automatically reconnect"; //testdata
             select = new Select(reconnectBehaviourDropdown);
             select.selectByVisibleText(reconnectBehaviour);
@@ -1756,11 +1782,11 @@ public class SecuritySettingsPage {
         select = new Select(vmwProtocolDropdown);
         select.selectByVisibleText(vmwProtocol);
 
-        if(createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
-            js.executeScript("arguments[0].click();",vmCreateShortcutOnDesktopCheckbox); //testdata
+        if (createShortcutOnDesktop.equalsIgnoreCase("Y")) { //testdata
+            js.executeScript("arguments[0].click();", vmCreateShortcutOnDesktopCheckbox); //testdata
         }
 
-        if(autoStartConnection.equalsIgnoreCase("Y")) { //testdata
+        if (autoStartConnection.equalsIgnoreCase("Y")) { //testdata
             js.executeScript("arguments[0].click();", vmAutostartConnectionCheckbox); //testdata
         }
 
@@ -1778,4 +1804,76 @@ public class SecuritySettingsPage {
 
     }
 
+    public void applySecuritySettings_ConnectionManagement_VMViewGlobalSettings(
+            String unAuthenticatedAccess, String hideClientAfterLaunch, String allowH264Decoding, String allowHighColorAccuracy, String configureSSL,
+            String networkCondition
+    ) {
+
+        if (rhsMenuToogleElement.getAttribute("class").contains("active")) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(rhsMenuToogleElement));
+            rhsMenuToogleElement.click();
+        }
+
+        if (!(windowsConnectionManagementRhsMenu.getAttribute("class").contains("menu-item-open"))) {
+            wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+            wait.until(ExpectedConditions.elementToBeClickable(windowsConnectionManagementRhsMenu));
+            windowsConnectionManagementRhsMenu.click();
+        }
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        windowsConnectionManagementVMViewGlobalSettingsRhsMenu.click();
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+
+        Select select;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        if (unAuthenticatedAccess.equalsIgnoreCase("Y") && !unAuthenticatedAccessCheckbox.isSelected()) { //testdata
+            js.executeScript("arguments[0].click();", unAuthenticatedAccessCheckbox);
+        }
+        else if(unAuthenticatedAccess.equalsIgnoreCase("N") && unAuthenticatedAccessCheckbox.isSelected()){ //testdata
+            js.executeScript("arguments[0].click();", unAuthenticatedAccessCheckbox);
+        }
+
+
+        if (hideClientAfterLaunch.equalsIgnoreCase("Y") && !hideClientAfterLaunchCheckbox.isSelected()) { //testdata
+            js.executeScript("arguments[0].click();", hideClientAfterLaunchCheckbox);
+        }
+        else if(hideClientAfterLaunch.equalsIgnoreCase("N") && hideClientAfterLaunchCheckbox.isSelected()) { //testdata
+            js.executeScript("arguments[0].click();", hideClientAfterLaunchCheckbox);
+        }
+
+
+        if (allowH264Decoding.equalsIgnoreCase("N") && allowH264DecodingCheckbox.isSelected()) { //testdata
+            js.executeScript("arguments[0].click();", allowH264DecodingCheckbox);
+        }
+        else if(allowH264Decoding.equalsIgnoreCase("Y") && !allowH264DecodingCheckbox.isSelected()){ //testdata
+            js.executeScript("arguments[0].click();", allowH264DecodingCheckbox);
+        }
+
+
+        if (allowHighColorAccuracy.equalsIgnoreCase("Y") && !allowHighColorAccuracyCheckbox.isSelected()) { //testdata
+            js.executeScript("arguments[0].click();", allowHighColorAccuracyCheckbox);
+        }
+        else if(allowHighColorAccuracy.equalsIgnoreCase("N") && allowHighColorAccuracyCheckbox.isSelected()){ //testdata
+            js.executeScript("arguments[0].click();", allowHighColorAccuracyCheckbox);
+        }
+
+
+        select = new Select(configureSSLDropdown);
+        select.selectByVisibleText(configureSSL); //testdata
+
+        select = new Select(networkConditionDropdown);
+        select.selectByVisibleText(networkCondition); //testdata
+
+        vmViewGlobalSettingsSaveButton.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(ajaxLoaderOuter));
+        wait.until(ExpectedConditions.visibilityOf(vmViewGlobalSettingsStatusMessage));
+        if (!((vmViewGlobalSettingsStatusMessage.getText()).equals("Request for settings update has been processed"))) {
+            Assert.fail(vmViewGlobalSettingsStatusMessage.getText());
+        }
+
+
+    }
 }
