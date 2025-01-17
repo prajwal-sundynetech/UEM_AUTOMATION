@@ -80,7 +80,7 @@ public class TaskManagerTest extends Base {
 
     // Test Cases
 
-    @Test(priority = 1, dataProvider = "supplyTestData")//supplyTestData_template") //supplyTestData_template")
+    @Test(priority = 1, dataProvider = "supplyTestData")
     public void TC_TM_001_Create_Template(String templateName, String osType, String skipWriteFilter,
                                           String taskScheduleType, String allowTaskPostponement, String postponementMessage, String postponementDisplayTime, String templateStartMessage, String displayTime) {
 
@@ -240,7 +240,7 @@ public class TaskManagerTest extends Base {
 
     }
 
-    @Test(priority = 9, dataProvider = "supplyTestData")//, dependsOnMethods = {"TC_TM_001_Create_Template"})
+    @Test(priority = 9, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
     public void TC_TM_009_apply_system_settings_peripheralSettings_MouseSettings(
 
             // searchAndViewTheTemplate
@@ -249,8 +249,8 @@ public class TaskManagerTest extends Base {
             // Mouse Settings
             String leftHandConfiguration) {
 
-        taskManagerPage.navigateToTemplateMangerRhsMenu();
-        templateManagerPage.searchAndViewTheTemplate(templateName);
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
 
         // System Settings
         // Peripheral Settings
@@ -1132,6 +1132,90 @@ public class TaskManagerTest extends Base {
 
 
     // Software Deployment
+    //File Transfer
+    @Test(priority = 51, dataProvider = "supplyTestData")//, dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_051_apply_softwareDeployment_FileTransfer(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // FileTransfer
+            String selectTab, String targetFolderPath, String ftSource,
+            String ftSourceType, String fileName, String skipWriteFilter, String globalRepository,
+            String executeFile, String batchExecution, String commandParameter
+    ) {
+
+        taskManagerPage.navigateToTemplateMangerRhsMenu();
+        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // FileTransfer
+        softwareDeploymentPage.apply_FileTransfer(
+                 selectTab,  targetFolderPath,  ftSource,
+                 ftSourceType,  fileName,  skipWriteFilter,  globalRepository,
+                 executeFile,  batchExecution,  commandParameter
+        );
+    }
+
+    @Test(priority = 52, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_052_apply_softwareDeployment_ImportFile(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // ImportFile
+            String ifSelectTab, String sourceType, String source, String filePath, String folderPath,
+            String folderSynchronizationPath
+    ) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // ImportFile
+        softwareDeploymentPage.apply_ImportFile(
+                 ifSelectTab,  sourceType,  source,  filePath,  folderPath, folderSynchronizationPath
+        );
+    }
+
+    @Test(priority = 53, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+    public void TC_TM_053_apply_softwareDeployment_ImportFile(
+
+            // searchAndViewTheTemplate
+            String templateName,
+
+            // ImportFile
+            String ifSelectTab, String sourceType, String source, String filePath, String folderPath,
+            String folderSynchronizationPath
+    ) {
+
+//        taskManagerPage.navigateToTemplateMangerRhsMenu();
+//        templateManagerPage.searchAndViewTheTemplate(templateName);
+
+        // ImportFile
+        softwareDeploymentPage.apply_ImportFile(
+                ifSelectTab,  sourceType,  source,  filePath,  folderPath, folderSynchronizationPath
+        );
+    }
+
+//    @Test(priority = 54, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
+//    public void TC_TM_054_apply_softwareDeployment_ImageManagement_DeployImage(
+//
+//            // searchAndViewTheTemplate
+//            String templateName,
+//
+//            // DeployImage
+//            String ifSelectTab, String sourceType, String source, String filePath, String folderPath,
+//            String folderSynchronizationPath
+//    ) {
+//
+////        taskManagerPage.navigateToTemplateMangerRhsMenu();
+////        templateManagerPage.searchAndViewTheTemplate(templateName);
+//
+//        // DeployImage
+//        softwareDeploymentPage.apply_DeployImage(
+//                ifSelectTab,  sourceType,  source,  filePath,  folderPath, folderSynchronizationPath
+//        );
+//    }
+
     // Software and Patch Install/Uninstall
     @Test(priority = 60, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
     public void TC_TM_060_software_deployment_SoftwarePatchInstallUninstall(

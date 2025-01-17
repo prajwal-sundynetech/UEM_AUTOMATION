@@ -143,6 +143,8 @@ public class LoginTest extends Base {
 		action.sendKeys(configProp.getProperty("validPass")).perform();
 		action.sendKeys(Keys.ENTER).build().perform();
 		loginPage.selectView(configProp.getProperty("selectView"));
+		deviceManagerPage.changeLeftMenuPosition();
+		deviceManagerPage.changeRightMenuPosition();
 		Assert.assertTrue(deviceManagerPage.isLogoDisplayed(testdataProp.getProperty("companyWebsiteUrl")),
 				"[Error: Logo is not displayed]");
 	}
@@ -159,6 +161,8 @@ public class LoginTest extends Base {
 		loginPage.enterPassword(configProp.getProperty("validPass"));
 		loginPage.selectView(configProp.getProperty("selectView"));
 		loginPage.clickOnLoginButton();
+		deviceManagerPage.changeLeftMenuPosition();
+		deviceManagerPage.changeRightMenuPosition();
 		deviceManagerPage.isLogoDisplayed(testdataProp.getProperty("companyWebsiteUrl"));
 		driver.navigate().back();
 		Thread.sleep(2000);
@@ -175,6 +179,8 @@ public class LoginTest extends Base {
 		loginPage.enterPassword(configProp.getProperty("validPass"));
 		loginPage.selectView(configProp.getProperty("selectView"));
 		loginPage.clickOnLoginButton();
+		deviceManagerPage.changeLeftMenuPosition();
+		deviceManagerPage.changeRightMenuPosition();
 		Assert.assertTrue(deviceManagerPage.isLogoDisplayed(testdataProp.getProperty("companyWebsiteUrl")),
 				"[Error: Logo is not displayed]");
 		// logout
