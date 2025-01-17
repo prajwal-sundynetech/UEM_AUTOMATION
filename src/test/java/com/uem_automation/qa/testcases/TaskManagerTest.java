@@ -1133,7 +1133,7 @@ public class TaskManagerTest extends Base {
 
     // Software Deployment
     //File Transfer
-    @Test(priority = 51, dataProvider = "supplyTestData")//, dependsOnMethods = {"TC_TM_001_Create_Template"})
+    @Test(priority = 51, dataProvider = "supplyTestData", dependsOnMethods = {"TC_TM_001_Create_Template"})
     public void TC_TM_051_apply_softwareDeployment_FileTransfer(
 
             // searchAndViewTheTemplate
